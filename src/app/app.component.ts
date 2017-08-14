@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
-import { AuthenticationService } from './services/authentication.service'
+import { AuthenticationService, UserService } from './services/index';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,16 @@ import { AuthenticationService } from './services/authentication.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor( private authenticationService: AuthenticationService ){}
+  username: string = "User";
+
+  constructor( private authenticationService: AuthenticationService, private userService: UserService, translate: TranslateService ){
+    this.userService.userChange.subscribe((user)=>{
+      this.username = user.username;
+    });
+
+    translate.setDefaultLang('en');
+    translate.use('en');
+  }
 
   title = 'app';
 }

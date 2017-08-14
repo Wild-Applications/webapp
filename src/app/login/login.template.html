@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row align-items-center">
     <div class="col-md-6 col-md-offset-3">
-      <h2>Login</h2>
+      <h2>Login{{'NAV.HOME' | translate}}</h2>
         <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && login()" novalidate>
         <div class="form-group" [ngClass]="{'has-error':f.submitted && !username.valid }">
           <label for="username">Username</label>

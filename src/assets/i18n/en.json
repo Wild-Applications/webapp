@@ -1,0 +1,18 @@
+{
+  "APP": {
+    "NAME": "FINK"
+  },
+
+  "NAV": {
+    "HOME": "Home",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "MANAGE": "Manage",
+    "ORDERS": "Orders"
+  },
+
+
+  "HOME": {
+    "WELCOME": "Welcome - Home"
+  }
+}
