@@ -6,6 +6,10 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import 'popper.js/dist/umd/popper';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
@@ -54,6 +58,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         deps: [HttpClient]
       }
     }),
+    BrowserAnimationsModule,
     SettingsModule,
     ManageModule,
     TablesModule

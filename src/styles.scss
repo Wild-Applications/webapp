@@ -3,7 +3,7 @@
 body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  /*overflow: hidden;*/
   background: $background-color;
   color: $text-color;
 }
@@ -30,13 +30,21 @@ router-outlet.root + ng-component {
 
 .container {
     width: 100% !important;
-    height: 100% !important;
+    min-height: 100% !important;
     margin: 0px !important;
     max-width: 100%;
 }
 
 .full-height {
   height: 100%;
+}
+
+.auto-height{
+  height: auto;
+}
+
+.half-width {
+  width: 50%;
 }
 
 .display-block{

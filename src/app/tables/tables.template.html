@@ -1,1 +1,21 @@
-<h1>Tables Component</h1>
+<div class="container">
+  <div class="row">
+      <h3>Tables</h3>
+  </div>
+  <div class="row justify-content-center">
+    <span>These are the tables in your premises that customers can scan into and order drinks to.</span>
+  </div>
+  <div class="row justify-content-center">
+    <button type="button" class="btn btn-primary half-width">Add</button>
+  </div>
+  <div class="row">
+    <table class="table">
+      <tr *ngFor="let table of tables">
+        <td class="col-9">{{table.name}}</td>
+        <td class="col-3">
+          <button class="btn btn-outline-primary">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
