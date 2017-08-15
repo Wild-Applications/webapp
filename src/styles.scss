@@ -1,0 +1,80 @@
+@import './variables.scss';
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: $background-color;
+  color: $text-color;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+app-root {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+
+router-outlet.root + ng-component {
+   width: calc(100% - 30px);
+   /*86px = 56px for navbar height + 30px for margin*/
+   height: calc(100% - 86px);
+   display: block;
+   margin: 71px 15px 15px 15px !important;
+}
+
+.container {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0px !important;
+    max-width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.display-block{
+  display: block;
+}
+
+.bg-white{
+  background: white;
+}
+
+
+
+
+//SIDE MENU STUFF
+
+$hover-color:darken($primary-color, 30%);
+
+.btn-group-vertical.side-list>.btn {
+    border-radius: 0px;
+    text-align: left;
+    background: white;
+    border: none;
+
+    &:hover{
+      color:$hover-color;
+    }
+}
+
+i {
+    border: solid $hover-color;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    float: right;
+    margin-top: 6px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}

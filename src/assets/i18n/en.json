@@ -3,16 +3,33 @@
     "NAME": "FINK"
   },
 
+  "GENERAL": {
+    "SAVE_CHANGES": "Save Changes",
+    "NAME": "Name",
+    "USERNAME": "Username",
+    "EMAIL": "Email"
+  },
+
   "NAV": {
     "HOME": "Home",
     "LOGIN": "Login",
     "LOGOUT": "Logout",
     "MANAGE": "Manage",
-    "ORDERS": "Orders"
+    "ORDERS": "Orders",
+    "SETTINGS": "Settings"
   },
 
 
   "HOME": {
     "WELCOME": "Welcome - Home"
+  },
+
+  "SETTINGS": {
+    "ACCOUNT": "Account"
+  },
+
+  "MANAGE": {
+    "PREMISES": "Premises",
+    "GENERAL": "General"
   }
 }

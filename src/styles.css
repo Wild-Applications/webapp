@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #f1f7ff;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+app-root {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+
+router-outlet + ng-component {
+   width: calc(100% - 30px);
+   /*86px = 56px for navbar height + 30px for margin*/
+   height: calc(100% - 86px);
+   display: block;
+   margin: 71px 15px 15px 15px !important;
+}
+
+.container {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0px !important;
+    max-width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.display-block{
+  display: block;
+}

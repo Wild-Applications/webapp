@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule, Http, RequestOptions, XHRBackend } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -7,21 +8,9 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { routing } from './app.routing';
+import { HttpService } from '../services/index';
 
-import { LoginComponent } from './login/index';
-import { HomeComponent } from './home/index';
-import { PageNotFoundComponent } from './misc/index';
-
-
-import { ManageModule } from './manage/index';
-import { SettingsModule } from './settings/index';
-import { TablesModule } from './tables/index';
-
-import { AuthenticationService, UserService, HttpService } from './services/index';
-
-import { AuthGuard } from './guards/index';
+import { ManageComponent, ManagePremisesComponent } from './index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -35,17 +24,15 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    ManageComponent,
+    ManagePremisesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     NgbModule.forRoot(),
-    routing,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -53,21 +40,9 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    SettingsModule,
-    ManageModule,
-    TablesModule
+    })
   ],
   providers: [
-    AuthenticationService,
-    {
-      provide: Http,
-      useFactory: HttpInterceptorFactory,
-      deps: [XHRBackend, RequestOptions, Router, Injector]
-    },
-    AuthGuard,
-    UserService
-  ],
-  bootstrap: [AppComponent]
+  ]
 })
-export class AppModule { }
+export class ManageModule { }

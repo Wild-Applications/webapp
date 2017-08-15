@@ -7,7 +7,7 @@ import { AuthenticationService, UserService } from './services/index';
 @Component({
   selector: 'app-root',
   templateUrl: './app.template.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.scss']
 })
 export class AppComponent {
   username: string = "User";
