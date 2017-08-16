@@ -5,7 +5,8 @@ import { UserService } from '../services/index';
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'manage.template.html'
+  templateUrl: 'manage.template.html',
+  styleUrls: [ './manage.scss' ]
 })
 
 export class ManageComponent implements OnInit {
@@ -13,6 +14,6 @@ export class ManageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService ){}
 
   ngOnInit() {
-    
+
   }
 }

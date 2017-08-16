@@ -7,7 +7,11 @@
     "SAVE_CHANGES": "Save Changes",
     "NAME": "Name",
     "USERNAME": "Username",
-    "EMAIL": "Email"
+    "EMAIL": "Email",
+    "ADD": "Add",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit"
   },
 
   "NAV": {
@@ -30,6 +34,24 @@
 
   "MANAGE": {
     "PREMISES": "Premises",
-    "GENERAL": "General"
+    "GENERAL": "General",
+    "HOURS": {
+      "OPENING_HOURS": "Opening Hours",
+      "DESCRIPTION": "These are the opening hours that your premises adheres to. This can be helpful for users to see when you are open."
+    },
+    "TABLES": {
+      "TABLE": "Table",
+      "DESCRIPTION": "These are the tables in your premises that customers can scan into and order drinks to. Users will be able to see the name that you give to each table."
+    }
+  },
+
+  "MENUS": {
+    "MENUS": "Menus",
+    "DESCRIPTION": "Menus are used to display to your offerings to users. You can have multiple menus and have them active at different times."
+  },
+
+  "PRODUCTS": {
+    "PRODUCTS": "Products"
   }
+
 }

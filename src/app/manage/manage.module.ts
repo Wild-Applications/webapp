@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 import { HttpService } from '../services/index';
 
-import { ManageComponent, ManagePremisesComponent } from './index';
+import { ManageComponent, ManagePremisesComponent, ManageHoursComponent } from './index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,7 +25,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 @NgModule({
   declarations: [
     ManageComponent,
-    ManagePremisesComponent
+    ManagePremisesComponent,
+    ManageHoursComponent
   ],
   imports: [
     BrowserModule,

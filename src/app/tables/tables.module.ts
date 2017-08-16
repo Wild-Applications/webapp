@@ -7,10 +7,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
+import { MaterialModule } from '@angular/material';
 
 import { HttpService } from '../services/index';
 
-import { TablesComponent } from './index';
+import { TablesComponent, AddTableDialog } from './index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -24,7 +25,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 
 @NgModule({
   declarations: [
-    TablesComponent
+    TablesComponent,
+    AddTableDialog
   ],
   imports: [
     BrowserModule,
@@ -39,9 +41,11 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MaterialModule
   ],
   providers: [
-  ]
+  ],
+  entryComponents: [ AddTableDialog ]
 })
 export class TablesModule { }

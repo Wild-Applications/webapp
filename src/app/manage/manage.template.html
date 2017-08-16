@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row full-height">
-    <div class="col-3 display-block auto-height">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 display-block auto-height">
       <!-- User Header-->
       <div class="col-12">
 
@@ -8,11 +8,13 @@
       <!--Settings List-->
       <div class="col-12 btn-group-vertical side-list">
         <a [routerLink]="['/manage/general']" class="btn btn-outline-secondary" role="button" aria-pressed="true">General <i class="arrow right"></i></a>
-        <a [routerLink]="['/manage/menus']" class="btn btn-outline-secondary" role="button" aria-pressed="true">Menus <i class="arrow right"></i></a>
+        <a [routerLink]="['/manage/hours']" class="btn btn-outline-secondary" role="button" aria-pressed="true">Opening Hours <i class="arrow right"></i></a>
         <a [routerLink]="['/manage/tables']" class="btn btn-outline-secondary" role="button" aria-pressed="true">Tables <i class="arrow right"></i></a>
+        <a [routerLink]="['/manage/menus']" class="btn btn-outline-secondary" role="button" aria-pressed="true">Menus <i class="arrow right"></i></a>
+        <a [routerLink]="['/manage/products']" class="btn btn-outline-secondary" role="button" aria-pressed="true">Products <i class="arrow right"></i></a>
       </div>
     </div>
-    <div class="col-6 display-block auto-height bg-white">
+    <div class="col-lg-6 col-md-9 col-sm-12 col-xs-12 display-block auto-height bg-white">
       <router-outlet></router-outlet>
     </div>
   <div>

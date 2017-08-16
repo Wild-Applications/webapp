@@ -5,11 +5,11 @@ import { UserService } from '../../services/index';
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'premises.template.html',
+  templateUrl: 'hours.template.html',
   styleUrls: [ '../manage.scss' ]
 })
 
-export class ManagePremisesComponent implements OnInit {
+export class ManageHoursComponent implements OnInit {
 
   model: any = {};
 

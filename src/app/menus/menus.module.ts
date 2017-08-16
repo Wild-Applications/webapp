@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule, Http, RequestOptions, XHRBackend } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -7,28 +8,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { MaterialModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import 'popper.js/dist/umd/popper';
-import 'hammerjs';
+import { HttpService } from '../services/index';
 
-import { AppComponent } from './app.component';
-import { routing } from './app.routing';
-
-import { LoginComponent } from './login/index';
-import { HomeComponent } from './home/index';
-import { PageNotFoundComponent } from './misc/index';
-
-
-import { ManageModule } from './manage/index';
-import { SettingsModule } from './settings/index';
-import { TablesModule } from './tables/index';
-import { MenusModule } from './menus/index';
-import { ProductsModule } from './products/index';
-
-import { AuthenticationService, UserService, HttpService } from './services/index';
-
-import { AuthGuard } from './guards/index';
+import { MenusComponent } from './index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -42,17 +25,14 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    MenusComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     NgbModule.forRoot(),
-    routing,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -61,24 +41,9 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         deps: [HttpClient]
       }
     }),
-    MaterialModule,
-    BrowserAnimationsModule,
-    SettingsModule,
-    ManageModule,
-    TablesModule,
-    MenusModule,
-    ProductsModule
+    MaterialModule
   ],
   providers: [
-    AuthenticationService,
-    {
-      provide: Http,
-      useFactory: HttpInterceptorFactory,
-      deps: [XHRBackend, RequestOptions, Router, Injector]
-    },
-    AuthGuard,
-    UserService
-  ],
-  bootstrap: [AppComponent]
+  ]
 })
-export class AppModule { }
+export class MenusModule { }
