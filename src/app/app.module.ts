@@ -15,7 +15,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
-import { LoginComponent } from './login/index';
+import { LoginComponent, LogoutComponent } from './login/index';
 import { HomeComponent } from './home/index';
 import { PageNotFoundComponent } from './misc/index';
 
@@ -44,6 +44,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
   declarations: [
     AppComponent,
     LoginComponent,
+    LogoutComponent,
     HomeComponent,
     PageNotFoundComponent
   ],

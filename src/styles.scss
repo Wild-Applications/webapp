@@ -87,3 +87,24 @@ i {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 }
+
+.btn.rounded{
+  border-radius: 2rem !important;
+}
+
+@mixin table-col($portion){
+  width: (100% / 12) * $portion;
+}
+
+table td.col-1{@include table-col(1)}
+table td.col-2{@include table-col(2)}
+table td.col-3{@include table-col(3)}
+table td.col-4{@include table-col(4)}
+table td.col-5{@include table-col(5)}
+table td.col-6{@include table-col(6)}
+table td.col-7{@include table-col(7)}
+table td.col-8{@include table-col(8)}
+table td.col-9{@include table-col(9)}
+table td.col-10{@include table-col(10)}
+table td.col-11{@include table-col(11)}
+table td.col-12{@include table-col(12)}

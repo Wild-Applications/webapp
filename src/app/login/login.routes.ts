@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { LoginComponent } from './index';
+import { LoginComponent, LogoutComponent } from './index';
 
 export const LoginRoutes: Routes = [
-  { path:'login', component: LoginComponent }
+  { path:'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent }
 ]

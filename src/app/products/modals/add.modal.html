@@ -1,0 +1,10 @@
+<h1 md-dialog-title>{{'PRODUCTS.ADD_PRODUCT' | translate}}</h1>
+<div md-dialog-content>
+  <input md-input placeholder="Name" type="text" [(ngModel)]="model.name" required>
+  <input md-input placeholder="Description" type="text" [(ngModel)]="model.description">
+  <input md-input placeholder="00.00" type="text" [(ngModel)]="model.price">
+</div>
+<div md-dialog-actions>
+    <button md-button type="button" class="btn btn-default" (click)="close()">{{'GENERAL.CANCEL' | translate}}</button>
+    <button md-button type="button" class="btn btn-default" (click)="submit()">{{'GENERAL.ADD' | translate}}</button>
+</div>

@@ -8,10 +8,13 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+import { TruncateModule } from 'ng2-truncate';
 
 import { HttpService } from '../services/index';
 
-import { ProductsComponent } from './index';
+import { ProductsComponent, AddProductDialog } from './index';
+
+import { ProductMatchesFilter } from '../pipes/product.pipe';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,7 +28,9 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 
 @NgModule({
   declarations: [
-    ProductsComponent
+    ProductsComponent,
+    AddProductDialog,
+    ProductMatchesFilter
   ],
   imports: [
     BrowserModule,
@@ -41,9 +46,11 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         deps: [HttpClient]
       }
     }),
-    MaterialModule
+    MaterialModule,
+    TruncateModule
   ],
   providers: [
-  ]
+  ],
+  entryComponents: [ AddProductDialog ]
 })
 export class ProductsModule { }

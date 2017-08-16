@@ -51,7 +51,9 @@
   },
 
   "PRODUCTS": {
-    "PRODUCTS": "Products"
+    "PRODUCTS": "Products",
+    "DESCRIPTION": "",
+    "ADD_PRODUCT": "Add Product"
   }
 
 }
