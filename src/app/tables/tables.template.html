@@ -10,11 +10,11 @@
   </div>
   <div class="row">
     <table class="table">
-      <tr *ngFor="let table of tables">
+      <tr *ngFor="let table of tables; let i = index">
         <td class="col-9">{{table.name}}</td>
         <td class="col-3">
-          <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="side-by-side">edit</md-icon>
-          <md-icon mdTooltip="{{'GENERAL.DELETE' | translate}}" mdTooltipPosition="above" class="side-by-side">delete_forever</md-icon>
+          <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="editDialog(i)">edit</md-icon>
+          <md-icon mdTooltip="{{'GENERAL.DELETE' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(table._id, i)">delete_forever</md-icon>
         </td>
       </tr>
     </table>

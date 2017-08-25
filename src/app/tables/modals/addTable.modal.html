@@ -1,8 +1,10 @@
-<h1 md-dialog-title>Test</h1>
+<h1 md-dialog-title *ngIf="!toEdit">Add Table</h1>
+<h1 md-dialog-title *ngIf="toEdit">Edit Table</h1>
 <div md-dialog-content>
   <input md-input placeholder="Name" type="text" [(ngModel)]="newTableName" required>
 </div>
 <div md-dialog-actions>
     <button md-button type="button" class="btn btn-default" (click)="close()">{{'GENERAL.CANCEL' | translate}}</button>
-    <button md-button type="button" class="btn btn-default" (click)="submit()">{{'GENERAL.ADD' | translate}}</button>
+    <button md-button type="button" class="btn btn-default" *ngIf="!toEdit" (click)="submit()">{{'GENERAL.ADD' | translate}}</button>
+    <button md-button type="button" class="btn btn-default" *ngIf="toEdit" (click)="submit()">{{'GENERAL.SAVE' | translate}}</button>
 </div>

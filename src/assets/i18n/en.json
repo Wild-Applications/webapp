@@ -11,7 +11,14 @@
     "ADD": "Add",
     "CANCEL": "Cancel",
     "DELETE": "Delete",
-    "EDIT": "Edit"
+    "REMOVE": "Remove",
+    "EDIT": "Edit",
+    "SAVE": "Save",
+    "CONFIRM_DELETE": "Are you sure you want to delete {{value}}?"
+  },
+
+  "LOGIN": {
+    "LOGIN": "Login"
   },
 
   "NAV": {
@@ -47,7 +54,13 @@
 
   "MENUS": {
     "MENUS": "Menus",
-    "DESCRIPTION": "Menus are used to display to your offerings to users. You can have multiple menus and have them active at different times."
+    "DESCRIPTION": "Menus are used to display to your offerings to users. You can have multiple menus and have them active at different times.",
+    "ADD_MENU": "Add Menu",
+    "MOVE_SECTION_UP": "Move this section up in the display list",
+    "MOVE_SECTION_DOWN": "Move this section down in the display list",
+    "ADD_SECTION": "Add Section",
+    "ADD_PRODUCT": "Add Product",
+    "DELETE_SECTION": "Delete Section"
   },
 
   "PRODUCTS": {

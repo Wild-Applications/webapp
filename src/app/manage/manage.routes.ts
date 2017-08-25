@@ -5,7 +5,7 @@ import { ManagePremisesComponent, ManageHoursComponent } from './index';
 
 import { TablesComponent } from '../tables/index';
 
-import { MenusComponent } from '../menus/index';
+import { MenuRoutes } from '../menus/index';
 
 import { ProductsComponent } from '../products/index';
 
@@ -20,7 +20,7 @@ export const ManageRoutes: Routes = [
     { path: 'general', component: ManagePremisesComponent },
     { path: 'tables', component: TablesComponent },
     { path: 'hours', component: ManageHoursComponent },
-    { path: 'menus', component: MenusComponent },
+    ...MenuRoutes,
     { path: 'products', component: ProductsComponent }
   ]
   }

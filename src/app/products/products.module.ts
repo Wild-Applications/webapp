@@ -14,7 +14,7 @@ import { HttpService } from '../services/index';
 
 import { ProductsComponent, AddProductDialog } from './index';
 
-import { ProductMatchesFilter } from '../pipes/product.pipe';
+import { PipesModule } from '../pipes/index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -29,8 +29,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 @NgModule({
   declarations: [
     ProductsComponent,
-    AddProductDialog,
-    ProductMatchesFilter
+    AddProductDialog
   ],
   imports: [
     BrowserModule,
@@ -47,7 +46,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
       }
     }),
     MaterialModule,
-    TruncateModule
+    TruncateModule,
+    PipesModule
   ],
   providers: [
   ],

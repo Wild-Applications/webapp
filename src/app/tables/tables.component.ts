@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 
-import { UserService } from '../services/index';
+import { UserService, TableService } from '../services/index';
+
+import { ConfirmDeleteDialog } from '../misc/index';
+
+import { Table } from '../models/table';
 
 @Component({
   moduleId: module.id,
@@ -16,7 +20,7 @@ export class TablesComponent implements OnInit {
 
   tables: any[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public dialog: MdDialog ){}
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public dialog: MdDialog, private tableService: TableService ){}
 
   ngOnInit() {
     this.getTables();
@@ -25,26 +29,80 @@ export class TablesComponent implements OnInit {
   getTables(){
     //mocked call at the moment
 
-    this.tables = [
-      {name:"Table 1", _id:"1"},
-      {name:"Table 2", _id:"2"},
-      {name:"Table 3", _id:"3"},
-      {name:"Table 4", _id:"4"},
-      {name:"Table 5", _id:"5"},
-      {name:"Table 6", _id:"6"},
-      {name:"Table 7", _id:"7"},
-      {name:"Table 8", _id:"8"}
-    ];
+    this.tableService.get()
+      .subscribe(
+        data => {
+          this.tables = data.tables;
+        },
+        error => {
+          alert(error);
+        }
+      );
   }
 
   openDialog() {
     let dialogRef = this.dialog.open(AddTableDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
-        var newTables = [{name:result, _id:result},...this.tables];
-        this.tables = newTables;
+        let newTable: Table = new Table();
+        newTable.name = result;
+
+        this.tableService.create(newTable)
+          .subscribe(
+            data => {
+              newTable._id = data;
+              this.tables = [newTable, ...this.tables];
+            },
+            error => {
+              alert(error);
+            }
+          );
       }
     });
+  }
+
+
+  editDialog(index){
+    let dialogRef = this.dialog.open(AddTableDialog);
+    dialogRef.componentInstance.toEdit = this.tables[index].name;
+    dialogRef.afterClosed().subscribe(result => {
+      if(typeof result != 'undefined'){
+        var oldTable = this.tables[index];
+        var tableToEdit = this.tables[index];
+        tableToEdit.name = result;
+
+        this.tableService.put(tableToEdit)
+          .subscribe(
+            data => {
+              //saved
+            },
+            error => {
+              this.tables[index] = oldTable;
+              alert('Table Update Failed');
+            }
+          );
+      }
+    });
+  }
+
+  deleteConfirmation(_id, index){
+    let dialogRef = this.dialog.open(ConfirmDeleteDialog);
+    dialogRef.afterClosed().subscribe(result =>{
+      if(result){
+        //delete it
+        this.tableService.delete(_id)
+          .subscribe(
+            data => {
+              this.tables.splice(index, 1);
+            },
+            error => {
+              alert(error);
+            }
+          );
+      }else{
+        //keep it
+      }
+    })
   }
 }
 
@@ -54,9 +112,10 @@ export class TablesComponent implements OnInit {
   selector: 'add-table-dialog',
   templateUrl: './modals/addTable.modal.html'
 })
-export class AddTableDialog {
+export class AddTableDialog implements OnInit{
 
   private newTableName: string;
+  public toEdit: string;
 
   constructor(public dialogRef: MdDialogRef<AddTableDialog>, private translate: TranslateService){
     //Placeholder text so users don't have to type table every time
@@ -65,6 +124,13 @@ export class AddTableDialog {
         this.newTableName = res + " ";
       }
     );
+
+  }
+
+  ngOnInit(){
+    if(typeof this.toEdit != 'undefined'){
+      this.newTableName = this.toEdit;
+    }
   }
 
   close( ) {

@@ -8,19 +8,22 @@
   <div class="row justify-content-center">
     <button type="button" class="btn btn-primary half-width rounded" (click)="openAddDialog()">{{'GENERAL.ADD' | translate}}</button>
   </div>
-  <div class="row justify-content-right">
-    <input md-input placeholder="Filter" type="text" [(ngModel)]="searchCriteria" value="">
-  </div>
   <div class="row">
     <table class="table">
+      <tr>
+        <td colspan="4"><input md-input placeholder="Filter" type="text" [(ngModel)]="searchCriteria" class="float-right"></td>
+      <tr>
       <tr *ngFor="let product of products | productFilter:searchCriteria">
-        <td class="col-3">{{product.name}}</td>
-        <td class="col-5">{{product.description | truncate}}</td>
-        <td class="col-2">{{product.price | currency}}</td>
-        <td class="col-2">
-          <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="side-by-side">edit</md-icon>
-          <md-icon mdTooltip="{{'GENERAL.DELETE' | translate}}" mdTooltipPosition="above" class="side-by-side">delete_forever</md-icon>
-        </td>
+        <ng-container *ngIf="product !== -1">
+          <td class="col-3">{{product.name}}</td>
+          <td class="col-5">{{product.description | truncate}}</td>
+          <td class="col-2">{{product.price | currency:'GBP':true}}</td>
+          <td class="col-2">
+            <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="side-by-side">edit</md-icon>
+            <md-icon mdTooltip="{{'GENERAL.DELETE' | translate}}" mdTooltipPosition="above" class="side-by-side">delete_forever</md-icon>
+          </td>
+        </ng-container>
+        <td class="align-center" colspan="4" *ngIf="product == -1">No Matches</td>
       </tr>
     </table>
   </div>

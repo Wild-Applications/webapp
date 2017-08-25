@@ -5,4 +5,24 @@
   <div class="row">
     <span>{{'MENUS.DESCRIPTION' | translate}}</span>
   </div>
+  <div class="row justify-content-center">
+    <button type="button" class="btn btn-primary half-width rounded" (click)="openAddDialog()">{{'GENERAL.ADD' | translate}}</button>
+  </div>
+  <div class="row">
+    <table class="table">
+      <tr>
+        <td colspan="4"><input md-input placeholder="Filter" type="text" [(ngModel)]="searchCriteria" class="float-right"></td>
+      <tr>
+      <tr *ngFor="let menu of menus | nameFilter:searchCriteria; let i = index" (click)="selectMenu(i)">
+        <ng-container *ngIf="menu !== -1">
+          <td class="col-10">{{menu.name}}</td>
+          <td class="col-2">
+            <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="side-by-side">edit</md-icon>
+            <md-icon mdTooltip="{{'GENERAL.DELETE' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(menu._id, i)">delete_forever</md-icon>
+          </td>
+        </ng-container>
+        <td class="align-center" colspan="4" *ngIf="menu == -1">No Matches</td>
+      </tr>
+    </table>
+  </div>
 </div>

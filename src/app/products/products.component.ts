@@ -4,8 +4,9 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 
-import { UserService } from '../services/index';
+import { ProductService } from '../services/index';
 
+import { Product } from '../models/index';
 
 @Component({
   moduleId: module.id,
@@ -17,24 +18,45 @@ export class ProductsComponent implements OnInit {
 
   products: any[];
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public dialog: MdDialog ){}
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public dialog: MdDialog ){}
 
   ngOnInit() {
-    this.products = this.getProducts()
+    this.getProducts()
   }
 
   getProducts(){
-    return [
-      {name: "Vodka Coke", price: '1.50', description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum nibh eget erat lobortis, nec rutrum sem finibus. Proin sollicitudin dictum rhoncus. Donec et malesuada augue. Fusce tempus luctus enim."}
-    ]
+    this.productService.getAll()
+      .subscribe(
+        data => {
+          this.products = data.products;
+        },
+        error => {
+          alert(error);
+        }
+      );
   }
 
   openAddDialog(){
     let dialogRef = this.dialog.open(AddProductDialog);
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
-        var newProducts = [result,...this.products];
-        this.products = newProducts;
+        if(typeof result != 'undefined'){
+          let newProduct: Product = new Product();
+          newProduct.name = result.name;
+          newProduct.price = +result.price;
+          newProduct.description = result.description;
+
+          this.productService.create(newProduct)
+            .subscribe(
+              data => {
+                newProduct._id = data;
+                this.products = [newProduct, ...this.products];
+              },
+              error => {
+                alert(error);
+              }
+            );
+        }
       }
     });
   }

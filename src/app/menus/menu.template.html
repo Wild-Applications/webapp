@@ -1,0 +1,38 @@
+<div class="container" *ngIf="loading || !menu">
+  <div class="row justify-content-center"><md-spinner></md-spinner></div>
+</div>
+<div class="container" *ngIf="!loading || menu">
+  <div class="row align-items-center">
+    <h3>Contents</h3>
+  </div>
+  <div class="row justify-content-center">
+    <button type="button" class="btn btn-primary half-width rounded" (click)="openAddSectionDialog()">{{'MENUS.ADD_SECTION' | translate}}</button>
+  </div>
+  <div class="row">
+    <table class="table">
+      <ng-container *ngFor="let section of menu.contents; let sectionIndex = index;">
+        <thead class="thead-default">
+          <tr>
+            <th colspan="2">{{section.title}}</th>
+            <th>
+              <!--<md-icon mdTooltip="{{'MENUS.MOVE_SECTION_UP' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="move(true, sectionIndex)">arrow_upward</md-icon>
+              <md-icon mdTooltip="{{'MENUS.MOVE_SECTION_DOWN' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="move(false, sectionIndex)">arrow_downward</md-icon>-->
+              <md-icon mdTooltip="{{'MENUS.DELETE_SECTION' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="deleteSection(sectionIndex)">delete_forever</md-icon>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of section.products; let productIndex = index;">
+            <td class="col-6">{{product.name}}</td>
+            <td class="col-4">{{product.price | currency:'GBP'}}</td>
+            <td class="col-2"><md-icon mdTooltip="{{'GENERAL.REMOVE' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="removeProduct(sectionIndex, productIndex)">remove_circle_outline</md-icon></td>
+          </tr>
+          <tr>
+            <td colspan="3"><a href="javascript:void(0);" (click)="addProductDialog(sectionIndex)">{{'MENUS.ADD_PRODUCT' | translate}}</a></td>
+          </tr>
+          <tr><td></td></tr>
+        </tbody>
+      </ng-container>
+    </table>
+  </div>
+</div>

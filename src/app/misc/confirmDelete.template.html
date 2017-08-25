@@ -1,0 +1,8 @@
+<h1 md-dialog-title>Are you sure?</h1>
+<div md-dialog-content>
+  {{'GENERAL.CONFIRM_DELETE' | translate:param }}
+</div>
+<div md-dialog-actions>
+    <button md-button type="button" class="btn btn-default" (click)="no()">{{'GENERAL.CANCEL' | translate}}</button>
+    <button md-button type="button" class="btn btn-default" (click)="yes()">{{'GENERAL.DELETE' | translate}}</button>
+</div>

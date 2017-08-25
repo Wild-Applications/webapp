@@ -88,8 +88,20 @@ i {
     -webkit-transform: rotate(-45deg);
 }
 
+.float-right{
+  float: right;
+}
+
+.align-center{
+  text-align:center;
+}
+
 .btn.rounded{
   border-radius: 2rem !important;
+}
+
+.form-control{
+  padding: 5px;
 }
 
 @mixin table-col($portion){
@@ -108,3 +120,8 @@ table td.col-9{@include table-col(9)}
 table td.col-10{@include table-col(10)}
 table td.col-11{@include table-col(11)}
 table td.col-12{@include table-col(12)}
+
+
+md-icon{
+  cursor: pointer;
+}

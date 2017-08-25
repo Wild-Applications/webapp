@@ -17,7 +17,7 @@ import { routing } from './app.routing';
 
 import { LoginComponent, LogoutComponent } from './login/index';
 import { HomeComponent } from './home/index';
-import { PageNotFoundComponent } from './misc/index';
+import { PageNotFoundComponent, ConfirmDeleteDialog } from './misc/index';
 
 
 import { ManageModule } from './manage/index';
@@ -26,9 +26,11 @@ import { TablesModule } from './tables/index';
 import { MenusModule } from './menus/index';
 import { ProductsModule } from './products/index';
 
-import { AuthenticationService, UserService, HttpService } from './services/index';
+import { AuthenticationService, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService } from './services/index';
 
 import { AuthGuard } from './guards/index';
+
+import { PipesModule } from './pipes/index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -46,7 +48,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     LoginComponent,
     LogoutComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ConfirmDeleteDialog
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     ManageModule,
     TablesModule,
     MenusModule,
-    ProductsModule
+    ProductsModule,
+    PipesModule
   ],
   providers: [
     AuthenticationService,
@@ -78,8 +82,14 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
       deps: [XHRBackend, RequestOptions, Router, Injector]
     },
     AuthGuard,
-    UserService
+    UserService,
+    PremisesService,
+    TableService,
+    MenuService,
+    CacheService,
+    ProductService
   ],
+  entryComponents: [ ConfirmDeleteDialog ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

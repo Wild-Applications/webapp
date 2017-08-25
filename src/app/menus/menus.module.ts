@@ -8,10 +8,13 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+import { TruncateModule } from 'ng2-truncate';
 
 import { HttpService } from '../services/index';
 
-import { MenusComponent } from './index';
+import { MenusComponent, AddMenuDialog, MenuComponent, SectionDialog, AddProductDialog} from './index';
+
+import { PipesModule } from '../pipes/index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,7 +28,11 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 
 @NgModule({
   declarations: [
-    MenusComponent
+    MenusComponent,
+    AddMenuDialog,
+    MenuComponent,
+    SectionDialog,
+    AddProductDialog
   ],
   imports: [
     BrowserModule,
@@ -41,9 +48,12 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         deps: [HttpClient]
       }
     }),
-    MaterialModule
+    MaterialModule,
+    PipesModule,
+    TruncateModule
   ],
   providers: [
-  ]
+  ],
+  entryComponents: [ AddMenuDialog, SectionDialog, AddProductDialog ]
 })
 export class MenusModule { }
