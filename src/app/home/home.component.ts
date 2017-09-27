@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { UserService } from '../services/index';
+import { UserService, ErrorHandler } from '../services/index';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +10,7 @@ import { UserService } from '../services/index';
 
 export class HomeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService ){}
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private errorHandler: ErrorHandler ){}
 
   ngOnInit() {
     this.userService.get()

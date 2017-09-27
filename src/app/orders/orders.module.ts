@@ -7,11 +7,15 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
+import { MaterialModule } from '@angular/material';
+import { TruncateModule } from 'ng2-truncate';
+import { MomentModule } from 'angular2-moment';
 
 import { HttpService } from '../services/index';
 
-import { SettingsComponent } from './index';
-import { GeneralSettingsComponent } from './index';
+import { OrdersComponent, PendingComponent, CompleteComponent } from './index';
+
+import { PipesModule } from '../pipes/index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,8 +29,9 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 
 @NgModule({
   declarations: [
-    SettingsComponent,
-    GeneralSettingsComponent
+    OrdersComponent,
+    PendingComponent,
+    CompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +46,14 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MaterialModule,
+    TruncateModule,
+    PipesModule,
+    MomentModule
   ],
   providers: [
-  ]
+  ],
+  entryComponents: [  ]
 })
-export class SettingsModule { }
+export class OrdersModule { }

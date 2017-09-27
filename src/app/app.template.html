@@ -6,9 +6,6 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/home']">{{'NAV.HOME' | translate}}</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/manage']">{{'NAV.MANAGE' | translate}}</a>
       </li>
@@ -22,7 +19,7 @@
       </li>
       <li class="nav-item dropdown" [hidden]="!authenticationService.isLoggedIn()">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{username}} 
+          {{username}}
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" [routerLink]="['/logout']">{{'NAV.LOGOUT' | translate}}</a>

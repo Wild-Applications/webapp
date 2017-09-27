@@ -7,11 +7,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
+import { MaterialModule } from '@angular/material';
 
 import { HttpService } from '../services/index';
 
-import { SettingsComponent } from './index';
-import { GeneralSettingsComponent } from './index';
+import { PaymentsComponent } from './index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,8 +25,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 
 @NgModule({
   declarations: [
-    SettingsComponent,
-    GeneralSettingsComponent
+    PaymentsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +40,11 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MaterialModule
   ],
   providers: [
-  ]
+  ],
+  entryComponents: [  ]
 })
-export class SettingsModule { }
+export class PaymentsModule { }

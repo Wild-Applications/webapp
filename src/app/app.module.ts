@@ -25,8 +25,10 @@ import { SettingsModule } from './settings/index';
 import { TablesModule } from './tables/index';
 import { MenusModule } from './menus/index';
 import { ProductsModule } from './products/index';
+import { OrdersModule } from './orders/index';
+import { PaymentsModule } from './payments/index';
 
-import { AuthenticationService, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService } from './services/index';
+import { AuthenticationService, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService, OrderService, PaymentsService, ErrorHandler, ErrorDialog } from './services/index';
 
 import { AuthGuard } from './guards/index';
 
@@ -49,7 +51,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     LogoutComponent,
     HomeComponent,
     PageNotFoundComponent,
-    ConfirmDeleteDialog
+    ConfirmDeleteDialog,
+    ErrorDialog
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,9 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     TablesModule,
     MenusModule,
     ProductsModule,
-    PipesModule
+    PipesModule,
+    OrdersModule,
+    PaymentsModule
   ],
   providers: [
     AuthenticationService,
@@ -87,9 +92,12 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     TableService,
     MenuService,
     CacheService,
-    ProductService
+    ProductService,
+    OrderService,
+    PaymentsService,
+    ErrorHandler
   ],
-  entryComponents: [ ConfirmDeleteDialog ],
+  entryComponents: [ ConfirmDeleteDialog, ErrorDialog ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

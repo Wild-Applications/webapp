@@ -21,7 +21,7 @@
             <md-icon mdTooltip="{{'GENERAL.DELETE' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(menu._id, i)">delete_forever</md-icon>
           </td>
         </ng-container>
-        <td class="align-center" colspan="4" *ngIf="menu == -1">No Matches</td>
+        <td class="align-center" colspan="4" *ngIf="menu == -1">{{'SEARCH.NO_MATCHES'}}</td>
       </tr>
     </table>
   </div>

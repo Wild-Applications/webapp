@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 
-import { ProductMatchesFilter, NameFilter } from './index';
+import { ProductMatchesFilter, NameFilter, DurationPipe } from './index';
 
 @NgModule({
   declarations: [
     ProductMatchesFilter,
-    NameFilter
+    NameFilter,
+    DurationPipe
   ],
   imports: [
   ],
   exports: [
     NameFilter,
-    ProductMatchesFilter
+    ProductMatchesFilter,
+    DurationPipe
   ]
 })
 export class PipesModule { }

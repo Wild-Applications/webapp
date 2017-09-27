@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+
+.order{
+  padding: 7.5px;
+  border-bottom: 1px solid $secondary-color;
+}
+
+.order-container{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.order-title{
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.order:first-child{
+  border-top: 1px solid $secondary-color;
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.order:hover{
+  background: darken($secondary-color, 1%);
+}
+
+.order-inner {
+  padding: 5px;
+  .status{
+    width: 100%;
+    .btn-group{
+      .btn{
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

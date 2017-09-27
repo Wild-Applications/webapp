@@ -4,6 +4,7 @@ import { LoginRoutes } from './login/index';
 import { HomeRoutes } from './home/index';
 import { ManageRoutes } from './manage/index';
 import { SettingsRoutes } from './settings/index';
+import { OrderRoutes } from './orders/index';
 
 import { PageNotFoundComponent } from './misc/index';
 
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
     ...HomeRoutes,
     ...ManageRoutes,
     ...SettingsRoutes,
+    ...OrderRoutes,
 
     // otherwise redirect to home or page not found
     { path: '', pathMatch: 'full', redirectTo: 'login'},

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row full-height">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 display-block auto-height">
+      <!-- User Header-->
+      <div class="col-12">
+
+      </div>
+      <!--Settings List-->
+      <div class="col-12 btn-group-vertical side-list">
+        <a [routerLink]="['/orders/pending']" class="btn btn-outline-secondary" role="button" aria-pressed="true">{{'ORDERS.PENDING' | translate}} <i class="arrow right"></i></a>
+        <a [routerLink]="['/orders/complete']" class="btn btn-outline-secondary" role="button" aria-pressed="true">{{'ORDERS.COMPLETE' | translate}} <i class="arrow right"></i></a>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-9 col-sm-12 col-xs-12 display-block auto-height bg-white">
+      <router-outlet></router-outlet>
+    </div>
+  <div>
+</div>

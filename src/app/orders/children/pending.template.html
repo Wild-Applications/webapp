@@ -1,0 +1,62 @@
+<div class="container order-container">
+  <div class="row order-title">
+      <h3>{{'ORDERS.ORDERS' | translate}}</h3>
+  </div>
+  <div class="row justify-content-center">
+    <button type="button" class="btn btn-primary half-width rounded" (click)="openDialog()">{{'GENERAL.REFRESH' | translate}}</button>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row full-height">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 auto-height order" *ngFor="let order of orders; let o = index;">
+          <div class="order-inner">
+            <div class="col-12">
+              <div class="display-inline-block">
+                <h6>{{order.table.name}}</h6>
+              </div>
+              <div class="display-inline-block float-right">
+                <h6 class="display-inline-block">{{order.createdAt | duration:now}}</h6>
+                <div class="dropdown display-inline-block">
+                  <button class="btn btn-sm btn-outline-primary btn-no-outline btn-no-focus btn-no-active btn-no-hover" type="button" id="orderActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="arrow down no-top-margin"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="orderActions">
+                    <a class="dropdown-item" href="javascript:null;">{{'ORDERS.CANCEL' | translate}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <md-list>
+                    <md-list-item *ngFor="let product of order.products.slice(0,Math.ceil(order.products.length/2)); let p = index"> <md-icon mdListIcon (click)="highlighted[o].left[p]=!highlighted[o].left[p]">{{!highlighted[o].left[p]?'label_outline':'label'}}</md-icon>{{product.name}}</md-list-item>
+                  </md-list>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <md-list>
+                    <md-list-item *ngFor="let product of order.products.slice(Math.ceil(order.products.length/2)); let p = index;"><md-icon mdListIcon (click)="highlighted[o].right[p]=!highlighted[o].right[p]">{{!highlighted[o].right[p]?'label_outline':'label'}}</md-icon>{{product.name}}</md-list-item>
+                  </md-list>
+                </div>
+              </div>
+            </div>
+
+            <div class="status align-contents-center">
+              <div class="btn-group full-width" data-toggle="buttons">
+                <label class="btn btn-outline-primary btn-no-focus btn-no-active third-width" [ngClass]="{'active':order.status=='PENDING'}" (click)="updateStatus(o, 'PENDING')">
+                  <input type="radio" name="status" id="pending" autocomplete="off" [checked]="order.status == 'PENDING'">{{'ORDERS.PENDING' | translate}}
+                </label>
+                <label class="btn btn-outline-primary btn-no-focus btn-no-active third-width" [ngClass]="{'active':order.status=='IN_PROGRESS'}" (click)="updateStatus(o, 'IN_PROGRESS')">
+                  <input type="radio" name="status" id="in_progess" autocomplete="off" [checked]="order.status == 'IN_PROGRESS'">{{'ORDERS.IN_PROGRESS' | translate}}
+                </label>
+                <label class="btn btn-outline-primary btn-no-focus btn-no-active third-width" [ngClass]="{'active':order.status=='COMPLETE'}" (click)="updateStatus(o, 'COMPLETE')">
+                  <input type="radio" name="status" id="complete" autocomplete="off" [checked]="order.status == 'COMPLETE'">{{'ORDERS.COMPLETE' | translate}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div>
+    </div>
+  </div>
+</div>

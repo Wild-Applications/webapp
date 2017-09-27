@@ -20,6 +20,10 @@ app-root {
   display: block;
 }
 
+.row {
+  margin-top: 10px;
+}
+
 
 router-outlet.root + ng-component {
    width: calc(100% - 30px);
@@ -48,15 +52,29 @@ router-outlet.root + ng-component {
   width: 50%;
 }
 
+.full-width {
+  width: 100%;
+}
+
+.third-width{
+  width: 33.33%;
+}
+
 .display-block{
   display: block;
+}
+
+.display-inline-block{
+  display:inline-block;
 }
 
 .bg-white{
   background: white;
 }
 
-
+.no-top-margin{
+  margin-top: 0px;
+}
 
 
 //SIDE MENU STUFF
@@ -86,6 +104,11 @@ i {
 .right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
 .float-right{
@@ -124,4 +147,28 @@ table td.col-12{@include table-col(12)}
 
 md-icon{
   cursor: pointer;
+}
+
+.btn-no-outline{
+  border: none;
+}
+
+.btn-no-focus:focus{
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-no-active:active{
+  outline: 0;
+  background-color: transparent;
+}
+
+.btn-no-hover:hover{
+  outline: 0;
+  background-color: transparent;
+}
+
+.dropdown-menu-right{
+  left: auto !important;
+  right: 0 !important;
 }

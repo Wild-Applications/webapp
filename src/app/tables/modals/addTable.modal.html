@@ -1,5 +1,5 @@
-<h1 md-dialog-title *ngIf="!toEdit">Add Table</h1>
-<h1 md-dialog-title *ngIf="toEdit">Edit Table</h1>
+<h1 md-dialog-title *ngIf="!toEdit">{{'TABLES.ADD' | translate}}</h1>
+<h1 md-dialog-title *ngIf="toEdit">{{'TABLES.EDIT' | translate}}</h1>
 <div md-dialog-content>
   <input md-input placeholder="Name" type="text" [(ngModel)]="newTableName" required>
 </div>
