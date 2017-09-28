@@ -75,27 +75,26 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_http_loader__ = __webpack_require__("../../../../@ngx-translate/http-loader/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_popper_js_dist_umd_popper__ = __webpack_require__("../../../../popper.js/dist/umd/popper.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_popper_js_dist_umd_popper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_popper_js_dist_umd_popper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_hammerjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__login_index__ = __webpack_require__("../../../../../src/app/login/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__home_index__ = __webpack_require__("../../../../../src/app/home/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__misc_index__ = __webpack_require__("../../../../../src/app/misc/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__manage_index__ = __webpack_require__("../../../../../src/app/manage/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__settings_index__ = __webpack_require__("../../../../../src/app/settings/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__tables_index__ = __webpack_require__("../../../../../src/app/tables/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__menus_index__ = __webpack_require__("../../../../../src/app/menus/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__products_index__ = __webpack_require__("../../../../../src/app/products/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__orders_index__ = __webpack_require__("../../../../../src/app/orders/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__payments_index__ = __webpack_require__("../../../../../src/app/payments/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__guards_index__ = __webpack_require__("../../../../../src/app/guards/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pipes_index__ = __webpack_require__("../../../../../src/app/pipes/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_popper_js_dist_umd_popper__ = __webpack_require__("../../../../popper.js/dist/umd/popper.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_popper_js_dist_umd_popper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_popper_js_dist_umd_popper__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__login_index__ = __webpack_require__("../../../../../src/app/login/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__home_index__ = __webpack_require__("../../../../../src/app/home/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__misc_index__ = __webpack_require__("../../../../../src/app/misc/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__manage_index__ = __webpack_require__("../../../../../src/app/manage/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__settings_index__ = __webpack_require__("../../../../../src/app/settings/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__tables_index__ = __webpack_require__("../../../../../src/app/tables/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__menus_index__ = __webpack_require__("../../../../../src/app/menus/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__products_index__ = __webpack_require__("../../../../../src/app/products/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__orders_index__ = __webpack_require__("../../../../../src/app/orders/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__payments_index__ = __webpack_require__("../../../../../src/app/payments/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__guards_index__ = __webpack_require__("../../../../../src/app/guards/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pipes_index__ = __webpack_require__("../../../../../src/app/pipes/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 /* unused harmony export HttpLoaderFactory */
 /* unused harmony export HttpInterceptorFactory */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
@@ -132,12 +131,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
 function HttpLoaderFactory(http) {
     return new __WEBPACK_IMPORTED_MODULE_6__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
 }
 function HttpInterceptorFactory(backend, options, router, injector) {
-    return new __WEBPACK_IMPORTED_MODULE_24__services_index__["a" /* HttpService */](backend, options, router, injector);
+    return new __WEBPACK_IMPORTED_MODULE_23__services_index__["a" /* HttpService */](backend, options, router, injector);
 }
 var AppModule = (function () {
     function AppModule() {
@@ -147,20 +145,20 @@ var AppModule = (function () {
 AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__login_index__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__login_index__["b" /* LogoutComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__home_index__["a" /* HomeComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__misc_index__["a" /* PageNotFoundComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__misc_index__["b" /* ConfirmDeleteDialog */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["b" /* ErrorDialog */]
+            __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__login_index__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__login_index__["b" /* LogoutComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__home_index__["a" /* HomeComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__misc_index__["a" /* PageNotFoundComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__misc_index__["b" /* ConfirmDeleteDialog */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["b" /* ErrorDialog */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_27__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_13__app_routing__["a" /* routing */],
+            __WEBPACK_IMPORTED_MODULE_26__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_12__app_routing__["a" /* routing */],
             __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClientModule */],
             __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["a" /* TranslateModule */].forRoot({
                 loader: {
@@ -170,36 +168,35 @@ AppModule = __decorate([
                 }
             }),
             __WEBPACK_IMPORTED_MODULE_8__angular_material__["a" /* MaterialModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_18__settings_index__["a" /* SettingsModule */],
-            __WEBPACK_IMPORTED_MODULE_17__manage_index__["a" /* ManageModule */],
-            __WEBPACK_IMPORTED_MODULE_19__tables_index__["a" /* TablesModule */],
-            __WEBPACK_IMPORTED_MODULE_20__menus_index__["a" /* MenusModule */],
-            __WEBPACK_IMPORTED_MODULE_21__products_index__["a" /* ProductsModule */],
-            __WEBPACK_IMPORTED_MODULE_26__pipes_index__["a" /* PipesModule */],
-            __WEBPACK_IMPORTED_MODULE_22__orders_index__["a" /* OrdersModule */],
-            __WEBPACK_IMPORTED_MODULE_23__payments_index__["a" /* PaymentsModule */]
+            __WEBPACK_IMPORTED_MODULE_17__settings_index__["a" /* SettingsModule */],
+            __WEBPACK_IMPORTED_MODULE_16__manage_index__["a" /* ManageModule */],
+            __WEBPACK_IMPORTED_MODULE_18__tables_index__["a" /* TablesModule */],
+            __WEBPACK_IMPORTED_MODULE_19__menus_index__["a" /* MenusModule */],
+            __WEBPACK_IMPORTED_MODULE_20__products_index__["a" /* ProductsModule */],
+            __WEBPACK_IMPORTED_MODULE_25__pipes_index__["a" /* PipesModule */],
+            __WEBPACK_IMPORTED_MODULE_21__orders_index__["a" /* OrdersModule */],
+            __WEBPACK_IMPORTED_MODULE_22__payments_index__["a" /* PaymentsModule */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["c" /* AuthenticationService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["c" /* AuthenticationService */],
             {
                 provide: __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
                 useFactory: HttpInterceptorFactory,
                 deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* XHRBackend */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */], __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["Injector"]]
             },
-            __WEBPACK_IMPORTED_MODULE_25__guards_index__["a" /* AuthGuard */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["d" /* UserService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["e" /* PremisesService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["f" /* TableService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["g" /* MenuService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["h" /* CacheService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["i" /* ProductService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["j" /* OrderService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["k" /* PaymentsService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_index__["l" /* ErrorHandler */]
+            __WEBPACK_IMPORTED_MODULE_24__guards_index__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["d" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["e" /* PremisesService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["f" /* TableService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["g" /* MenuService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["h" /* CacheService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["i" /* ProductService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["j" /* OrderService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["k" /* PaymentsService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_index__["l" /* ErrorHandler */]
         ],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_16__misc_index__["b" /* ConfirmDeleteDialog */], __WEBPACK_IMPORTED_MODULE_24__services_index__["b" /* ErrorDialog */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */]]
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_15__misc_index__["b" /* ConfirmDeleteDialog */], __WEBPACK_IMPORTED_MODULE_23__services_index__["b" /* ErrorDialog */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
