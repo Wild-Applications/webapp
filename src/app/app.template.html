@@ -6,10 +6,10 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-      <li class="nav-item">
+      <li class="nav-item" [hidden]="!authenticationService.isLoggedIn()">
         <a class="nav-link" [routerLink]="['/manage']">{{'NAV.MANAGE' | translate}}</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [hidden]="!authenticationService.isLoggedIn()">
         <a class="nav-link" [routerLink]="['/manage']">{{'NAV.ORDERS' | translate}}</a>
       </li>
     </ul>
