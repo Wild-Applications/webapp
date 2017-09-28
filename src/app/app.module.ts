@@ -7,6 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import 'popper.js/dist/umd/popper';
 import 'hammerjs';
@@ -67,6 +68,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         deps: [HttpClient]
       }
     }),
+    NoopAnimationsModule,
     MaterialModule,
     SettingsModule,
     ManageModule,
