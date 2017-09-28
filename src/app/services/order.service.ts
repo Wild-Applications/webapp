@@ -20,7 +20,13 @@ export class OrderService {
         this.cache.get = response.json();
         return response.json();
       });
+  }
 
+  getComplete(){
+      return this.http.get(this.baseUrl + '/complete', this.jwt())
+        .map((response: Response) => {
+          return response.json();
+        })
   }
 
   get(_id: string){
