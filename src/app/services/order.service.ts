@@ -14,16 +14,12 @@ export class OrderService {
   constructor( private http: Http ){
   }
 
-  getAll() {
-    if(typeof this.cache.get == 'undefined'){
-      return this.http.get(this.baseUrl, this.jwt())
-        .map((response: Response) => {
-          this.cache.get = response.json();
-          return response.json();
-        });
-    }else{
-      return Observable.of(this.cache.get);
-    }
+  getPending() {
+    return this.http.get(this.baseUrl + '/pending', this.jwt())
+      .map((response: Response) => {
+        this.cache.get = response.json();
+        return response.json();
+      });
 
   }
 

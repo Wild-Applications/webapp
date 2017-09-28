@@ -12,6 +12,7 @@ import { UserService, PremisesService } from '../../services/index';
 export class ManagePremisesComponent implements OnInit {
 
   model: any = {};
+  loading: boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private premisesService: PremisesService ){}
 
@@ -23,9 +24,11 @@ export class ManagePremisesComponent implements OnInit {
     this.premisesService.get()
       .subscribe(
         data => {
+          this.loading = false;
           this.model = data;
         },
         error => {
+          this.loading = false;
           alert(error);
         }
       );

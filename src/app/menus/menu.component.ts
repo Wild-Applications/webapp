@@ -39,6 +39,7 @@ export class MenuComponent implements OnInit {
           error => {
             //this.loading = false;
             alert(error);
+            this.loading = false;
           }
         );
     });
@@ -139,7 +140,7 @@ export class MenuComponent implements OnInit {
     dialogRef.componentInstance.toEdit = this.menu.contents[sectionIndex].title;
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        this.menu.contents[sectionIndex].title = result;
+        this.menu.contents[sectionIndex].title = result.name;
         this.saveMenu();
       }
     });
@@ -190,7 +191,8 @@ export class SectionDialog implements OnInit{
 
 @Component({
   selector: 'add-product-dialog',
-  templateUrl: './modals/addProduct.modal.html'
+  templateUrl: './modals/addProduct.modal.html',
+  styleUrls: ['./menus.scss']
 })
 export class AddProductDialog implements OnInit{
 

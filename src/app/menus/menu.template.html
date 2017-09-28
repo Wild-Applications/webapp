@@ -1,14 +1,14 @@
-<div class="container" *ngIf="loading || !menu">
-  <div class="row justify-content-center"><md-spinner></md-spinner></div>
-</div>
-<div class="container" *ngIf="!loading || menu">
+<div class="container">
   <div class="row align-items-center">
-    <h3>{{'MENUS.CONTENTS' | translate}}</h3>
+    <h3>{{menu.name}} {{'MENUS.CONTENTS' | translate}}</h3>
   </div>
-  <div class="row justify-content-center">
+  <div class="row" *ngIf="loading">
+    <div class="row center-spinner"><md-spinner></md-spinner></div>
+  </div>
+  <div class="row justify-content-center" *ngIf="!loading">
     <button type="button" class="btn btn-primary half-width rounded" (click)="openAddSectionDialog()">{{'MENUS.ADD_SECTION' | translate}}</button>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="!loading">
     <table class="table">
       <ng-container *ngFor="let section of menu.contents; let sectionIndex = index;">
         <thead class="thead-default">
@@ -17,8 +17,8 @@
             <th>
               <!--<md-icon mdTooltip="{{'MENUS.MOVE_SECTION_UP' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="move(true, sectionIndex)">arrow_upward</md-icon>
               <md-icon mdTooltip="{{'MENUS.MOVE_SECTION_DOWN' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="move(false, sectionIndex)">arrow_downward</md-icon>-->
-              <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="editSection(sectionIndex)">mode_edit_outline</md-icon>
-              <md-icon mdTooltip="{{'MENUS.DELETE_SECTION' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="deleteSection(sectionIndex)">delete_forever</md-icon>
+              <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="" (click)="editSection(sectionIndex)">mode_edit_outline</md-icon>
+              <md-icon mdTooltip="{{'MENUS.DELETE_SECTION' | translate}}" mdTooltipPosition="above" class="" (click)="deleteSection(sectionIndex)">delete_forever</md-icon>
             </th>
           </tr>
         </thead>

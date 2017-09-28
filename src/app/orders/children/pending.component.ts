@@ -29,30 +29,44 @@ export class PendingComponent implements OnInit {
   now = moment(new Date());
   Math: any;
   highlighted: any[] = [];
+  loading: boolean = true;
+  inFlight: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private orderService: OrderService, public dialog: MdDialog ){}
 
   ngOnInit() {
+    Observable.interval(30000).subscribe(x=>{
+      this.getOrders();
+    })
     this.getOrders();
     this.Math = Math;
   }
 
   getOrders(){
-    this.orderService.getAll()
-      .subscribe(
-        data => {
-          this.orders = data.orders;
-          for(var i=0;i<this.orders.length;i++){
-            this.highlighted[i] = {left: [], right:[]};
+    if(this.inFlight){
+      //dont do anything otherwise we will send multiple requests at once;
+    }else{
+      this.inFlight = true;
+      this.orderService.getPending()
+        .subscribe(
+          data => {
+            this.inFlight = false;
+            this.loading = false;
+            this.orders = data.orders;
+            for(var i=0;i<this.orders.length;i++){
+              this.highlighted[i] = {left: [], right:[]};
+            }
+            Observable.interval(1000).subscribe(x=>{
+              this.now = moment(new Date());
+            })
+          },
+          error => {
+            this.inFlight = false;
+            this.loading = false;
+            alert(error);
           }
-          Observable.interval(1000).subscribe(x=>{
-            this.now = moment(new Date());
-          })
-        },
-        error => {
-          alert(error);
-        }
-      );
+        );
+    }
   }
 
   updateStatus(index, newStatus){

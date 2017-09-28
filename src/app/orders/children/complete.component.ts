@@ -25,14 +25,14 @@ export class CompleteComponent implements OnInit {
   }
 
   getOrders(){
-    this.orderService.getAll()
-      .subscribe(
-        data => {
-          this.orders = data.orders;
-        },
-        error => {
-          alert(error);
-        }
-      );
+    // this.orderService.getComplete()
+    //   .subscribe(
+    //     data => {
+    //       this.orders = data.orders;
+    //     },
+    //     error => {
+    //       alert(error);
+    //     }
+    //   );
   }
 }

@@ -19,6 +19,7 @@ import { Table } from '../models/table';
 export class TablesComponent implements OnInit {
 
   tables: any[] = [];
+  loading: boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public dialog: MdDialog, private tableService: TableService ){}
 
@@ -32,9 +33,11 @@ export class TablesComponent implements OnInit {
     this.tableService.get()
       .subscribe(
         data => {
+          this.loading = false;
           this.tables = data.tables;
         },
         error => {
+          this.loading = false;
           alert(error);
         }
       );

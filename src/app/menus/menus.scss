@@ -5,3 +5,15 @@
 .mat-icon.side-by-side{
   display: table-cell;
 }
+
+.product_selector:focus{
+  outline: none;
+}
+
+.product_selector{
+  border: none;
+}
+
+.display-inline-block{
+  display: inline-block;
+}

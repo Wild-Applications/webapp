@@ -20,6 +20,7 @@ import { MenuService, CacheService } from '../services/index';
 export class MenusComponent implements OnInit {
 
   menus: any[] = [];
+  loading: boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private menuService: MenuService, public dialog: MdDialog, private cacheService: CacheService ){}
 
@@ -31,9 +32,11 @@ export class MenusComponent implements OnInit {
     this.menuService.getAll()
       .subscribe(
         data => {
+          this.loading = false;
           this.menus = data.menus;
         },
         error => {
+          this.loading = false;
           alert(error);
         }
       );

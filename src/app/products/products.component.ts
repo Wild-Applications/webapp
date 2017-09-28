@@ -17,6 +17,7 @@ import { Product } from '../models/index';
 export class ProductsComponent implements OnInit {
 
   products: any[];
+  loading: boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public dialog: MdDialog ){}
 
@@ -28,9 +29,11 @@ export class ProductsComponent implements OnInit {
     this.productService.getAll()
       .subscribe(
         data => {
+          this.loading = false;
           this.products = data.products;
         },
         error => {
+          this.loading = false;
           alert(error);
         }
       );

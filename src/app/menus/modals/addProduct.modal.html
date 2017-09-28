@@ -1,11 +1,13 @@
 <h1 md-dialog-title>{{'MENUS.ADD_MENU' | translate}}</h1>
 <div md-dialog-content>
-  <select multiple #selectedProduct>
+  <select multiple #selectedProduct class="product_selector">
     <option *ngFor="let product of available; let i = index;">{{product.name}}</option>
   </select>
-  <button (click)="chooseProduct(selectedProduct.selectedIndex)">>></button>
-  <button (click)="removeProduct(chosenProduct.selectedIndex)"><<</button>
-  <select multiple #chosenProduct>
+  <div class="display-inline-block">
+    <div><md-icon (click)="chooseProduct(selectedProduct.selectedIndex)">chevron_right</md-icon></div>
+    <div><md-icon (click)="removeProduct(chosenProduct.selectedIndex)">chevron_left</md-icon></div>
+  </div>
+  <select multiple #chosenProduct class="product_selector">
     <option *ngFor="let product of chosen">{{product.name}}</option>
   </select>
 </div>
