@@ -8,7 +8,7 @@ import { Menu } from '../models/index';
 @Injectable()
 export class MenuService {
 
-  baseUrl: string = "http://192.168.99.100:31473/manage/menus";
+  baseUrl: string = "http://api.wildapplications.com/manage/menus";
   cache: any = {};
 
   constructor( private http: Http ){

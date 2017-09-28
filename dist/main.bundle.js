@@ -2896,7 +2896,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var MenuService = (function () {
     function MenuService(http) {
         this.http = http;
-        this.baseUrl = "http://192.168.99.100:31473/manage/menus";
+        this.baseUrl = "http://api.wildapplications.com/manage/menus";
         this.cache = {};
     }
     MenuService.prototype.getAll = function () {
@@ -2985,7 +2985,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var OrderService = (function () {
     function OrderService(http) {
         this.http = http;
-        this.baseUrl = "http://192.168.99.100:31473/orders";
+        this.baseUrl = "http://api.wildapplications.com/orders";
         this.cache = {};
     }
     OrderService.prototype.getAll = function () {
@@ -3073,7 +3073,7 @@ var PaymentsService = (function () {
         this.http = http;
         this.cache = {};
         this.stripeUrl = "https://connect.stripe.com/oauth/";
-        this.baseUrl = "http://192.168.99.100:31473/manage/payments/";
+        this.baseUrl = "http://api.wildapplications.com/manage/payments";
         this.clientId = "ca_BNy5AOnoJYsR3lfXeO6mmIqVMIy4D469";
     }
     PaymentsService.prototype.initialiseConnection = function () {
@@ -3148,7 +3148,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PremisesService = (function () {
     function PremisesService(http) {
         this.http = http;
-        this.baseUrl = "http://192.168.99.100:31473";
+        this.baseUrl = "http://api.wildapplications.com";
         this.cache = {};
     }
     PremisesService.prototype.get = function () {
@@ -3214,7 +3214,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ProductService = (function () {
     function ProductService(http) {
         this.http = http;
-        this.baseUrl = "http://192.168.99.100:31473/manage/products";
+        this.baseUrl = "http://api.wildapplications.com/manage/products";
         this.cache = {};
     }
     ProductService.prototype.getAll = function () {
@@ -3303,7 +3303,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var TableService = (function () {
     function TableService(http) {
         this.http = http;
-        this.baseUrl = "http://192.168.99.100:31473";
+        this.baseUrl = "http://api.wildapplications.com";
         this.cache = {};
     }
     TableService.prototype.get = function () {
@@ -3384,7 +3384,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.baseUrl = "http://192.168.99.100:31473";
+        this.baseUrl = "http://api.wildapplications.com";
         this.userChange = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["Subject"]();
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {

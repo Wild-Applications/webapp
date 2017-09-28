@@ -8,7 +8,7 @@ export class PaymentsService {
 
   cache: any = {};
   stripeUrl: string = "https://connect.stripe.com/oauth/";
-  baseUrl: string = "http://192.168.99.100:31473/manage/payments/";
+  baseUrl: string = "http://api.wildapplications.com/manage/payments";
   clientId: string = "ca_BNy5AOnoJYsR3lfXeO6mmIqVMIy4D469";
 
   constructor( private http: Http ){

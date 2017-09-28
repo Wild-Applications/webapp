@@ -8,7 +8,7 @@ import { Order } from '../models/index';
 @Injectable()
 export class OrderService {
 
-  baseUrl: string = "http://192.168.99.100:31473/orders";
+  baseUrl: string = "http://api.wildapplications.com/orders";
   cache: any = {};
 
   constructor( private http: Http ){

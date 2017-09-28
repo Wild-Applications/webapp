@@ -8,7 +8,7 @@ import { Table } from '../models/index';
 @Injectable()
 export class TableService {
 
-  baseUrl: string = "http://192.168.99.100:31473";
+  baseUrl: string = "http://api.wildapplications.com";
   cache: any = {};
 
   constructor( private http: Http ){

@@ -8,7 +8,7 @@ import { Product } from '../models/index';
 @Injectable()
 export class ProductService {
 
-  baseUrl: string = "http://192.168.99.100:31473/manage/products";
+  baseUrl: string = "http://api.wildapplications.com/manage/products";
   cache: any = {};
 
   constructor( private http: Http ){
