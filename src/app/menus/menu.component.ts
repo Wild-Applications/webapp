@@ -134,6 +134,17 @@ export class MenuComponent implements OnInit {
     })
   }
 
+  editSection(sectionIndex){
+    let dialogRef = this.dialog.open(SectionDialog);
+    dialogRef.componentInstance.toEdit = this.menu.contents[sectionIndex].title;
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        this.menu.contents[sectionIndex].title = result;
+        this.saveMenu();
+      }
+    });
+  }
+
   saveMenu(){
     this.menuService.put(this.menu)
       .subscribe(
@@ -175,6 +186,7 @@ export class SectionDialog implements OnInit{
     this.dialogRef.close(this.model);
   }
 }
+
 
 @Component({
   selector: 'add-product-dialog',
