@@ -3259,8 +3259,6 @@ var _a;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3273,7 +3271,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var ProductService = (function () {
     function ProductService(http) {
         this.http = http;
@@ -3282,16 +3279,11 @@ var ProductService = (function () {
     }
     ProductService.prototype.getAll = function () {
         var _this = this;
-        if (typeof this.cache.get == 'undefined') {
-            return this.http.get(this.baseUrl, this.jwt())
-                .map(function (response) {
-                _this.cache.get = response.json();
-                return response.json();
-            });
-        }
-        else {
-            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].of(this.cache.get);
-        }
+        return this.http.get(this.baseUrl, this.jwt())
+            .map(function (response) {
+            _this.cache.get = response.json();
+            return response.json();
+        });
     };
     ProductService.prototype.get = function (_id) {
         return this.http.get(this.baseUrl + '/' + _id, this.jwt())

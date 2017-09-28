@@ -15,15 +15,12 @@ export class ProductService {
   }
 
   getAll() {
-    if(typeof this.cache.get == 'undefined'){
-      return this.http.get(this.baseUrl, this.jwt())
-        .map((response: Response) => {
-          this.cache.get = response.json();
-          return response.json();
-        });
-    }else{
-      return Observable.of(this.cache.get);
-    }
+
+    return this.http.get(this.baseUrl, this.jwt())
+      .map((response: Response) => {
+        this.cache.get = response.json();
+        return response.json();
+      });
 
   }
 
