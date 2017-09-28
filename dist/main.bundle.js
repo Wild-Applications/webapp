@@ -2624,7 +2624,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AuthenticationService = (function () {
     function AuthenticationService(http) {
         this.http = http;
-        this.baseUrl = "http://192.168.99.100:31473";
+        this.baseUrl = "http://api.wildapplications.com";
     }
     AuthenticationService.prototype.login = function (username, password) {
         return this.http.post(this.baseUrl + '/users/login', { username: username, password: password }, this.headers())
