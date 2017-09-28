@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthenticationService {
 
-  baseUrl: string = "http://192.168.99.100:31473";
+  baseUrl: string = "http://api.wildapplications.com";
 
   constructor( private http: Http){}
 
