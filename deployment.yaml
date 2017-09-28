@@ -22,7 +22,7 @@ spec:
       containers:
       - name: web
         image: wildapplications/webapp:latest
-        imagePullPolicy: "Always"
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
 ---
@@ -33,6 +33,7 @@ metadata:
   namespace: web
 spec:
   type: LoadBalancer
+  loadBalancerIP: 35.195.25.85
   ports:
   - port: 80
     targetPort: 8080
