@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   products: any[];
   loading: boolean = true;
 
-  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public dialog: MdDialog ){}
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public dialog: MatDialog ){}
 
   ngOnInit() {
     this.getProducts()
@@ -64,6 +64,16 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  toggleStockStatus(index){
+    this.products[index].in_stock = !this.products[index].in_stock;
+    this.productService.put(this.products[index])
+      .subscribe((data) => {
+        
+      }, error => {
+        console.log(error);
+      })
+  }
+
 }
 
 
@@ -77,7 +87,7 @@ export class AddProductDialog {
 
   private model: any = {};
 
-  constructor(public dialogRef: MdDialogRef<AddProductDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<AddProductDialog>, private translate: TranslateService){
   }
 
   close( ) {

@@ -3,7 +3,7 @@
     <h3>{{menu.name}} {{'MENUS.CONTENTS' | translate}}</h3>
   </div>
   <div class="row" *ngIf="loading">
-    <div class="row center-spinner"><md-spinner></md-spinner></div>
+    <div class="row center-spinner"><mat-spinner></mat-spinner></div>
   </div>
   <div class="row justify-content-center" *ngIf="!loading">
     <button type="button" class="btn btn-primary half-width rounded" (click)="openAddSectionDialog()">{{'MENUS.ADD_SECTION' | translate}}</button>
@@ -15,10 +15,10 @@
           <tr>
             <th colspan="2">{{section.title}}</th>
             <th>
-              <!--<md-icon mdTooltip="{{'MENUS.MOVE_SECTION_UP' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="move(true, sectionIndex)">arrow_upward</md-icon>
-              <md-icon mdTooltip="{{'MENUS.MOVE_SECTION_DOWN' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="move(false, sectionIndex)">arrow_downward</md-icon>-->
-              <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="" (click)="editSection(sectionIndex)">mode_edit_outline</md-icon>
-              <md-icon mdTooltip="{{'MENUS.DELETE_SECTION' | translate}}" mdTooltipPosition="above" class="" (click)="deleteSection(sectionIndex)">delete_forever</md-icon>
+              <!--<mat-icon matTooltip="{{'MENUS.MOVE_SECTION_UP' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="move(true, sectionIndex)">arrow_upward</mat-icon>
+              <mat-icon matTooltip="{{'MENUS.MOVE_SECTION_DOWN' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="move(false, sectionIndex)">arrow_downward</mat-icon>-->
+              <mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="" (click)="editSection(sectionIndex)">mode_edit_outline</mat-icon>
+              <mat-icon matTooltip="{{'MENUS.DELETE_SECTION' | translate}}" matTooltipPosition="above" class="" (click)="deleteSection(sectionIndex)">delete_forever</mat-icon>
             </th>
           </tr>
         </thead>
@@ -26,7 +26,7 @@
           <tr *ngFor="let product of section.products; let productIndex = index;">
             <td class="col-6">{{product.name}}</td>
             <td class="col-4">{{product.price | currency:'GBP'}}</td>
-            <td class="col-2"><md-icon mdTooltip="{{'GENERAL.REMOVE' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="removeProduct(sectionIndex, productIndex)">remove_circle_outline</md-icon></td>
+            <td class="col-2"><mat-icon matTooltip="{{'GENERAL.REMOVE' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="removeProduct(sectionIndex, productIndex)">remove_circle_outline</mat-icon></td>
           </tr>
           <tr>
             <td colspan="3"><a href="javascript:void(0);" (click)="addProductDialog(sectionIndex)">{{'MENUS.ADD_PRODUCT' | translate}}</a></td>

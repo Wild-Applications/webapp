@@ -3,10 +3,12 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class AuthenticationService {
 
-  baseUrl: string = "http://api.wildapplications.com";
+  baseUrl: string = environment.apiUrl;
 
   constructor( private http: Http){}
 

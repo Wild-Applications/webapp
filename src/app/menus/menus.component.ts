@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 //import { TruncateModule } from 'ng2-truncate';
@@ -22,7 +22,7 @@ export class MenusComponent implements OnInit {
   menus: any[] = [];
   loading: boolean = true;
 
-  constructor(private route: ActivatedRoute, private router: Router, private menuService: MenuService, public dialog: MdDialog, private cacheService: CacheService ){}
+  constructor(private route: ActivatedRoute, private router: Router, private menuService: MenuService, public dialog: MatDialog, private cacheService: CacheService ){}
 
   ngOnInit() {
     this.getMenus();
@@ -97,7 +97,7 @@ export class AddMenuDialog {
 
   private model: any = {};
 
-  constructor(public dialogRef: MdDialogRef<AddMenuDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<AddMenuDialog>, private translate: TranslateService){
   }
 
   close( ) {

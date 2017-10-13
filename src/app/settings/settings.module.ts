@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '../services/index';
 
 import { SettingsComponent } from './index';
-import { GeneralSettingsComponent } from './index';
+import { GeneralSettingsComponent, PasswordSettingsComponent } from './index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -26,7 +26,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 @NgModule({
   declarations: [
     SettingsComponent,
-    GeneralSettingsComponent
+    GeneralSettingsComponent,
+    PasswordSettingsComponent
   ],
   imports: [
     BrowserModule,

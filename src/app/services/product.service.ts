@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { Product } from '../models/index';
 
 @Injectable()
 export class ProductService {
 
-  baseUrl: string = "http://api.wildapplications.com/manage/products";
+  baseUrl: string = environment.apiUrl + "/manage/products";
   cache: any = {};
 
   constructor( private http: Http ){

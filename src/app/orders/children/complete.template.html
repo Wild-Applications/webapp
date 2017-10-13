@@ -3,7 +3,7 @@
       <h3>{{'ORDERS.ORDERS' | translate}}</h3>
   </div>
   <div class="row" *ngIf="loading">
-    <div class="row center-spinner"><md-spinner></md-spinner></div>
+    <div class="row center-spinner"><mat-spinner></mat-spinner></div>
   </div>
   <div class="row justify-content-center" *ngIf="!loading">
     <button type="button" class="btn btn-primary half-width rounded" (click)="getOrders()">{{'GENERAL.REFRESH' | translate}}</button>
@@ -11,7 +11,7 @@
   <div class="row" *ngIf="!loading">
     <div class="container">
       <div class="row full-height">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 auto-height order" *ngFor="let order of orders; let o = index;">
+        <div class="col-lg-12 col-mat-12 col-sm-12 col-xs-12 auto-height order" *ngFor="let order of orders; let o = index;">
           <div class="order-inner">
             <div class="col-12">
               <div class="display-inline-block">
@@ -31,20 +31,20 @@
             </div>
             <div class="col-12">
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                  <md-list>
-                    <md-list-item *ngFor="let product of order.products.slice(0,Math.ceil(order.products.length/2)); let p = index"> <md-icon mdListIcon (click)="highlighted[o].left[p]=!highlighted[o].left[p]">{{!highlighted[o].left[p]?'label_outline':'label'}}</md-icon>{{product.name}}</md-list-item>
-                  </md-list>
+                <div class="col-lg-6 col-mat-6 col-sm-12 col-xs-12">
+                  <mat-list>
+                    <mat-list-item *ngFor="let product of order.products.slice(0,Math.ceil(order.products.length/2)); let p = index"> <mat-icon matListIcon (click)="highlighted[o].left[p]=!highlighted[o].left[p]">{{!highlighted[o].left[p]?'label_outline':'label'}}</mat-icon>{{product.name}}</mat-list-item>
+                  </mat-list>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                  <md-list>
-                    <md-list-item *ngFor="let product of order.products.slice(Math.ceil(order.products.length/2)); let p = index;"><md-icon mdListIcon (click)="highlighted[o].right[p]=!highlighted[o].right[p]">{{!highlighted[o].right[p]?'label_outline':'label'}}</md-icon>{{product.name}}</md-list-item>
-                  </md-list>
+                <div class="col-lg-6 col-mat-6 col-sm-12 col-xs-12">
+                  <mat-list>
+                    <mat-list-item *ngFor="let product of order.products.slice(Math.ceil(order.products.length/2)); let p = index;"><mat-icon matListIcon (click)="highlighted[o].right[p]=!highlighted[o].right[p]">{{!highlighted[o].right[p]?'label_outline':'label'}}</mat-icon>{{product.name}}</mat-list-item>
+                  </mat-list>
                 </div>
               </div>
             </div>
 
-            
+
             </div>
           </div>
         </div>

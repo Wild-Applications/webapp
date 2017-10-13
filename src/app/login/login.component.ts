@@ -9,7 +9,7 @@ import { AuthenticationService } from '../services/index';
 })
 
 export class LoginComponent implements OnInit {
-  model: any = {}
+  public model: any = {}
   loading = false;
   returnUrl: string;
 
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login() {
+  public login() {
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password)
       .subscribe(

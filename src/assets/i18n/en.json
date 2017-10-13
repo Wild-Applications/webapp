@@ -16,7 +16,9 @@
     "SAVE": "Save",
     "CONFIRM_DELETE": "Are you sure you want to delete {{value}}?",
     "REFRESH": "Refresh",
-    "GENERAL": "General"
+    "GENERAL": "General",
+    "CREATE": "Create",
+    "PASSWORD": "Password"
   },
 
   "LOGIN": {
@@ -24,9 +26,28 @@
     "USERNAME_IS_REQUIRED": "Username is required",
     "PASSWORD_IS_REQUIRED": "Password is required",
     "EMAIL_IS_REQUIRED": "Email is required",
-    "REGISTER": "Register",
+    "REGISTER": "Register now",
     "USERNAME": "Username",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "FORGOTTEN": "Forgotten password?"
+  },
+
+  "REGISTER": {
+    "REGISTER": "Register",
+    "SIGN_UP": "Sign up",
+    "TITLE": "Start selling through Tab today!",
+    "DETAILS": "Details",
+    "PREMISES": "Premises",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "EMAIL": "Email"
+  },
+
+  "ONBOARDING": {
+    "PREMISES": "Premises",
+    "PAYMENTS": "Payments",
+    "NEXT": "Next",
+    "BACK": "Back"
   },
 
   "NAV": {
@@ -49,7 +70,10 @@
     "GENERAL": "General",
     "PAYMENTS": "Payments",
     "PASSWORD": "Password",
-    "DEACTIVATE_ACCOUNT": "Deactivate my account"
+    "DEACTIVATE_ACCOUNT": "Deactivate my account",
+    "NEW_PASSWORD": "New password",
+    "CONFIRM_PASSWORD": "Type your new password again",
+    "CHANGE_PASSWORD": "Change password"
   },
 
   "MANAGE": {
@@ -96,7 +120,9 @@
   "PRODUCTS": {
     "PRODUCTS": "Products",
     "DESCRIPTION": "",
-    "ADD_PRODUCT": "Add Product"
+    "ADD_PRODUCT": "Add Product",
+    "IN_STOCK": "In stock",
+    "OUT_OF_STOCK": "Out of stock"
   },
 
   "ORDERS": {
@@ -111,7 +137,8 @@
   "PAYMENTS": {
     "PAYMENTS": "Payments",
     "DESCRIPTION": "Payments are provided by Stripe Payments. You are responsible for creating and maintaining an account with Stripe. Any fees that are charged by Stripe are paid by you. An additional x% is also taken from each payment.",
-    "CONNECT_ACCOUNT": "Connect Account"
+    "CONNECT_ACCOUNT": "Connect Account",
+    "GO_TO_STRIPE": "Go to your Stripe dashboard"
   },
 
   "SEARCH": {

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { Menu } from '../models/index';
 
 @Injectable()
 export class MenuService {
 
-  baseUrl: string = "http://api.wildapplications.com/manage/menus";
+  baseUrl: string = environment.apiUrl + "/manage/menus";
   cache: any = {};
 
   constructor( private http: Http ){

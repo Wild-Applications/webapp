@@ -11,7 +11,9 @@ import { UserService } from '../services/index';
 
 export class ManageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService ){}
+  hasPremises: boolean = false;
+
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService){}
 
   ngOnInit() {
 

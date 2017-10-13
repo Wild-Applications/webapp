@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class PaymentsService {
 
   cache: any = {};
   stripeUrl: string = "https://connect.stripe.com/oauth/";
-  baseUrl: string = "http://api.wildapplications.com/manage/payments";
+  baseUrl: string = environment.apiUrl + "/manage/payments";
   clientId: string = "ca_BNy5AOnoJYsR3lfXeO6mmIqVMIy4D469";
 
   constructor( private http: Http ){
@@ -40,9 +41,16 @@ export class PaymentsService {
   }
 
   passAccessToken(code: string){
-    return this.http.post(this.baseUrl + "code", {code: code}, this.jwt())
+    return this.http.post(this.baseUrl + "/code", {code: code}, this.jwt())
       .map((response: Response) => {
         return response.json();
+      })
+  }
+
+  getAccount(){
+    return this.http.get(this.baseUrl, this.jwt())
+      .map((response: Response) => {
+          return response.json();
       })
   }
 

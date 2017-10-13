@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Rx';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -23,14 +23,20 @@ export class CompleteComponent implements OnInit {
   loading: boolean = true;
   inFlight: boolean = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private orderService: OrderService, public dialog: MdDialog ){}
+  private orderCall: any;
+
+  constructor(private route: ActivatedRoute, private router: Router, private orderService: OrderService, public dialog: MatDialog ){}
 
   ngOnInit() {
-    Observable.interval(30000).subscribe(x=>{
+    this.orderCall = Observable.interval(30000).subscribe(x=>{
       this.getOrders();
     })
     this.getOrders();
     this.Math = Math;
+  }
+
+  ngOnDestroy(){
+    this.orderCall.unsubscribe();
   }
 
   getOrders(){

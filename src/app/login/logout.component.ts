@@ -5,7 +5,7 @@ import { AuthenticationService } from '../services/index';
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'login.template.html'
+  template: ''
 })
 
 export class LogoutComponent implements OnInit {

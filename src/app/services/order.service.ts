@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { Order } from '../models/index';
 
 @Injectable()
 export class OrderService {
 
-  baseUrl: string = "http://api.wildapplications.com/orders";
+  baseUrl: string = environment.apiUrl + "/orders";
   cache: any = {};
 
   constructor( private http: Http ){
@@ -41,6 +42,13 @@ export class OrderService {
       .map((response: Response) => {
         return response.json();
       })
+  }
+
+  complete(order: Order){
+    return this.http.post(this.baseUrl + '/complete/' + order._id, {}, this.jwt())
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 
   create(order: Order){

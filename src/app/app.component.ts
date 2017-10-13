@@ -12,7 +12,7 @@ import { AuthenticationService, UserService } from './services/index';
 export class AppComponent {
   username: string = "User";
 
-  constructor( private authenticationService: AuthenticationService, private userService: UserService, translate: TranslateService ){
+  constructor( public authenticationService: AuthenticationService, private userService: UserService, translate: TranslateService ){
     this.userService.userChange.subscribe((user)=>{
       this.username = user.username;
     });

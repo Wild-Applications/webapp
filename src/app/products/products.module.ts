@@ -7,8 +7,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
-import { MaterialModule } from '@angular/material';
 import { TruncateModule } from 'ng2-truncate';
+import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule } from '@angular/material';
 
 import { HttpService } from '../services/index';
 
@@ -45,9 +45,11 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
         deps: [HttpClient]
       }
     }),
-    MaterialModule,
     TruncateModule,
-    PipesModule
+    PipesModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [
   ],

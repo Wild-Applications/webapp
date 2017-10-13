@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import {MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -21,7 +21,7 @@ export class TablesComponent implements OnInit {
   tables: any[] = [];
   loading: boolean = true;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public dialog: MdDialog, private tableService: TableService ){}
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public dialog: MatDialog, private tableService: TableService ){}
 
   ngOnInit() {
     this.getTables();
@@ -120,7 +120,7 @@ export class AddTableDialog implements OnInit{
   private newTableName: string;
   public toEdit: string;
 
-  constructor(public dialogRef: MdDialogRef<AddTableDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<AddTableDialog>, private translate: TranslateService){
     //Placeholder text so users don't have to type table every time
     this.translate.get('MANAGE.TABLES.TABLE').subscribe(
       (res: string) => {
@@ -152,7 +152,7 @@ export class AddTableDialog implements OnInit{
 export class EditTableDialog{
   private existingTableName: string;
 
-  constructor(public dialogRef: MdDialogRef<EditTableDialog>){
+  constructor(public dialogRef: MatDialogRef<EditTableDialog>){
 
   }
 

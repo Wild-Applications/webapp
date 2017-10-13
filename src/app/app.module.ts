@@ -6,8 +6,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule, MatCardModule } from '@angular/material';
 
 import 'popper.js/dist/umd/popper';
 import 'hammerjs';
@@ -27,10 +27,12 @@ import { MenusModule } from './menus/index';
 import { ProductsModule } from './products/index';
 import { OrdersModule } from './orders/index';
 import { PaymentsModule } from './payments/index';
+import { RegisterModule } from './register/index';
+import { OnboardingModule } from './onboarding/index';
 
 import { AuthenticationService, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService, OrderService, PaymentsService, ErrorHandler, ErrorDialog } from './services/index';
 
-import { AuthGuard } from './guards/index';
+import { AuthGuard, IsLoggedInGuard } from './guards/index';
 
 import { PipesModule } from './pipes/index';
 
@@ -69,7 +71,6 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
       }
     }),
     BrowserAnimationsModule,
-    MaterialModule,
     SettingsModule,
     ManageModule,
     TablesModule,
@@ -77,7 +78,10 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     ProductsModule,
     PipesModule,
     OrdersModule,
-    PaymentsModule
+    RegisterModule,
+    OnboardingModule,
+    PaymentsModule,
+    MatCardModule
   ],
   providers: [
     AuthenticationService,
@@ -87,6 +91,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
       deps: [XHRBackend, RequestOptions, Router, Injector]
     },
     AuthGuard,
+    IsLoggedInGuard,
     UserService,
     PremisesService,
     TableService,

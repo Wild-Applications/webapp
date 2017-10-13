@@ -1,12 +1,12 @@
 import { Injectable, Component } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Injectable()
 export class ErrorHandler {
 
   cache: any = {};
 
-  constructor ( public dialog: MdDialog) {
+  constructor ( public dialog: MatDialog) {
 
   }
 
@@ -35,7 +35,7 @@ export class ErrorHandler {
 })
 export class ErrorDialog {
   private errorDetails;
-  constructor(public dialogRef: MdDialogRef<ErrorDialog>) {
+  constructor(public dialogRef: MatDialogRef<ErrorDialog>) {
 
   }
 }

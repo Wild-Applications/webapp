@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MdDialog, MdDialogRef, MdSpinner} from '@angular/material';
+import {MatDialog, MatDialogRef, MatSpinner} from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 //import { TruncateModule } from 'ng2-truncate';
@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
 
   availableProducts: any[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private menuService: MenuService, public dialog: MdDialog, private cacheService: CacheService, private productService: ProductService ){}
+  constructor(private route: ActivatedRoute, private router: Router, private menuService: MenuService, public dialog: MatDialog, private cacheService: CacheService, private productService: ProductService ){}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -168,7 +168,7 @@ export class SectionDialog implements OnInit{
   private model: any = {};
   public toEdit: string;
 
-  constructor(public dialogRef: MdDialogRef<SectionDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<SectionDialog>, private translate: TranslateService){
 
 
   }
@@ -200,7 +200,7 @@ export class AddProductDialog implements OnInit{
   available: any[];
   chosen: any[];
 
-  constructor(public dialogRef: MdDialogRef<SectionDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<SectionDialog>, private translate: TranslateService){
 
 
   }

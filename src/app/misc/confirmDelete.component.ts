@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,7 +13,7 @@ export class ConfirmDeleteDialog implements OnInit {
 
   element: string;
   param: any = {};
-  constructor(public dialogRef: MdDialogRef<ConfirmDeleteDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialog>, private translate: TranslateService){
 
   }
 

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { Table } from '../models/index';
 
 @Injectable()
 export class TableService {
 
-  baseUrl: string = "http://api.wildapplications.com";
+  baseUrl: string = environment.apiUrl;
   cache: any = {};
 
   constructor( private http: Http ){

@@ -25,6 +25,8 @@ export class HttpService extends Http {
 
   private catchErrors() {
     return (res: Response) => {
+      var errorMsg = JSON.parse(res['_body']);
+      res['_body'] = JSON.parse(errorMsg['message']);
       //handle authorization errors
       if(res.status === 401 || res.status === 403){
         this.authenticationService.logout();

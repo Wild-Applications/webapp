@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { SettingsComponent } from './index';
-import { GeneralSettingsComponent } from './index';
+import { GeneralSettingsComponent, PasswordSettingsComponent } from './index';
 import { PaymentsComponent } from '../payments/index';
 
 import { AuthGuard } from '../guards/index';
@@ -13,6 +13,7 @@ export const SettingsRoutes: Routes = [
   children: [
     { path: '', pathMatch: 'full', redirectTo:'general'},
     { path: 'general', component: GeneralSettingsComponent },
-    { path: 'payments', component: PaymentsComponent }
+    { path: 'payments', component: PaymentsComponent },
+    { path: 'password', component: PasswordSettingsComponent }
   ] }
 ]

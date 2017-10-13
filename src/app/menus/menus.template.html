@@ -9,7 +9,7 @@
     <button type="button" class="btn btn-primary half-width rounded" (click)="openAddDialog()">{{'GENERAL.ADD' | translate}}</button>
   </div>
   <div class="row" *ngIf="loading">
-    <div class="row center-spinner"><md-spinner></md-spinner></div>
+    <div class="row center-spinner"><mat-spinner></mat-spinner></div>
   </div>
   <div class="row" *ngIf="!loading">
     <table class="table">
@@ -20,8 +20,8 @@
         <ng-container *ngIf="menu !== -1">
           <td class="col-10">{{menu.name}}</td>
           <td class="col-2">
-            <md-icon mdTooltip="{{'GENERAL.EDIT' | translate}}" mdTooltipPosition="above" class="side-by-side">edit</md-icon>
-            <md-icon mdTooltip="{{'GENERAL.DELETE' | translate}}" mdTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(menu._id, i)">delete_forever</md-icon>
+            <mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="side-by-side">edit</mat-icon>
+            <mat-icon matTooltip="{{'GENERAL.DELETE' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(menu._id, i)">delete_forever</mat-icon>
           </td>
         </ng-container>
         <td class="align-center" colspan="4" *ngIf="menu == -1">{{'SEARCH.NO_MATCHES'}}</td>

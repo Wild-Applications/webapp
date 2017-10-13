@@ -28,8 +28,22 @@ export class ManagePremisesComponent implements OnInit {
           this.model = data;
         },
         error => {
+          if(error._body.code == '0015'){
+            //user hasnt created a premises so create the premises rather than update it
+            this.premisesService.create({name: this.userService.getLoggedInUser().username})
+              .subscribe(
+                data => {
+                  //do nothing
+                  this.model.name = this.userService.getLoggedInUser().username;
+                  this.loading = false;
+                },
+                error => {
+                  alert(error);
+                  this.loading = false;
+                }
+              )
+          }
           this.loading = false;
-          alert(error);
         }
       );
   }
