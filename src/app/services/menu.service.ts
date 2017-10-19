@@ -60,6 +60,13 @@ export class MenuService {
       })
   }
 
+  makeActive(_id: string){
+    return this.http.post(this.baseUrl + '/active/' + _id, {}, this.jwt())
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
+
   //private helper methods
   private jwt(){
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));

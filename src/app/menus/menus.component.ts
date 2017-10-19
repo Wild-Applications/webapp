@@ -42,6 +42,21 @@ export class MenusComponent implements OnInit {
       );
   }
 
+  makeActive(index){
+    this.menuService.makeActive(this.menus[index]._id)
+      .subscribe(
+        data => {
+          for(var i=0; i<this.menus.length; i++){
+            this.menus[i].active = false;
+          }
+          this.menus[index].active = true;
+        },
+        error => {
+          alert(error);
+        }
+      )
+  }
+
   selectMenu(index) {
     this.cacheService.put(this.menus[index]._id, this.menus[index]);
     this.router.navigate(['/manage/menus/', this.menus[index]._id]);

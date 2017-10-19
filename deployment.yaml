@@ -32,11 +32,34 @@ metadata:
   name: service
   namespace: web
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 35.195.25.85
+  type: NodePort
   ports:
   - port: 80
     targetPort: 8080
   selector:
     app: web
   externalName: web
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: web
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: "gce"
+    #ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.global-static-ip-name: webapp-endpoint
+spec:
+  tls:
+  - hosts:
+    - www.wildapplications.com
+    secretName: ingress-tls
+  rules:
+  - host: www.wildapplications.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: service
+          servicePort: 80
