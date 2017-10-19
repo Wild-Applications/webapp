@@ -4469,6 +4469,8 @@ module.exports = "<h1 md-dialog-title *ngIf=\"!toEdit\">{{'TABLES.ADD' | transla
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__misc_index__ = __webpack_require__("../../../../../src/app/misc/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_table__ = __webpack_require__("../../../../../src/app/models/table.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_qrious__ = __webpack_require__("../../../../qrious/dist/qrious.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_qrious___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_qrious__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TablesComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddTableDialog; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return EditTableDialog; });
@@ -4481,6 +4483,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -4512,6 +4515,12 @@ var TablesComponent = (function () {
             _this.loading = false;
             alert(error);
         });
+    };
+    TablesComponent.prototype.downloadQrCode = function (index) {
+        var qr = new __WEBPACK_IMPORTED_MODULE_7_qrious___default.a({
+            value: 'https://github.com/neocotic/qrious'
+        });
+        console.log(qr.toDataURL('image/jpeg'));
     };
     TablesComponent.prototype.openDialog = function () {
         var _this = this;

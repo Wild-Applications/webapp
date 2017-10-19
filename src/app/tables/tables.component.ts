@@ -10,6 +10,8 @@ import { ConfirmDeleteDialog } from '../misc/index';
 
 import { Table } from '../models/table';
 
+import QRious from 'qrious';
+
 @Component({
   moduleId: module.id,
   templateUrl: 'tables.template.html',
@@ -41,6 +43,13 @@ export class TablesComponent implements OnInit {
           alert(error);
         }
       );
+  }
+
+  downloadQrCode(index){
+    var qr = new QRious({
+      value: 'https://github.com/neocotic/qrious'
+    });
+    console.log(qr.toDataURL('image/jpeg'));
   }
 
   openDialog() {
