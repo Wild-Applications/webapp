@@ -4521,6 +4521,7 @@ var TablesComponent = (function () {
             value: 'https://github.com/neocotic/qrious'
         });
         console.log(qr.toDataURL('image/jpeg'));
+        window.open(qr.toDataURL('image/jpeg'));
     };
     TablesComponent.prototype.openDialog = function () {
         var _this = this;
@@ -4746,7 +4747,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tables/tables.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n      <h3>{{'TABLES.TABLES' | translate}}</h3>\n  </div>\n  <div class=\"row justify-content-center\">\n    <span>{{'MANAGE.TABLES.DESCRIPTION' | translate}}</span>\n  </div>\n  <div class=\"row justify-content-center\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openDialog()\">{{'GENERAL.ADD' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><md-spinner></md-spinner></div>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <tr *ngFor=\"let table of tables; let i = index\">\n        <td class=\"col-9\">{{table.name}}</td>\n        <td class=\"col-3\">\n          <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"editDialog(i)\">edit</mat-icon>\n          <mat-icon matTooltip=\"{{'GENERAL.DELETE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"deleteConfirmation(table._id, i)\">delete_forever</mat-icon>\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n      <h3>{{'TABLES.TABLES' | translate}}</h3>\n  </div>\n  <div class=\"row justify-content-center\">\n    <span>{{'MANAGE.TABLES.DESCRIPTION' | translate}}</span>\n  </div>\n  <div class=\"row justify-content-center\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openDialog()\">{{'GENERAL.ADD' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><md-spinner></md-spinner></div>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <tr *ngFor=\"let table of tables; let i = index\">\n        <td class=\"col-9\">{{table.name}}</td>\n        <td class=\"col-3\">\n          <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"downloadQrCode(i)\">download</mat-icon>\n          <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"editDialog(i)\">edit</mat-icon>\n          <mat-icon matTooltip=\"{{'GENERAL.DELETE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"deleteConfirmation(table._id, i)\">delete_forever</mat-icon>\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
 
 /***/ }),
 

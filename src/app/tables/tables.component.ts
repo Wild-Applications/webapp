@@ -50,6 +50,7 @@ export class TablesComponent implements OnInit {
       value: 'https://github.com/neocotic/qrious'
     });
     console.log(qr.toDataURL('image/jpeg'));
+    window.open(qr.toDataURL('image/jpeg'));
   }
 
   openDialog() {
