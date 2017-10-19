@@ -45,12 +45,11 @@ export class TablesComponent implements OnInit {
       );
   }
 
-  downloadQrCode(index){
+  public downloadQrCode(index){
     var qr = new QRious({
       value: 'https://github.com/neocotic/qrious'
     });
-    console.log(qr.toDataURL('image/jpeg'));
-    window.open(qr.toDataURL('image/jpeg'));
+    return (qr.toDataURL('image/jpeg'));
   }
 
   openDialog() {

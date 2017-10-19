@@ -16,7 +16,7 @@
       <tr *ngFor="let table of tables; let i = index">
         <td class="col-9">{{table.name}}</td>
         <td class="col-3">
-          <mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="downloadQrCode(i)">download</mat-icon>
+          <a href="{{downloadQrCode(i)}}" download><mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="side-by-side">file_download</mat-icon></a>
           <mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="editDialog(i)">edit</mat-icon>
           <mat-icon matTooltip="{{'GENERAL.DELETE' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(table._id, i)">delete_forever</mat-icon>
         </td>
