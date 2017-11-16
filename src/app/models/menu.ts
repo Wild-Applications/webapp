@@ -3,5 +3,5 @@ export class Menu {
   name        : string;
   description : string;
   active      : boolean;
-  products    : any[];
+  contents    : any[];
 }

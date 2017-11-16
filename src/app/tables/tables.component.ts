@@ -11,6 +11,7 @@ import { ConfirmDeleteDialog } from '../misc/index';
 import { Table } from '../models/table';
 
 import QRious from 'qrious';
+import JSZip from 'jszip';
 
 @Component({
   moduleId: module.id,
@@ -47,13 +48,35 @@ export class TablesComponent implements OnInit {
 
   public downloadQrCode(index){
     var qr = new QRious({
-      value: 'https://github.com/neocotic/qrious'
+      value: this.tables[index]._id
     });
-    return (qr.toDataURL('image/jpeg'));
+    return (qr.toDataURL('image/png'));
+  }
+
+  public downloadAll(){
+    var zip = new JSZip();
+
+    for(var i=0; i<this.tables.length; i++){
+      var qr = new QRious({
+        value: this.tables[i]._id
+      })
+      var image = qr.toDataURL('image/png');
+      zip.file(this.tables[i].name + ".png",image.substr(image.indexOf(',')+1), {base64:true});
+    }
+    zip.generateAsync({type:"base64"})
+      .then(function (content) {
+          // use content
+          location.href="data:application/zip;base64,"+content;
+      });
+
+
+
   }
 
   openDialog() {
-    let dialogRef = this.dialog.open(AddTableDialog);
+    let dialogRef = this.dialog.open(AddTableDialog,{
+      width: '20%'
+    });
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
         let newTable: Table = new Table();
@@ -75,7 +98,9 @@ export class TablesComponent implements OnInit {
 
 
   editDialog(index){
-    let dialogRef = this.dialog.open(AddTableDialog);
+    let dialogRef = this.dialog.open(AddTableDialog,{
+      width: '20%'
+    });
     dialogRef.componentInstance.toEdit = this.tables[index].name;
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
@@ -98,7 +123,9 @@ export class TablesComponent implements OnInit {
   }
 
   deleteConfirmation(_id, index){
-    let dialogRef = this.dialog.open(ConfirmDeleteDialog);
+    let dialogRef = this.dialog.open(ConfirmDeleteDialog, {
+      data: {params: {type: "table", name: this.tables[index].name}}
+    });
     dialogRef.afterClosed().subscribe(result =>{
       if(result){
         //delete it

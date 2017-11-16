@@ -1,17 +1,23 @@
-<h1 md-dialog-title>{{'MENUS.ADD_MENU' | translate}}</h1>
-<div md-dialog-content>
-  <select multiple #selectedProduct class="product_selector">
-    <option *ngFor="let product of available; let i = index;">{{product.name}}</option>
-  </select>
-  <div class="display-inline-block">
-    <div><md-icon (click)="chooseProduct(selectedProduct.selectedIndex)">chevron_right</md-icon></div>
-    <div><md-icon (click)="removeProduct(chosenProduct.selectedIndex)">chevron_left</md-icon></div>
+<h3 mat-dialog-title>{{'MENUS.ADD_MENU' | translate}}</h3>
+<mat-dialog-content class="mat-dialog-content display-inline-block col-6 no-padding vertical-align-top">
+  <div>
+    <mat-selection-list #selectedProducts class="hide-select-boxes no-outline">
+      <mat-list-option *ngFor="let product of available; let i = index" [value]="i" (selectionChange)="select(i)"><span>{{product.name}} <mat-icon class="float-right">chevron_right</mat-icon></span></mat-list-option>
+    </mat-selection-list>
   </div>
-  <select multiple #chosenProduct class="product_selector">
-    <option *ngFor="let product of chosen">{{product.name}}</option>
-  </select>
-</div>
-<div md-dialog-actions>
-    <button md-button type="button" class="btn btn-default" (click)="close()">{{'GENERAL.CANCEL' | translate}}</button>
-    <button md-button type="button" class="btn btn-default" (click)="submit()">{{'GENERAL.ADD' | translate}}</button>
-</div>
+</mat-dialog-content>
+<mat-dialog-content class="mat-dialog-content display-inline-block col-6 no-padding vertical-align-top">
+  <div>
+    <mat-selection-list #chosenProducts class="hide-select-boxes align-text-right no-outline">
+      <mat-list-option *ngFor="let product of chosen; let i = index;" [value]="i" (selectionChange)="remove(i)"><span><mat-icon class="float-left">chevron_left</mat-icon><span class="float-right">{{product.name}}</span></span></mat-list-option>
+    </mat-selection-list>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+
+    <button mat-raised-button color="primary" type="button" class="btn btn-default" (click)="addNew()">{{'GENERAL.ADD' | translate}}</button>
+    <span class="float-right">
+    <button mat-button type="button" class="btn btn-default" (click)="close()">{{'GENERAL.CANCEL' | translate}}</button>
+    <button mat-raised-button color="primary" type="button" class="btn btn-default" (click)="submit()">{{'GENERAL.SAVE' | translate}}</button>
+  </span>
+</mat-dialog-actions>

@@ -30,6 +30,20 @@ export class OrderService {
         })
   }
 
+  getCompleteByDay(year, month, day){
+    return this.http.get(this.baseUrl + "/complete/" + year + "/" + month +  "/" + day, this.jwt() )
+      .map((response:Response) => {
+        return response.json();
+      })
+  }
+
+  getOrderBreakdown(){
+    return this.http.get(this.baseUrl + '/complete/breakdown', this.jwt())
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
+
   get(_id: string){
     return this.http.get(this.baseUrl + '/' + _id, this.jwt())
       .map((response: Response) => {

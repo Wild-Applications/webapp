@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatButtonModule} from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -11,14 +11,14 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ConfirmDeleteDialog implements OnInit {
 
-  element: string;
-  param: any = {};
-  constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialog>, private translate: TranslateService){
-
+  params: any = {};
+  constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialog>, private translate: TranslateService, @Inject(MAT_DIALOG_DATA) public data: any){
+    if(data && data.params){
+      this.params = data.params;
+    }
   }
 
   ngOnInit(){
-    this.param.value = this.element;
   }
 
   no( ) {

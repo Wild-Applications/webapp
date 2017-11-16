@@ -13,7 +13,9 @@
             <label for="name">{{'MANAGE.NAME' | translate}}</label>
           </div>
           <div class="col-lg-6">
-            <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required />
+            <mat-form-field class="full-width">
+              <input type="text" matInput class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required />
+            </mat-form-field>
           </div>
         </div>
         <div *ngIf="f.submitted && !name.valid" class="help-block">{{'MANAGE.NAME_REQUIRED' | translate}}</div>
@@ -25,7 +27,9 @@
             <label for="description">{{'MANAGE.DESCRIPTION' | translate}}</label>
           </div>
           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-            <textarea type="text" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" maxlength="255"></textarea>
+            <mat-form-field class="full-width">
+              <textarea matInput type="text" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" maxlength="255"></textarea>
+            </mat-form-field>
           </div>
         </div>
       </div>
@@ -33,7 +37,7 @@
         <div class="row">
           <div class="col-lg-3"></div>
           <div class="col-lg-9">
-            <button [disabled]="loading" class="btn btn-primary rounded">{{'GENERAL.SAVE_CHANGES' | translate}}</button>
+            <button [disabled]="loading || name.invalid || description.invalid" class="btn btn-primary rounded">{{'GENERAL.SAVE_CHANGES' | translate}}</button>
           </div>
         </div>
       </div>

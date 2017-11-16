@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { HttpModule, Http, RequestOptions, XHRBackend } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule, MatCardModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule } from '@angular/material';
 
 import 'popper.js/dist/umd/popper';
 import 'hammerjs';
@@ -29,10 +29,11 @@ import { OrdersModule } from './orders/index';
 import { PaymentsModule } from './payments/index';
 import { RegisterModule } from './register/index';
 import { OnboardingModule } from './onboarding/index';
+import { RecoverModule } from './recover/index';
 
-import { AuthenticationService, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService, OrderService, PaymentsService, ErrorHandler, ErrorDialog } from './services/index';
+import { AuthenticationService, LoadHandler, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService, OrderService, PaymentsService, ErrorHandler, ErrorDialog } from './services/index';
 
-import { AuthGuard, IsLoggedInGuard } from './guards/index';
+import { AuthGuard, IsLoggedInGuard, NotAuthGuard } from './guards/index';
 
 import { PipesModule } from './pipes/index';
 
@@ -59,6 +60,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     NgbModule.forRoot(),
     routing,
@@ -80,18 +82,27 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     OrdersModule,
     RegisterModule,
     OnboardingModule,
+    RecoverModule,
     PaymentsModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatFormFieldModule
   ],
   providers: [
     AuthenticationService,
+    LoadHandler,
     {
       provide: Http,
       useFactory: HttpInterceptorFactory,
       deps: [XHRBackend, RequestOptions, Router, Injector]
     },
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
     AuthGuard,
     IsLoggedInGuard,
+    NotAuthGuard,
     UserService,
     PremisesService,
     TableService,

@@ -9,3 +9,4 @@ export * from './product.service';
 export * from './order.service';
 export * from './payments.service';
 export * from './error.service';
+export * from './loader.service';

@@ -53,10 +53,18 @@ metadata:
 spec:
   tls:
   - hosts:
-    - www.wildapplications.com
+    - console.wildapplications.com
+    - console.tabapp.co.uk
     secretName: ingress-tls
   rules:
-  - host: www.wildapplications.com
+  - host: console.wildapplications.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: service
+          servicePort: 80
+  - host: console.tabapp.co.uk
     http:
       paths:
       - path: /*

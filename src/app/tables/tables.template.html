@@ -6,17 +6,22 @@
     <span>{{'MANAGE.TABLES.DESCRIPTION' | translate}}</span>
   </div>
   <div class="row justify-content-center">
-    <button type="button" class="btn btn-primary half-width rounded" (click)="openDialog()">{{'GENERAL.ADD' | translate}}</button>
+    <button type="button" mat-raised-button color="primary" class="btn btn-primary half-width rounded" (click)="openDialog()">{{'GENERAL.ADD' | translate}}</button>
   </div>
   <div class="row" *ngIf="loading">
     <div class="row center-spinner"><md-spinner></md-spinner></div>
   </div>
   <div class="row" *ngIf="!loading">
     <table class="table">
+      <tr>
+        <td colspan="4">
+          <button type="button" class="btn btn-primary rounded float-right" (click)="downloadAll()">{{'TABLES.DOWNLOAD_ALL' | translate}}</button>
+        </td>
+      <tr>
       <tr *ngFor="let table of tables; let i = index">
         <td class="col-9">{{table.name}}</td>
         <td class="col-3">
-          <a class="side-by-side no-a-styling" href="{{downloadQrCode(i)}}" download><mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above">file_download</mat-icon></a>
+          <a class="side-by-side no-a-styling" href="{{downloadQrCode(i)}}" download="{{table.name}}.png"><mat-icon matTooltip="{{'TABLES.DOWNLOAD' | translate}}" matTooltipPosition="above">file_download</mat-icon></a>
           <mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="editDialog(i)">edit</mat-icon>
           <mat-icon matTooltip="{{'GENERAL.DELETE' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(table._id, i)">delete_forever</mat-icon>
         </td>

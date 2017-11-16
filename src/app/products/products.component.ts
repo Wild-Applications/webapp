@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import { MatDialog, MatDialogRef, MatFormFieldModule, MAT_DIALOG_DATA } from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 
 import { ProductService } from '../services/index';
+
+import { ConfirmDeleteDialog } from '../misc/index';
 
 import { Product } from '../models/index';
 
@@ -40,7 +42,9 @@ export class ProductsComponent implements OnInit {
   }
 
   openAddDialog(){
-    let dialogRef = this.dialog.open(AddProductDialog);
+    let dialogRef = this.dialog.open(AddProductDialog, {
+      width: '30%'
+    });
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
         if(typeof result != 'undefined'){
@@ -52,7 +56,7 @@ export class ProductsComponent implements OnInit {
           this.productService.create(newProduct)
             .subscribe(
               data => {
-                newProduct._id = data;
+                newProduct._id = data._id;
                 this.products = [newProduct, ...this.products];
               },
               error => {
@@ -64,12 +68,66 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  openEditDialog(index){
+    let dialogRef = this.dialog.open(AddProductDialog, {
+      width: '30%',
+      data: {
+        product: this.products[index]
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(typeof result != undefined){
+        this.productService.put(result)
+          .subscribe(
+            data => {
+              this.products[index] = result;
+            },
+            error => {
+              alert(error);
+            }
+          )
+      }
+    })
+  }
+
+  deleteConfirmation(index){
+    let dialogRef = this.dialog.open(ConfirmDeleteDialog);
+    dialogRef.afterClosed().subscribe(result =>{
+      if(result){
+        //delete it
+        this.productService.delete(this.products[index]._id)
+          .subscribe(
+            data => {
+              this.products.splice(index, 1);
+            },
+            error => {
+              alert(error);
+            }
+          );
+      }else{
+        //keep it
+      }
+    })
+  }
+
   toggleStockStatus(index){
     this.products[index].in_stock = !this.products[index].in_stock;
     this.productService.put(this.products[index])
       .subscribe((data) => {
-        
+
       }, error => {
+        this.products[index].in_stock = !this.products[index].in_stock;
+        console.log(error);
+      })
+  }
+
+  toggleAgeRestriction(index){
+    this.products[index].age_restricted = !this.products[index].age_restricted;
+    this.productService.put(this.products[index])
+      .subscribe((data) => {
+
+      }, error => {
+        this.products[index].age_restricted = !this.products[index].age_restricted;
         console.log(error);
       })
   }
@@ -81,13 +139,27 @@ export class ProductsComponent implements OnInit {
 
 @Component({
   selector: 'add-product-dialog',
-  templateUrl: './modals/add.modal.html'
+  templateUrl: './modals/add.modal.html',
+  styleUrls: ['./products.scss']
 })
 export class AddProductDialog {
 
   private model: any = {};
+  public update: boolean = false;
 
-  constructor(public dialogRef: MatDialogRef<AddProductDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<AddProductDialog>, private translate: TranslateService,  @Inject(MAT_DIALOG_DATA) public data: any){
+    if(data && data.product){
+      this.update = true;
+      this.model = data.product;
+    }else{
+      this.model.price = 0;
+    }
+  }
+
+  checkPrice(){
+    if(this.model.price < 0){
+      this.model.price = 0;
+    }
   }
 
   close( ) {

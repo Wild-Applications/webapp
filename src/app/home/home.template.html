@@ -5,29 +5,50 @@
       <mat-card>
         <mat-card-header>
           <!--<div mat-card-avatar class=""></div>-->
-          <mat-card-title>Username</mat-card-title>
-          <mat-card-subtitle>Premises Name</mat-card-subtitle>
+          <mat-card-title>{{premises.name}}</mat-card-title>
+          <mat-card-subtitle>{{user.verififed}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
 
         </mat-card-content>
       </mat-card>
-      <!--Settings List-->
-      <!--<div class="col-12 btn-group-vertical side-list">
-        <a [routerLink]="['/home/general']" class="btn btn-outline-secondary" role="button" aria-pressed="true">General <i class="arrow right"></i></a>
-        <a [routerLink]="['/settings/payments']" class="btn btn-outline-secondary" role="button" aria-pressed="true">Payments <i class="arrow right"></i></a>
-        <a [routerLink]="['/settings/password']" class="btn btn-outline-secondary" role="button" aria-pressed="true">Password <i class="arrow right"></i></a>
-      </div>-->
+      <br/>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{'HOME.PREMISES_STATUS' | translate}}</mat-card-title>
+          <mat-card-subtitle *ngIf="!validSetup">Setup Incomplete</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content><mat-slide-toggle [disabled]="!validSetup" [(ngModel)]="premises.open" (change)="changePremisesStatus()" color="primary">{{premises.open ? ('HOME.OPEN' | translate):('HOME.CLOSED' | translate)}}</mat-slide-toggle></mat-card-content>
+      </mat-card>
     </div>
-    <div class="col-6 display-block full-height bg-white">
-      <div class="container">
-        <div class="row order-title">
-            <h3>{{'HOME.DASHBOARD' | translate}}</h3>
-        </div>
-        <div class="row">
-
-        </div>
-      </div>
+    <div class="col-6 display-block full-height ">
+      <mat-card>
+        <mat-card-header>{{'HOME.DASHBOARD' | translate}}</mat-card-header>
+      </mat-card>
+      <br/>
+      <mat-card *ngIf="!validSetup">
+        <mat-card-header>{{'HOME.TODO' | translate}}</mat-card-header>
+        <mat-card-content>
+          <table class="table">
+            <tr *ngIf="!setup.premises">
+              <td class="col-9">Create a premises</td>
+              <td matButton class="col-3 text-align-right"><button>Take me there</button></td>
+            </tr>
+            <tr *ngIf="!setup.payment">
+              <td class="col-9">Setup payments</td>
+              <td class="col-3 text-align-right"><button>Take me there</button></td>
+            </tr>
+            <tr *ngIf="!setup.menu">
+              <td class="col-9">Create a menu</td>
+              <td class="col-3 text-align-right"><button>Take me there</button></td>
+            </tr>
+            <tr *ngIf="!setup.active">
+              <td class="col-9">Make a menu active</td>
+              <td class="col-3 text-align-right"><button>Take me there</button></td>
+            </tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
     </div>
   <div>
 </div>

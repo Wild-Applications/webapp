@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AuthenticationService } from '../services/index';
+import { AuthenticationService, UserService } from '../services/index';
 
 @Component({
   moduleId: module.id,
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   returnUrl: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService ){}
+  constructor(private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private userService: UserService ){}
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';

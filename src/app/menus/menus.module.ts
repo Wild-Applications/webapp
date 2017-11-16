@@ -8,11 +8,11 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { TruncateModule } from 'ng2-truncate';
-import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatTabsModule, MatListModule } from '@angular/material';
 
 import { HttpService } from '../services/index';
 
-import { MenusComponent, AddMenuDialog, MenuComponent, SectionDialog, AddProductDialog} from './index';
+import { MenusComponent, MenuDialog, MenuComponent, SectionDialog, AddDialog} from './index';
 
 import { PipesModule } from '../pipes/index';
 
@@ -29,10 +29,10 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
 @NgModule({
   declarations: [
     MenusComponent,
-    AddMenuDialog,
+    MenuDialog,
     MenuComponent,
     SectionDialog,
-    AddProductDialog
+    AddDialog
   ],
   imports: [
     BrowserModule,
@@ -52,10 +52,15 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     TruncateModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatListModule
   ],
   providers: [
   ],
-  entryComponents: [ AddMenuDialog, SectionDialog, AddProductDialog ]
+  entryComponents: [ MenuDialog, SectionDialog, AddDialog ]
 })
 export class MenusModule { }

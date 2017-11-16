@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { HttpModule, Http, RequestOptions, XHRBackend } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { TruncateModule } from 'ng2-truncate';
-import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 
 import { HttpService } from '../services/index';
 
@@ -33,6 +33,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule,
     NgbModule.forRoot(),
@@ -48,7 +49,9 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     PipesModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
   ],

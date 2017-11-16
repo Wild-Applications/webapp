@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://192.168.99.100:31126'
+  //apiUrl: 'http://192.168.99.100:31126'
+  apiUrl: 'https://api.wildapplications.com'
 };

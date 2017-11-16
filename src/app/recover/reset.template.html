@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" *ngIf="!recoveryEmailSent">
+      <h2>{{'RECOVER.RESET_PASSWORD' | translate}}</h2>
+      <span>{{'RECOVER.RESET_DESCRIPTION' | translate}}</span>
+        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && reset()" novalidate>
+          <mat-form-field class="full-width" floatPlaceholder="never">
+            <input matInput placeholder="{{'RECOVER.PASSWORD' | translate}}" [formControl]="password" required type="password">
+            <mat-error *ngIf="confirmation.invalid">{{getPasswordErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width" floatPlaceholder="never">
+            <input matInput placeholder="{{'RECOVER.PASSWORD_CONFIRMATION' | translate}}" [formControl]="confirmation" required type="password">
+            <mat-error *ngIf="confirmation.invalid">{{getConfirmationErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <button mat-raised-button [disabled]="loading || password.invalid || confirmation.invalid" class="btn btn-primary float-right">{{'RECOVER.SUBMIT' | translate}}</button>
+      </form>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" *ngIf="recoveryEmailSent">
+      <h2>{{'RECOVER.RECOVER' | translate}}</h2>
+      <span>{{'RECOVER.SENT' | translate}}</span>
+    </div>
+  </div>
+</div>

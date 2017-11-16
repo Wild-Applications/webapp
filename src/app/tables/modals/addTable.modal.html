@@ -1,10 +1,12 @@
-<h1 md-dialog-title *ngIf="!toEdit">{{'TABLES.ADD' | translate}}</h1>
-<h1 md-dialog-title *ngIf="toEdit">{{'TABLES.EDIT' | translate}}</h1>
+<h3 md-dialog-title *ngIf="!toEdit">{{'TABLES.ADD' | translate}}</h3>
+<h3 md-dialog-title *ngIf="toEdit">{{'TABLES.EDIT' | translate}}</h3>
 <div md-dialog-content>
-  <input md-input placeholder="Name" type="text" [(ngModel)]="newTableName" required>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Name" type="text" [(ngModel)]="newTableName" required #name="ngModel">
+  </mat-form-field>
 </div>
-<div md-dialog-actions>
-    <button md-button type="button" class="btn btn-default" (click)="close()">{{'GENERAL.CANCEL' | translate}}</button>
-    <button md-button type="button" class="btn btn-default" *ngIf="!toEdit" (click)="submit()">{{'GENERAL.ADD' | translate}}</button>
-    <button md-button type="button" class="btn btn-default" *ngIf="toEdit" (click)="submit()">{{'GENERAL.SAVE' | translate}}</button>
+<div md-dialog-actions class="text-align-right">
+    <button mat-button type="button" class="btn btn-default" (click)="close()">{{'GENERAL.CANCEL' | translate}}</button>
+    <button mat-raised-button type="button" color="primary" *ngIf="!toEdit" [disabled]="name.invalid" (click)="submit()">{{'GENERAL.ADD' | translate}}</button>
+    <button mat-raised-button type="button" color="primary" *ngIf="toEdit" [disabled]="name.invalid" (click)="submit()">{{'GENERAL.SAVE' | translate}}</button>
 </div>

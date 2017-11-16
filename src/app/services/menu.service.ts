@@ -42,6 +42,13 @@ export class MenuService {
       })
   }
 
+  putContents(menu: Menu){
+    return this.http.put(this.baseUrl + '/contents/' + menu._id, {contents: menu.contents}, this.jwt() )
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
+
   create(menu: Menu){
     return this.http.post(this.baseUrl, menu, this.jwt())
       .map((response: Response) => {

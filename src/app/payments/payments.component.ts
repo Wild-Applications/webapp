@@ -27,14 +27,14 @@ export class PaymentsComponent implements OnInit {
 
   ngOnInit() {
     this.params = this.route.queryParams.subscribe((params: Params) => {
-       if(typeof params['state'] != 'undefined'){
+       if(typeof params['code'] != 'undefined'){
          if(typeof params['error'] != 'undefined'){
            //something went wrong when the user was connecting their stripe account
            console.log(params['error_description']);
          }else{
            //no error, was this a redirect from stripe or was it a simple navigation from within our app?
 
-           if(typeof params['scope'] != 'undefined' && typeof params['code'] != 'undefined' && typeof params['state'] != 'undefined'){
+           if(typeof params['code'] != 'undefined' && typeof params['state'] != 'undefined'){
              //this was a redirect
              this.connected = true;
              if(this.paymentsService.verifyState(params['state'])){

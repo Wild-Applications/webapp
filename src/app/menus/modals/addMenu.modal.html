@@ -1,0 +1,12 @@
+<h3 md-dialog-title [hidden]="update">{{'MENUS.ADD_MENU' | translate}}</h3>
+<h3 md-dialog-title [hidden]="!update">{{'MENUS.EDIT_MENU' | translate}}</h3>
+<div md-dialog-content>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Name" type="text" [(ngModel)]="model.name" required maxlength="100" #name="ngModel">
+  </mat-form-field>
+</div>
+<div md-dialog-actions class="text-align-right">
+    <button mat-button type="button" class="btn btn-default" (click)="close()">{{'GENERAL.CANCEL' | translate}}</button>
+    <button mat-raised-button color="primary" [hidden]="update" type="button" class="btn btn-default" (click)="submit()" [disabled]="name.invalid">{{'GENERAL.ADD' | translate}}</button>
+    <button mat-raised-button color="primary" [hidden]="!update" type="button" class="btn btn-default" (click)="submit()" [disabled]="name.invalid">{{'GENERAL.SAVE' | translate}}</button>
+</div>

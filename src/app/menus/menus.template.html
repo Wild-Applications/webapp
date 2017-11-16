@@ -24,8 +24,8 @@
             <button type="button" *ngIf="menu.active" class="btn btn-outline-primary rounded" disabled>Active</button>
           </td>
           <td class="col-2">
-            <mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="side-by-side">edit</mat-icon>
-            <mat-icon matTooltip="{{'GENERAL.DELETE' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(menu._id, i)">delete_forever</mat-icon>
+            <mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="editMenu(i, $event)">edit</mat-icon>
+            <mat-icon matTooltip="{{'GENERAL.DELETE' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(i, $event)">delete_forever</mat-icon>
           </td>
         </ng-container>
         <td class="align-center" colspan="4" *ngIf="menu == -1">{{'SEARCH.NO_MATCHES'}}</td>

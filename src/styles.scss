@@ -76,6 +76,13 @@ router-outlet.root + ng-component {
   margin-top: 0px;
 }
 
+.no-scroll{
+  overflow-y: none;
+}
+
+.vertical-align-top {
+  vertical-align: top;
+}
 
 //SIDE MENU STUFF
 
@@ -184,4 +191,111 @@ div.center-spinner{
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+.text-align-center{
+  text-align: center;
+}
+
+.no-outline{
+  outline: none;
+}
+
+.no-outline:focus{
+  outline: none;
+}
+
+mat-spinner.inline-input{
+  width: 50px !important;
+  height: 50px !important;
+  margin-bottom: -15px;
+  margin-right: -15px;
+}
+
+mat-spinner.inline-input>svg{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+@media only screen {
+  div.menu-add-product-dialog{
+    width: 95%;
+  }
+} /* Define mobile styles */
+
+@media only screen and (max-width: 40em) {
+
+} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+// Medium screens
+@media only screen and (min-width: 40.063em) {
+  div.menu-add-product-dialog{
+    width: 90%;
+  }
+} /* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  div.menu-add-product-dialog{
+    width: 90%;
+  }
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+// Large screens
+@media only screen and (min-width: 64.063em) {
+  div.menu-add-product-dialog{
+    width: 60%;
+  }
+} /* min-width 1025px, large screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  div.menu-add-product-dialog{
+    width: 60%;
+  }
+} /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+// XLarge screens
+@media only screen and (min-width: 90.063em) {
+  div.menu-add-product-dialog{
+    width: 50%;
+  }
+} /* min-width 1441px, xlarge screens */
+
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {
+  div.menu-add-product-dialog{
+    width: 50%;
+  }
+} /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+
+// XXLarge screens
+@media only screen and (min-width: 120.063em) {
+  div.menu-add-product-dialog{
+    width: 50%;
+  }
+} /* min-width 1921px, xxlarge screens */
+
+mat-selection-list{
+  &.hide-select-boxes{
+    mat-list-option{
+      div{
+        mat-pseudo-checkbox{
+          display: none;
+        }
+      }
+    }
+
+    &.align-text-right{
+      mat-list-option{
+        div{
+          div.mat-list-text{
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
 }

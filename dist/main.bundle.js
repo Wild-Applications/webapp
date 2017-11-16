@@ -54,7 +54,7 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.template.html"),
         styles: [__webpack_require__("../../../../../src/app/app.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* AuthenticationService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* AuthenticationService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _c || Object])
 ], AppComponent);
 
 var _a, _b, _c;
@@ -94,10 +94,11 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__payments_index__ = __webpack_require__("../../../../../src/app/payments/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__register_index__ = __webpack_require__("../../../../../src/app/register/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__onboarding_index__ = __webpack_require__("../../../../../src/app/onboarding/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__guards_index__ = __webpack_require__("../../../../../src/app/guards/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pipes_index__ = __webpack_require__("../../../../../src/app/pipes/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__recover_index__ = __webpack_require__("../../../../../src/app/recover/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__guards_index__ = __webpack_require__("../../../../../src/app/guards/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pipes_index__ = __webpack_require__("../../../../../src/app/pipes/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 /* unused harmony export HttpLoaderFactory */
 /* unused harmony export HttpInterceptorFactory */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
@@ -137,11 +138,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 function HttpLoaderFactory(http) {
     return new __WEBPACK_IMPORTED_MODULE_6__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
 }
 function HttpInterceptorFactory(backend, options, router, injector) {
-    return new __WEBPACK_IMPORTED_MODULE_26__services_index__["a" /* HttpService */](backend, options, router, injector);
+    return new __WEBPACK_IMPORTED_MODULE_27__services_index__["a" /* HttpService */](backend, options, router, injector);
 }
 var AppModule = (function () {
     function AppModule() {
@@ -157,13 +159,14 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_15__home_index__["a" /* HomeComponent */],
             __WEBPACK_IMPORTED_MODULE_16__misc_index__["a" /* PageNotFoundComponent */],
             __WEBPACK_IMPORTED_MODULE_16__misc_index__["b" /* ConfirmDeleteDialog */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["b" /* ErrorDialog */]
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["b" /* ErrorDialog */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["ReactiveFormsModule"],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_29__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_30__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_13__app_routing__["a" /* routing */],
             __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClientModule */],
             __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["a" /* TranslateModule */].forRoot({
@@ -179,33 +182,42 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_19__tables_index__["a" /* TablesModule */],
             __WEBPACK_IMPORTED_MODULE_20__menus_index__["a" /* MenusModule */],
             __WEBPACK_IMPORTED_MODULE_21__products_index__["a" /* ProductsModule */],
-            __WEBPACK_IMPORTED_MODULE_28__pipes_index__["a" /* PipesModule */],
+            __WEBPACK_IMPORTED_MODULE_29__pipes_index__["a" /* PipesModule */],
             __WEBPACK_IMPORTED_MODULE_22__orders_index__["a" /* OrdersModule */],
             __WEBPACK_IMPORTED_MODULE_24__register_index__["a" /* RegisterModule */],
             __WEBPACK_IMPORTED_MODULE_25__onboarding_index__["a" /* OnboardingModule */],
+            __WEBPACK_IMPORTED_MODULE_26__recover_index__["a" /* RecoverModule */],
             __WEBPACK_IMPORTED_MODULE_23__payments_index__["a" /* PaymentsModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["a" /* MatCardModule */]
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["a" /* MatCardModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["b" /* MatSnackBarModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["c" /* MatButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["d" /* MatSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatFormFieldModule */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["c" /* AuthenticationService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["c" /* AuthenticationService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["d" /* LoadHandler */],
             {
                 provide: __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
                 useFactory: HttpInterceptorFactory,
                 deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* XHRBackend */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */], __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["Injector"]]
             },
-            __WEBPACK_IMPORTED_MODULE_27__guards_index__["a" /* AuthGuard */],
-            __WEBPACK_IMPORTED_MODULE_27__guards_index__["b" /* IsLoggedInGuard */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["d" /* UserService */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["e" /* PremisesService */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["f" /* TableService */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["g" /* MenuService */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["h" /* CacheService */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["i" /* ProductService */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["j" /* OrderService */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["k" /* PaymentsService */],
-            __WEBPACK_IMPORTED_MODULE_26__services_index__["l" /* ErrorHandler */]
+            { provide: __WEBPACK_IMPORTED_MODULE_9__angular_material__["f" /* MAT_DATE_LOCALE */], useValue: 'en-GB' },
+            { provide: __WEBPACK_IMPORTED_MODULE_9__angular_material__["g" /* ErrorStateMatcher */], useClass: __WEBPACK_IMPORTED_MODULE_9__angular_material__["h" /* ShowOnDirtyErrorStateMatcher */] },
+            __WEBPACK_IMPORTED_MODULE_28__guards_index__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_28__guards_index__["b" /* IsLoggedInGuard */],
+            __WEBPACK_IMPORTED_MODULE_28__guards_index__["c" /* NotAuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["e" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["f" /* PremisesService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["g" /* TableService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["h" /* MenuService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["i" /* CacheService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["j" /* ProductService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["k" /* OrderService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["l" /* PaymentsService */],
+            __WEBPACK_IMPORTED_MODULE_27__services_index__["m" /* ErrorHandler */]
         ],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_16__misc_index__["b" /* ConfirmDeleteDialog */], __WEBPACK_IMPORTED_MODULE_26__services_index__["b" /* ErrorDialog */]],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_16__misc_index__["b" /* ConfirmDeleteDialog */], __WEBPACK_IMPORTED_MODULE_27__services_index__["b" /* ErrorDialog */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -226,7 +238,8 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__orders_index__ = __webpack_require__("../../../../../src/app/orders/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__register_index__ = __webpack_require__("../../../../../src/app/register/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__onboarding_index__ = __webpack_require__("../../../../../src/app/onboarding/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__misc_index__ = __webpack_require__("../../../../../src/app/misc/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__recover_index__ = __webpack_require__("../../../../../src/app/recover/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__misc_index__ = __webpack_require__("../../../../../src/app/misc/index.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
 
 
@@ -237,10 +250,11 @@ AppModule = __decorate([
 
 
 
-var appRoutes = __WEBPACK_IMPORTED_MODULE_1__login_index__["c" /* LoginRoutes */].concat(__WEBPACK_IMPORTED_MODULE_2__home_index__["b" /* HomeRoutes */], __WEBPACK_IMPORTED_MODULE_3__manage_index__["e" /* ManageRoutes */], __WEBPACK_IMPORTED_MODULE_4__settings_index__["e" /* SettingsRoutes */], __WEBPACK_IMPORTED_MODULE_5__orders_index__["e" /* OrderRoutes */], __WEBPACK_IMPORTED_MODULE_6__register_index__["c" /* RegisterRoutes */], __WEBPACK_IMPORTED_MODULE_7__onboarding_index__["e" /* OnboardingRoutes */], [
+
+var appRoutes = __WEBPACK_IMPORTED_MODULE_1__login_index__["c" /* LoginRoutes */].concat(__WEBPACK_IMPORTED_MODULE_2__home_index__["b" /* HomeRoutes */], __WEBPACK_IMPORTED_MODULE_3__manage_index__["e" /* ManageRoutes */], __WEBPACK_IMPORTED_MODULE_4__settings_index__["e" /* SettingsRoutes */], __WEBPACK_IMPORTED_MODULE_5__orders_index__["e" /* OrderRoutes */], __WEBPACK_IMPORTED_MODULE_6__register_index__["c" /* RegisterRoutes */], __WEBPACK_IMPORTED_MODULE_7__onboarding_index__["e" /* OnboardingRoutes */], __WEBPACK_IMPORTED_MODULE_8__recover_index__["d" /* RecoverRoutes */], [
     // otherwise redirect to home or page not found
-    { path: '', pathMatch: 'full', redirectTo: 'login' },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_8__misc_index__["a" /* PageNotFoundComponent */] }
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_9__misc_index__["a" /* PageNotFoundComponent */] }
 ]);
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map
@@ -268,7 +282,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg fixed-top navbar-light bg-faded\">\n  <a class=\"navbar-brand\" [routerLink]=\"['/home']\">{{'APP.NAME' | translate}}</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">\n    <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">\n      <li class=\"nav-item\" [hidden]=\"!authenticationService.isLoggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/manage']\">{{'NAV.MANAGE' | translate}}</a>\n      </li>\n      <li class=\"nav-item\" [hidden]=\"!authenticationService.isLoggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/orders']\">{{'NAV.ORDERS' | translate}}</a>\n      </li>\n    </ul>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\" [hidden]=\"authenticationService.isLoggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/login']\">{{'NAV.LOGIN' | translate}}</a>\n      </li>\n      <li class=\"nav-item dropdown\" [hidden]=\"!authenticationService.isLoggedIn()\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n          {{username}}\n        </a>\n        <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\">\n          <a class=\"dropdown-item\" [routerLink]=\"['/logout']\">{{'NAV.LOGOUT' | translate}}</a>\n          <a class=\"dropdown-item\" [routerLink]=\"['/settings']\">{{'NAV.SETTINGS' | translate}}</a>\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n\n<router-outlet class=\"root\"></router-outlet>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg fixed-top navbar-light bg-faded\">\n  <a class=\"navbar-brand\" [routerLink]=\"['/home']\">{{'APP.NAME' | translate}}</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">\n    <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">\n      <li class=\"nav-item\" [hidden]=\"!authenticationService.isLoggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/home']\">{{'NAV.DASHBOARD' | translate}}</a>\n      </li>\n      <li class=\"nav-item\" [hidden]=\"!authenticationService.isLoggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/manage']\">{{'NAV.MANAGE' | translate}}</a>\n      </li>\n      <li class=\"nav-item\" [hidden]=\"!authenticationService.isLoggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/orders']\">{{'NAV.ORDERS' | translate}}</a>\n      </li>\n    </ul>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\" [hidden]=\"authenticationService.isLoggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/login']\">{{'NAV.LOGIN' | translate}}</a>\n      </li>\n      <li class=\"nav-item dropdown\" [hidden]=\"!authenticationService.isLoggedIn()\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n          {{username}}\n        </a>\n        <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\">\n          <a class=\"dropdown-item\" [routerLink]=\"['/logout']\">{{'NAV.LOGOUT' | translate}}</a>\n          <a class=\"dropdown-item\" [routerLink]=\"['/settings']\">{{'NAV.SETTINGS' | translate}}</a>\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n\n<router-outlet class=\"root\"></router-outlet>\n"
 
 /***/ }),
 
@@ -279,6 +293,7 @@ module.exports = "<nav class=\"navbar navbar-expand-lg fixed-top navbar-light bg
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return NotAuthGuard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return IsLoggedInGuard; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -309,6 +324,24 @@ AuthGuard = __decorate([
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
 ], AuthGuard);
 
+var NotAuthGuard = (function () {
+    function NotAuthGuard(router) {
+        this.router = router;
+    }
+    NotAuthGuard.prototype.canActivate = function (router, state) {
+        if (localStorage.getItem('currentUser')) {
+            this.router.navigate(['/home']);
+            return false;
+        }
+        return true;
+    };
+    return NotAuthGuard;
+}());
+NotAuthGuard = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], NotAuthGuard);
+
 var IsLoggedInGuard = (function () {
     function IsLoggedInGuard(router) {
         this.router = router;
@@ -324,10 +357,10 @@ var IsLoggedInGuard = (function () {
 }());
 IsLoggedInGuard = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _c || Object])
 ], IsLoggedInGuard);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=auth.guard.js.map
 
 /***/ }),
@@ -339,6 +372,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__auth_guard__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__auth_guard__["b"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__auth_guard__["c"]; });
 
 //# sourceMappingURL=index.js.map
 
@@ -365,17 +399,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomeComponent = (function () {
-    function HomeComponent(route, router, userService, errorHandler) {
+    function HomeComponent(route, router, userService, errorHandler, premisesService) {
         this.route = route;
         this.router = router;
         this.userService = userService;
         this.errorHandler = errorHandler;
+        this.premisesService = premisesService;
+        this.setup = {};
+        this.validSetup = false;
+        this.premises = {};
+        this.user = {};
     }
     HomeComponent.prototype.ngOnInit = function () {
-        this.userService.get()
+        var _this = this;
+        this.userService.userChange.subscribe(function (user) {
+            _this.user = user;
+        });
+        this.userService.setupVerification()
             .subscribe(function (data) {
+            _this.setup = data;
+            if (data.premises && data.payment && data.menu && data.active) {
+                _this.validSetup = true;
+            }
         }, function (error) {
         });
+        this.premisesService.get()
+            .subscribe(function (data) {
+            _this.premises = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    HomeComponent.prototype.changePremisesStatus = function () {
+        var _this = this;
+        //this.premises.open = !this.premises.open;
+        if (this.premises.open) {
+            //previously it was closes, now we want to open it
+            this.premisesService.open()
+                .subscribe(function (data) {
+                //do nothing
+            }, function (error) {
+                _this.premises.open = !_this.premises.open;
+                console.log(error);
+            });
+        }
+        else {
+            //close it
+            this.premisesService.close()
+                .subscribe(function (data) {
+                //do nothing
+            }, function (error) {
+                _this.premises.open = !_this.premises.open;
+                console.log(error);
+            });
+        }
     };
     return HomeComponent;
 }());
@@ -383,10 +460,10 @@ HomeComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         template: __webpack_require__("../../../../../src/app/home/home.template.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["l" /* ErrorHandler */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["l" /* ErrorHandler */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["m" /* ErrorHandler */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["m" /* ErrorHandler */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["f" /* PremisesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["f" /* PremisesService */]) === "function" && _e || Object])
 ], HomeComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=home.component.js.map
 
 /***/ }),
@@ -410,7 +487,7 @@ var HomeRoutes = [
 /***/ "../../../../../src/app/home/home.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row full-height\">\n    <div class=\"col-3 display-block full-height\">\n      <!-- User Header-->\n      <mat-card>\n        <mat-card-header>\n          <!--<div mat-card-avatar class=\"\"></div>-->\n          <mat-card-title>Username</mat-card-title>\n          <mat-card-subtitle>Premises Name</mat-card-subtitle>\n        </mat-card-header>\n        <mat-card-content>\n\n        </mat-card-content>\n      </mat-card>\n      <!--Settings List-->\n      <!--<div class=\"col-12 btn-group-vertical side-list\">\n        <a [routerLink]=\"['/home/general']\" class=\"btn btn-outline-secondary\" role=\"button\" aria-pressed=\"true\">General <i class=\"arrow right\"></i></a>\n        <a [routerLink]=\"['/settings/payments']\" class=\"btn btn-outline-secondary\" role=\"button\" aria-pressed=\"true\">Payments <i class=\"arrow right\"></i></a>\n        <a [routerLink]=\"['/settings/password']\" class=\"btn btn-outline-secondary\" role=\"button\" aria-pressed=\"true\">Password <i class=\"arrow right\"></i></a>\n      </div>-->\n    </div>\n    <div class=\"col-6 display-block full-height bg-white\">\n      <div class=\"container\">\n        <div class=\"row order-title\">\n            <h3>{{'HOME.DASHBOARD' | translate}}</h3>\n        </div>\n        <div class=\"row\">\n\n        </div>\n      </div>\n    </div>\n  <div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row full-height\">\n    <div class=\"col-3 display-block full-height\">\n      <!-- User Header-->\n      <mat-card>\n        <mat-card-header>\n          <!--<div mat-card-avatar class=\"\"></div>-->\n          <mat-card-title>{{premises.name}}</mat-card-title>\n          <mat-card-subtitle>{{user.verififed}}</mat-card-subtitle>\n        </mat-card-header>\n        <mat-card-content>\n\n        </mat-card-content>\n      </mat-card>\n      <br/>\n      <mat-card>\n        <mat-card-header>\n          <mat-card-title>{{'HOME.PREMISES_STATUS' | translate}}</mat-card-title>\n          <mat-card-subtitle *ngIf=\"!validSetup\">Setup Incomplete</mat-card-subtitle>\n        </mat-card-header>\n        <mat-card-content><mat-slide-toggle [disabled]=\"!validSetup\" [(ngModel)]=\"premises.open\" (change)=\"changePremisesStatus()\" color=\"primary\">{{premises.open ? ('HOME.OPEN' | translate):('HOME.CLOSED' | translate)}}</mat-slide-toggle></mat-card-content>\n      </mat-card>\n    </div>\n    <div class=\"col-6 display-block full-height \">\n      <mat-card>\n        <mat-card-header>{{'HOME.DASHBOARD' | translate}}</mat-card-header>\n      </mat-card>\n      <br/>\n      <mat-card *ngIf=\"!validSetup\">\n        <mat-card-header>{{'HOME.TODO' | translate}}</mat-card-header>\n        <mat-card-content>\n          <table class=\"table\">\n            <tr *ngIf=\"!setup.premises\">\n              <td class=\"col-9\">Create a premises</td>\n              <td matButton class=\"col-3 text-align-right\"><button>Take me there</button></td>\n            </tr>\n            <tr *ngIf=\"!setup.payment\">\n              <td class=\"col-9\">Setup payments</td>\n              <td class=\"col-3 text-align-right\"><button>Take me there</button></td>\n            </tr>\n            <tr *ngIf=\"!setup.menu\">\n              <td class=\"col-9\">Create a menu</td>\n              <td class=\"col-3 text-align-right\"><button>Take me there</button></td>\n            </tr>\n            <tr *ngIf=\"!setup.active\">\n              <td class=\"col-9\">Make a menu active</td>\n              <td class=\"col-3 text-align-right\"><button>Take me there</button></td>\n            </tr>\n          </table>\n        </mat-card-content>\n      </mat-card>\n    </div>\n  <div>\n</div>\n"
 
 /***/ }),
 
@@ -466,10 +543,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var LoginComponent = (function () {
-    function LoginComponent(route, router, authenticationService) {
+    function LoginComponent(route, router, authenticationService, userService) {
         this.route = route;
         this.router = router;
         this.authenticationService = authenticationService;
+        this.userService = userService;
         this.model = {};
         this.loading = false;
     }
@@ -496,10 +574,10 @@ LoginComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         template: __webpack_require__("../../../../../src/app/login/login.template.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* AuthenticationService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* AuthenticationService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _d || Object])
 ], LoginComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=login.component.js.map
 
 /***/ }),
@@ -509,10 +587,12 @@ var _a, _b, _c;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __webpack_require__("../../../../../src/app/login/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__guards_index__ = __webpack_require__("../../../../../src/app/guards/index.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginRoutes; });
 
+
 var LoginRoutes = [
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_0__index__["a" /* LoginComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_0__index__["a" /* LoginComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_1__guards_index__["c" /* NotAuthGuard */]] },
     { path: 'logout', component: __WEBPACK_IMPORTED_MODULE_0__index__["b" /* LogoutComponent */] }
 ];
 //# sourceMappingURL=login.routes.js.map
@@ -609,7 +689,7 @@ ManageHoursComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/manage/children/hours.template.html"),
         styles: [__webpack_require__("../../../../../src/app/manage/manage.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _c || Object])
 ], ManageHoursComponent);
 
 var _a, _b, _c;
@@ -693,7 +773,7 @@ ManagePremisesComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/manage/children/premises.template.html"),
         styles: [__webpack_require__("../../../../../src/app/manage/manage.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* PremisesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* PremisesService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["f" /* PremisesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["f" /* PremisesService */]) === "function" && _d || Object])
 ], ManagePremisesComponent);
 
 var _a, _b, _c, _d;
@@ -704,7 +784,7 @@ var _a, _b, _c, _d;
 /***/ "../../../../../src/app/manage/children/premises.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <h3>{{'MANAGE.GENERAL' | translate}}</h3>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row align-items-center\" *ngIf=\"!loading\">\n    <form name=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && saveChanges()\" novalidate class=\"col-12\">\n      <div class=\"form-group col-lg-12 col-md-12 col-sm-12 col-xs-12\" [ngClass]=\"{'has-error':f.submitted && !name.valid }\">\n        <div class=\"row\">\n          <div class=\"col-lg-3 col-md-3 col-sm-12 col-xs-12\">\n            <label for=\"name\">{{'MANAGE.NAME' | translate}}</label>\n          </div>\n          <div class=\"col-lg-6\">\n            <input type=\"text\" class=\"form-control\" name=\"name\" [(ngModel)]=\"model.name\" #name=\"ngModel\" required />\n          </div>\n        </div>\n        <div *ngIf=\"f.submitted && !name.valid\" class=\"help-block\">{{'MANAGE.NAME_REQUIRED' | translate}}</div>\n      </div>\n\n      <div class=\"form-group col-12\" [ngClass]=\"{'has-error':f.submitted && !description.valid }\">\n        <div class=\"row\">\n          <div class=\"col-lg-3 col-md-3 col-sm-12 col-xs-12\">\n            <label for=\"description\">{{'MANAGE.DESCRIPTION' | translate}}</label>\n          </div>\n          <div class=\"col-lg-9 col-md-9 col-sm-12 col-xs-12\">\n            <textarea type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"model.description\" #description=\"ngModel\" maxlength=\"255\"></textarea>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"row\">\n          <div class=\"col-lg-3\"></div>\n          <div class=\"col-lg-9\">\n            <button [disabled]=\"loading\" class=\"btn btn-primary rounded\">{{'GENERAL.SAVE_CHANGES' | translate}}</button>\n          </div>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <h3>{{'MANAGE.GENERAL' | translate}}</h3>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row align-items-center\" *ngIf=\"!loading\">\n    <form name=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && saveChanges()\" novalidate class=\"col-12\">\n      <div class=\"form-group col-lg-12 col-md-12 col-sm-12 col-xs-12\" [ngClass]=\"{'has-error':f.submitted && !name.valid }\">\n        <div class=\"row\">\n          <div class=\"col-lg-3 col-md-3 col-sm-12 col-xs-12\">\n            <label for=\"name\">{{'MANAGE.NAME' | translate}}</label>\n          </div>\n          <div class=\"col-lg-6\">\n            <mat-form-field class=\"full-width\">\n              <input type=\"text\" matInput class=\"form-control\" name=\"name\" [(ngModel)]=\"model.name\" #name=\"ngModel\" required />\n            </mat-form-field>\n          </div>\n        </div>\n        <div *ngIf=\"f.submitted && !name.valid\" class=\"help-block\">{{'MANAGE.NAME_REQUIRED' | translate}}</div>\n      </div>\n\n      <div class=\"form-group col-12\" [ngClass]=\"{'has-error':f.submitted && !description.valid }\">\n        <div class=\"row\">\n          <div class=\"col-lg-3 col-md-3 col-sm-12 col-xs-12\">\n            <label for=\"description\">{{'MANAGE.DESCRIPTION' | translate}}</label>\n          </div>\n          <div class=\"col-lg-9 col-md-9 col-sm-12 col-xs-12\">\n            <mat-form-field class=\"full-width\">\n              <textarea matInput type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"model.description\" #description=\"ngModel\" maxlength=\"255\"></textarea>\n            </mat-form-field>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"row\">\n          <div class=\"col-lg-3\"></div>\n          <div class=\"col-lg-9\">\n            <button [disabled]=\"loading || name.invalid || description.invalid\" class=\"btn btn-primary rounded\">{{'GENERAL.SAVE_CHANGES' | translate}}</button>\n          </div>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -767,7 +847,7 @@ ManageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/manage/manage.template.html"),
         styles: [__webpack_require__("../../../../../src/app/manage/manage.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _c || Object])
 ], ManageComponent);
 
 var _a, _b, _c;
@@ -832,7 +912,7 @@ ManageModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_11__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -844,9 +924,11 @@ ManageModule = __decorate([
                     deps: [__WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClient */]]
                 }
             }),
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MatProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["f" /* MatTooltipModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["d" /* MatIconModule */]
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["m" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["n" /* MatTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["o" /* MatInputModule */]
         ],
         providers: []
     })
@@ -947,10 +1029,12 @@ module.exports = "<div class=\"container\">\n  <div class=\"row full-height\">\n
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__misc_index__ = __webpack_require__("../../../../../src/app/misc/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_index__ = __webpack_require__("../../../../../src/app/models/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__products_index__ = __webpack_require__("../../../../../src/app/products/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SectionDialog; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AddProductDialog; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AddDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -965,6 +1049,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 //import { TruncateModule } from 'ng2-truncate';
+
+
 
 
 var MenuComponent = (function () {
@@ -1022,15 +1108,7 @@ var MenuComponent = (function () {
         dialogRef.afterClosed().subscribe(function (result) {
             if (typeof result != 'undefined') {
                 _this.menu.contents[_this.menu.contents.length] = { title: result.name, products: [] };
-                _this.menuService.put(_this.menu)
-                    .subscribe(function (data) {
-                }, function (error) {
-                    alert(error);
-                });
-                /*let newSection: any = {};
-                newSection.title = result;
-                newSection.products = [];
-                this.contents[this.contents.length] = newSection;*/
+                _this.saveMenu();
             }
         });
     };
@@ -1047,11 +1125,14 @@ var MenuComponent = (function () {
     };
     MenuComponent.prototype.deleteSection = function (sectionIndex) {
         var _this = this;
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__misc_index__["b" /* ConfirmDeleteDialog */]);
-        dialogRef.componentInstance.element = "section " + this.contents[sectionIndex].title;
+        console.log(this.contents);
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__misc_index__["b" /* ConfirmDeleteDialog */], {
+            data: { params: { type: "section", name: this.menu.contents[sectionIndex].title } }
+        });
         dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
                 _this.contents.splice(sectionIndex, 1);
+                _this.saveMenu();
             }
             else {
                 //keep it
@@ -1064,12 +1145,16 @@ var MenuComponent = (function () {
     };
     MenuComponent.prototype.addProductDialog = function (sectionIndex) {
         var _this = this;
-        var dialogRef = this.dialog.open(AddProductDialog);
+        var dialogRef = this.dialog.open(AddDialog, {
+            //width: '50%',
+            panelClass: 'menu-add-product-dialog'
+        });
         dialogRef.componentInstance.available = this.filterProducts(this.menu.contents[sectionIndex]);
         dialogRef.componentInstance.chosen = this.menu.contents[sectionIndex].products.slice(0);
         dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-                _this.menu.contents[sectionIndex].products = result;
+                _this.menu.contents[sectionIndex].products = result.products;
+                _this.availableProducts = _this.availableProducts.concat(result.newProducts);
                 _this.saveMenu();
             }
         });
@@ -1086,7 +1171,7 @@ var MenuComponent = (function () {
         });
     };
     MenuComponent.prototype.saveMenu = function () {
-        this.menuService.put(this.menu)
+        this.menuService.putContents(this.menu)
             .subscribe(function (data) {
         }, function (error) {
             alert(error);
@@ -1099,7 +1184,7 @@ MenuComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/menus/menu.template.html"),
         styles: [__webpack_require__("../../../../../src/app/menus/menus.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_index__["g" /* MenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_index__["g" /* MenuService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__services_index__["h" /* CacheService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_index__["h" /* CacheService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_index__["i" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_index__["i" /* ProductService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__services_index__["h" /* MenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_index__["h" /* MenuService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__services_index__["i" /* CacheService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_index__["i" /* CacheService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__services_index__["j" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_index__["j" /* ProductService */]) === "function" && _f || Object])
 ], MenuComponent);
 
 var SectionDialog = (function () {
@@ -1107,9 +1192,11 @@ var SectionDialog = (function () {
         this.dialogRef = dialogRef;
         this.translate = translate;
         this.model = {};
+        this.editing = false;
     }
     SectionDialog.prototype.ngOnInit = function () {
         if (typeof this.toEdit != 'undefined') {
+            this.editing = true;
             this.model.name = this.toEdit;
         }
     };
@@ -1126,15 +1213,18 @@ SectionDialog = __decorate([
         selector: 'add-section-dialog',
         template: __webpack_require__("../../../../../src/app/menus/modals/add.modal.html")
     }),
-    __metadata("design:paramtypes", [typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _h || Object])
 ], SectionDialog);
 
-var AddProductDialog = (function () {
-    function AddProductDialog(dialogRef, translate) {
+var AddDialog = (function () {
+    function AddDialog(dialogRef, translate, dialog, productService) {
         this.dialogRef = dialogRef;
         this.translate = translate;
+        this.dialog = dialog;
+        this.productService = productService;
+        this.new = [];
     }
-    AddProductDialog.prototype.ngOnInit = function () {
+    AddDialog.prototype.ngOnInit = function () {
         if (typeof this.available == 'undefined') {
             this.available = [];
         }
@@ -1142,36 +1232,54 @@ var AddProductDialog = (function () {
             this.chosen = [];
         }
     };
-    AddProductDialog.prototype.chooseProduct = function (index) {
-        if (index > -1) {
-            this.chosen[this.chosen.length] = this.available[index];
-            this.available.splice(index, 1);
-        }
+    AddDialog.prototype.select = function (index) {
+        this.chosen[this.chosen.length] = this.available[index];
+        this.available.splice(index, 1);
     };
-    AddProductDialog.prototype.removeProduct = function (index) {
-        if (index > -1) {
-            this.available[this.available.length] = this.chosen[index];
-            this.chosen.splice(index, 1);
-        }
+    AddDialog.prototype.remove = function (index) {
+        this.available[this.available.length] = this.chosen[index];
+        this.chosen.splice(index, 1);
     };
-    AddProductDialog.prototype.close = function () {
+    AddDialog.prototype.addNew = function () {
+        var _this = this;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__products_index__["c" /* AddProductDialog */], {
+            width: '30%'
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (typeof result != 'undefined') {
+                var newProduct_1 = new __WEBPACK_IMPORTED_MODULE_5__models_index__["a" /* Product */]();
+                newProduct_1.name = result.name;
+                newProduct_1.price = +result.price;
+                newProduct_1.description = result.description;
+                _this.productService.create(newProduct_1)
+                    .subscribe(function (data) {
+                    newProduct_1._id = data._id;
+                    _this.new[_this.new.length] = newProduct_1;
+                    _this.chosen = [newProduct_1].concat(_this.chosen);
+                }, function (error) {
+                    alert(error);
+                });
+            }
+        });
+    };
+    AddDialog.prototype.close = function () {
         this.dialogRef.close(undefined);
     };
-    AddProductDialog.prototype.submit = function () {
-        this.dialogRef.close(this.chosen);
+    AddDialog.prototype.submit = function () {
+        this.dialogRef.close({ products: this.chosen, newProducts: this.new });
     };
-    return AddProductDialog;
+    return AddDialog;
 }());
-AddProductDialog = __decorate([
+AddDialog = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'add-product-dialog',
         template: __webpack_require__("../../../../../src/app/menus/modals/addProduct.modal.html"),
         styles: [__webpack_require__("../../../../../src/app/menus/menus.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _k || Object])
-], AddProductDialog);
+    __metadata("design:paramtypes", [typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_7__services_index__["j" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_index__["j" /* ProductService */]) === "function" && _m || Object])
+], AddDialog);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 //# sourceMappingURL=menu.component.js.map
 
 /***/ }),
@@ -1203,7 +1311,7 @@ var MenuRoutes = [
 /***/ "../../../../../src/app/menus/menu.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row align-items-center\">\n    <h3>{{menu.name}} {{'MENUS.CONTENTS' | translate}}</h3>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row justify-content-center\" *ngIf=\"!loading\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openAddSectionDialog()\">{{'MENUS.ADD_SECTION' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <ng-container *ngFor=\"let section of menu.contents; let sectionIndex = index;\">\n        <thead class=\"thead-default\">\n          <tr>\n            <th colspan=\"2\">{{section.title}}</th>\n            <th>\n              <!--<mat-icon matTooltip=\"{{'MENUS.MOVE_SECTION_UP' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"move(true, sectionIndex)\">arrow_upward</mat-icon>\n              <mat-icon matTooltip=\"{{'MENUS.MOVE_SECTION_DOWN' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"move(false, sectionIndex)\">arrow_downward</mat-icon>-->\n              <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"\" (click)=\"editSection(sectionIndex)\">mode_edit_outline</mat-icon>\n              <mat-icon matTooltip=\"{{'MENUS.DELETE_SECTION' | translate}}\" matTooltipPosition=\"above\" class=\"\" (click)=\"deleteSection(sectionIndex)\">delete_forever</mat-icon>\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let product of section.products; let productIndex = index;\">\n            <td class=\"col-6\">{{product.name}}</td>\n            <td class=\"col-4\">{{product.price | currency:'GBP'}}</td>\n            <td class=\"col-2\"><mat-icon matTooltip=\"{{'GENERAL.REMOVE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"removeProduct(sectionIndex, productIndex)\">remove_circle_outline</mat-icon></td>\n          </tr>\n          <tr>\n            <td colspan=\"3\"><a href=\"javascript:void(0);\" (click)=\"addProductDialog(sectionIndex)\">{{'MENUS.ADD_PRODUCT' | translate}}</a></td>\n          </tr>\n          <tr><td></td></tr>\n        </tbody>\n      </ng-container>\n    </table>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row align-items-center\">\n    <h3>{{menu.name}} {{'MENUS.CONTENTS' | translate}}</h3>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row justify-content-center\" *ngIf=\"!loading\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openAddSectionDialog()\">{{'MENUS.ADD_SECTION' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <ng-container *ngFor=\"let section of menu.contents; let sectionIndex = index;\">\n        <thead class=\"thead-default\">\n          <tr>\n            <th colspan=\"2\">{{section.title}}</th>\n            <th>\n              <!--<mat-icon matTooltip=\"{{'MENUS.MOVE_SECTION_UP' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"move(true, sectionIndex)\">arrow_upward</mat-icon>\n              <mat-icon matTooltip=\"{{'MENUS.MOVE_SECTION_DOWN' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"move(false, sectionIndex)\">arrow_downward</mat-icon>-->\n              <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"\" (click)=\"editSection(sectionIndex)\">mode_edit_outline</mat-icon>\n              <mat-icon matTooltip=\"{{'MENUS.DELETE_SECTION' | translate}}\" matTooltipPosition=\"above\" class=\"\" (click)=\"deleteSection(sectionIndex)\">delete_forever</mat-icon>\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let product of section.products; let productIndex = index;\">\n            <td class=\"col-6\">{{product.name}}</td>\n            <td class=\"col-4\">{{product.price | currency:'GBP':true}}</td>\n            <td class=\"col-2\"><mat-icon matTooltip=\"{{'GENERAL.REMOVE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"removeProduct(sectionIndex, productIndex)\">remove_circle_outline</mat-icon></td>\n          </tr>\n          <tr>\n            <td colspan=\"3\"><a href=\"javascript:void(0);\" (click)=\"addProductDialog(sectionIndex)\">{{'MENUS.ADD_PRODUCT' | translate}}</a></td>\n          </tr>\n          <tr><td></td></tr>\n        </tbody>\n      </ng-container>\n    </table>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1219,7 +1327,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"row align-items-cent
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_index__ = __webpack_require__("../../../../../src/app/models/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenusComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddMenuDialog; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MenuDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1228,6 +1336,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
 };
 
 
@@ -1279,7 +1390,9 @@ var MenusComponent = (function () {
     };
     MenusComponent.prototype.openAddDialog = function () {
         var _this = this;
-        var dialogRef = this.dialog.open(AddMenuDialog);
+        var dialogRef = this.dialog.open(MenuDialog, {
+            width: '20%'
+        });
         dialogRef.afterClosed().subscribe(function (result) {
             if (typeof result != 'undefined') {
                 var newMenu_1 = new __WEBPACK_IMPORTED_MODULE_5__models_index__["b" /* Menu */]();
@@ -1294,13 +1407,14 @@ var MenusComponent = (function () {
             }
         });
     };
-    MenusComponent.prototype.deleteConfirmation = function (_id, index) {
+    MenusComponent.prototype.deleteConfirmation = function (index, event) {
         var _this = this;
+        event.stopPropagation();
         var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__misc_index__["b" /* ConfirmDeleteDialog */]);
         dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
                 //delete it
-                _this.menuService.delete(_id)
+                _this.menuService.delete(_this.menus[index]._id)
                     .subscribe(function (data) {
                     _this.menus.splice(index, 1);
                 }, function (error) {
@@ -1312,6 +1426,24 @@ var MenusComponent = (function () {
             }
         });
     };
+    MenusComponent.prototype.editMenu = function (index, event) {
+        var _this = this;
+        event.stopPropagation();
+        var dialogRef = this.dialog.open(MenuDialog, {
+            width: '20%',
+            data: this.menus[index]
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.menuService.put(result)
+                    .subscribe(function (data) {
+                    _this.menus[index] = result;
+                }, function (error) {
+                    alert(error);
+                });
+            }
+        });
+    };
     return MenusComponent;
 }());
 MenusComponent = __decorate([
@@ -1319,30 +1451,38 @@ MenusComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/menus/menus.template.html"),
         styles: [__webpack_require__("../../../../../src/app/menus/menus.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__services_index__["g" /* MenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_index__["g" /* MenuService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__services_index__["h" /* CacheService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_index__["h" /* CacheService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__services_index__["h" /* MenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_index__["h" /* MenuService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__services_index__["i" /* CacheService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_index__["i" /* CacheService */]) === "function" && _e || Object])
 ], MenusComponent);
 
-var AddMenuDialog = (function () {
-    function AddMenuDialog(dialogRef, translate) {
+var MenuDialog = (function () {
+    function MenuDialog(dialogRef, translate, data) {
         this.dialogRef = dialogRef;
         this.translate = translate;
+        this.data = data;
         this.model = {};
+        this.toEdit = {};
+        this.update = false;
+        if (data) {
+            this.model = data;
+            this.update = true;
+        }
     }
-    AddMenuDialog.prototype.close = function () {
+    MenuDialog.prototype.close = function () {
         this.dialogRef.close(undefined);
     };
-    AddMenuDialog.prototype.submit = function () {
+    MenuDialog.prototype.submit = function () {
         this.dialogRef.close(this.model);
     };
-    return AddMenuDialog;
+    return MenuDialog;
 }());
-AddMenuDialog = __decorate([
+MenuDialog = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'add-menu-dialog',
-        template: __webpack_require__("../../../../../src/app/menus/modals/add.modal.html")
+        template: __webpack_require__("../../../../../src/app/menus/modals/addMenu.modal.html")
     }),
-    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _g || Object])
-], AddMenuDialog);
+    __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MAT_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _g || Object, Object])
+], MenuDialog);
 
 var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=menus.component.js.map
@@ -1405,14 +1545,14 @@ MenusModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_11__index__["b" /* MenusComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__index__["d" /* AddMenuDialog */],
+            __WEBPACK_IMPORTED_MODULE_11__index__["d" /* MenuDialog */],
             __WEBPACK_IMPORTED_MODULE_11__index__["c" /* MenuComponent */],
             __WEBPACK_IMPORTED_MODULE_11__index__["e" /* SectionDialog */],
-            __WEBPACK_IMPORTED_MODULE_11__index__["f" /* AddProductDialog */]
+            __WEBPACK_IMPORTED_MODULE_11__index__["f" /* AddDialog */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_13__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -1426,12 +1566,17 @@ MenusModule = __decorate([
             }),
             __WEBPACK_IMPORTED_MODULE_12__pipes_index__["a" /* PipesModule */],
             __WEBPACK_IMPORTED_MODULE_8_ng2_truncate__["a" /* TruncateModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["f" /* MatTooltipModule */]
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["m" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["n" /* MatTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["o" /* MatInputModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["c" /* MatButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["s" /* MatTabsModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["t" /* MatListModule */]
         ],
         providers: [],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_11__index__["d" /* AddMenuDialog */], __WEBPACK_IMPORTED_MODULE_11__index__["e" /* SectionDialog */], __WEBPACK_IMPORTED_MODULE_11__index__["f" /* AddProductDialog */]]
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_11__index__["d" /* MenuDialog */], __WEBPACK_IMPORTED_MODULE_11__index__["e" /* SectionDialog */], __WEBPACK_IMPORTED_MODULE_11__index__["f" /* AddDialog */]]
     })
 ], MenusModule);
 
@@ -1460,21 +1605,28 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/menus/menus.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <h3>{{'MENUS.MENUS' | translate}}</h3>\n  </div>\n  <div class=\"row\">\n    <span>{{'MENUS.DESCRIPTION' | translate}}</span>\n  </div>\n  <div class=\"row justify-content-center\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openAddDialog()\">{{'GENERAL.ADD' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <tr>\n        <td colspan=\"4\"><input md-input placeholder=\"Filter\" type=\"text\" [(ngModel)]=\"searchCriteria\" class=\"float-right\"></td>\n      <tr>\n      <tr *ngFor=\"let menu of menus | nameFilter:searchCriteria; let i = index\" (click)=\"selectMenu(i)\">\n        <ng-container *ngIf=\"menu !== -1\">\n          <td class=\"col-6\">{{menu.name}}</td>\n          <td class=\"col-4\">\n            <button type=\"button\" *ngIf=\"!menu.active\" class=\"btn btn-outline-primary rounded\" (click)=\"$event.stopPropagation();makeActive(i)\">Make Active</button>\n            <button type=\"button\" *ngIf=\"menu.active\" class=\"btn btn-outline-primary rounded\" disabled>Active</button>\n          </td>\n          <td class=\"col-2\">\n            <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\">edit</mat-icon>\n            <mat-icon matTooltip=\"{{'GENERAL.DELETE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"deleteConfirmation(menu._id, i)\">delete_forever</mat-icon>\n          </td>\n        </ng-container>\n        <td class=\"align-center\" colspan=\"4\" *ngIf=\"menu == -1\">{{'SEARCH.NO_MATCHES'}}</td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <h3>{{'MENUS.MENUS' | translate}}</h3>\n  </div>\n  <div class=\"row\">\n    <span>{{'MENUS.DESCRIPTION' | translate}}</span>\n  </div>\n  <div class=\"row justify-content-center\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openAddDialog()\">{{'GENERAL.ADD' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <tr>\n        <td colspan=\"4\"><input md-input placeholder=\"Filter\" type=\"text\" [(ngModel)]=\"searchCriteria\" class=\"float-right\"></td>\n      <tr>\n      <tr *ngFor=\"let menu of menus | nameFilter:searchCriteria; let i = index\" (click)=\"selectMenu(i)\">\n        <ng-container *ngIf=\"menu !== -1\">\n          <td class=\"col-6\">{{menu.name}}</td>\n          <td class=\"col-4\">\n            <button type=\"button\" *ngIf=\"!menu.active\" class=\"btn btn-outline-primary rounded\" (click)=\"$event.stopPropagation();makeActive(i)\">Make Active</button>\n            <button type=\"button\" *ngIf=\"menu.active\" class=\"btn btn-outline-primary rounded\" disabled>Active</button>\n          </td>\n          <td class=\"col-2\">\n            <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"editMenu(i, $event)\">edit</mat-icon>\n            <mat-icon matTooltip=\"{{'GENERAL.DELETE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"deleteConfirmation(i, $event)\">delete_forever</mat-icon>\n          </td>\n        </ng-container>\n        <td class=\"align-center\" colspan=\"4\" *ngIf=\"menu == -1\">{{'SEARCH.NO_MATCHES'}}</td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ "../../../../../src/app/menus/modals/add.modal.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 md-dialog-title>{{'MENUS.ADD_SECTION' | translate}}</h1>\n<div md-dialog-content>\n  <input md-input placeholder=\"Name\" type=\"text\" [(ngModel)]=\"model.name\" required>\n</div>\n<div md-dialog-actions>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"submit()\">{{'GENERAL.ADD' | translate}}</button>\n</div>\n"
+module.exports = "<h3 md-dialog-title>{{'MENUS.ADD_SECTION' | translate}}</h3>\n<div md-dialog-content>\n  <mat-form-field class=\"full-width\">\n    <input matInput placeholder=\"Name\" type=\"text\" [(ngModel)]=\"model.name\" required>\n  </mat-form-field>\n</div>\n<div md-dialog-actions class=\"text-align-right\">\n    <button mat-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button mat-raised-button color=\"primary\" type=\"button\" class=\"btn btn-default\" (click)=\"submit()\">{{'GENERAL.ADD' | translate}}</button>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/menus/modals/addMenu.modal.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h3 md-dialog-title [hidden]=\"update\">{{'MENUS.ADD_MENU' | translate}}</h3>\n<h3 md-dialog-title [hidden]=\"!update\">{{'MENUS.EDIT_MENU' | translate}}</h3>\n<div md-dialog-content>\n  <mat-form-field class=\"full-width\">\n    <input matInput placeholder=\"Name\" type=\"text\" [(ngModel)]=\"model.name\" required maxlength=\"100\" #name=\"ngModel\">\n  </mat-form-field>\n</div>\n<div md-dialog-actions class=\"text-align-right\">\n    <button mat-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button mat-raised-button color=\"primary\" [hidden]=\"update\" type=\"button\" class=\"btn btn-default\" (click)=\"submit()\" [disabled]=\"name.invalid\">{{'GENERAL.ADD' | translate}}</button>\n    <button mat-raised-button color=\"primary\" [hidden]=\"!update\" type=\"button\" class=\"btn btn-default\" (click)=\"submit()\" [disabled]=\"name.invalid\">{{'GENERAL.SAVE' | translate}}</button>\n</div>\n"
 
 /***/ }),
 
 /***/ "../../../../../src/app/menus/modals/addProduct.modal.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 md-dialog-title>{{'MENUS.ADD_MENU' | translate}}</h1>\n<div md-dialog-content>\n  <select multiple #selectedProduct class=\"product_selector\">\n    <option *ngFor=\"let product of available; let i = index;\">{{product.name}}</option>\n  </select>\n  <div class=\"display-inline-block\">\n    <div><md-icon (click)=\"chooseProduct(selectedProduct.selectedIndex)\">chevron_right</md-icon></div>\n    <div><md-icon (click)=\"removeProduct(chosenProduct.selectedIndex)\">chevron_left</md-icon></div>\n  </div>\n  <select multiple #chosenProduct class=\"product_selector\">\n    <option *ngFor=\"let product of chosen\">{{product.name}}</option>\n  </select>\n</div>\n<div md-dialog-actions>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"submit()\">{{'GENERAL.ADD' | translate}}</button>\n</div>\n"
+module.exports = "<h3 mat-dialog-title>{{'MENUS.ADD_MENU' | translate}}</h3>\n<mat-dialog-content class=\"mat-dialog-content display-inline-block col-6 no-padding vertical-align-top\">\n  <div>\n    <mat-selection-list #selectedProducts class=\"hide-select-boxes no-outline\">\n      <mat-list-option *ngFor=\"let product of available; let i = index\" [value]=\"i\" (selectionChange)=\"select(i)\"><span>{{product.name}} <mat-icon class=\"float-right\">chevron_right</mat-icon></span></mat-list-option>\n    </mat-selection-list>\n  </div>\n</mat-dialog-content>\n<mat-dialog-content class=\"mat-dialog-content display-inline-block col-6 no-padding vertical-align-top\">\n  <div>\n    <mat-selection-list #chosenProducts class=\"hide-select-boxes align-text-right no-outline\">\n      <mat-list-option *ngFor=\"let product of chosen; let i = index;\" [value]=\"i\" (selectionChange)=\"remove(i)\"><span><mat-icon class=\"float-left\">chevron_left</mat-icon><span class=\"float-right\">{{product.name}}</span></span></mat-list-option>\n    </mat-selection-list>\n  </div>\n</mat-dialog-content>\n<mat-dialog-actions>\n\n    <button mat-raised-button color=\"primary\" type=\"button\" class=\"btn btn-default\" (click)=\"addNew()\">{{'GENERAL.ADD' | translate}}</button>\n    <span class=\"float-right\">\n    <button mat-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button mat-raised-button color=\"primary\" type=\"button\" class=\"btn btn-default\" (click)=\"submit()\">{{'GENERAL.SAVE' | translate}}</button>\n  </span>\n</mat-dialog-actions>\n"
 
 /***/ }),
 
@@ -1495,17 +1647,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 
 var ConfirmDeleteDialog = (function () {
-    function ConfirmDeleteDialog(dialogRef, translate) {
+    function ConfirmDeleteDialog(dialogRef, translate, data) {
         this.dialogRef = dialogRef;
         this.translate = translate;
-        this.param = {};
+        this.data = data;
+        this.params = {};
+        if (data && data.params) {
+            this.params = data.params;
+        }
     }
     ConfirmDeleteDialog.prototype.ngOnInit = function () {
-        this.param.value = this.element;
     };
     ConfirmDeleteDialog.prototype.no = function () {
         this.dialogRef.close(false);
@@ -1520,7 +1678,8 @@ ConfirmDeleteDialog = __decorate([
         selector: 'confirm-delete-dialog',
         template: __webpack_require__("../../../../../src/app/misc/confirmDelete.template.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object])
+    __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["r" /* MAT_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["k" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["k" /* MatDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object, Object])
 ], ConfirmDeleteDialog);
 
 var _a, _b;
@@ -1531,7 +1690,7 @@ var _a, _b;
 /***/ "../../../../../src/app/misc/confirmDelete.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 md-dialog-title>{{'MODALS.CONFIRMATION'}}</h1>\n<div md-dialog-content>\n  {{'GENERAL.CONFIRM_DELETE' | translate:param }}\n</div>\n<div md-dialog-actions>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"no()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"yes()\">{{'GENERAL.DELETE' | translate}}</button>\n</div>\n"
+module.exports = "<h3 md-dialog-title>{{'MODALS.CONFIRMATION' | translate}}</h3>\n<div md-dialog-content>\n  {{'GENERAL.CONFIRM_DELETE' | translate:params }}\n</div>\n<div md-dialog-actions class=\"text-align-right\">\n    <button mat-button type=\"button\" class=\"btn btn-default\" (click)=\"no()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button mat-raised-button color=\"primary\" type=\"button\" class=\"btn btn-default\" (click)=\"yes()\">{{'GENERAL.DELETE' | translate}}</button>\n</div>\n"
 
 /***/ }),
 
@@ -1795,7 +1954,7 @@ PremisesComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/onboarding/children/premises.template.html"),
         styles: [__webpack_require__("../../../../../src/app/onboarding/onboarding.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* PremisesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* PremisesService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["f" /* PremisesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["f" /* PremisesService */]) === "function" && _c || Object])
 ], PremisesComponent);
 
 var _a, _b, _c;
@@ -1871,7 +2030,7 @@ OnboardingComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/onboarding/onboarding.template.html"),
         styles: [__webpack_require__("../../../../../src/app/onboarding/onboarding.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _c || Object])
 ], OnboardingComponent);
 
 var _a, _b, _c;
@@ -1943,7 +2102,7 @@ OnboardingModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_14__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -1958,9 +2117,9 @@ OnboardingModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8_ng2_truncate__["a" /* TruncateModule */],
             __WEBPACK_IMPORTED_MODULE_13__pipes_index__["a" /* PipesModule */],
             __WEBPACK_IMPORTED_MODULE_9_angular2_moment__["MomentModule"],
-            __WEBPACK_IMPORTED_MODULE_10__angular_material__["e" /* MatProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_10__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_10__angular_material__["f" /* MatTooltipModule */]
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["m" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["n" /* MatTooltipModule */]
         ],
         providers: [],
         entryComponents: []
@@ -2029,7 +2188,9 @@ module.exports = "<div class=\"container\">\n  <div class=\"row full-height\">\n
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__("../../../../moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompleteComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2045,8 +2206,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+__WEBPACK_IMPORTED_MODULE_4_moment__["locale"]('en');
+
 var CompleteComponent = (function () {
     function CompleteComponent(route, router, orderService, dialog) {
+        var _this = this;
         this.route = route;
         this.router = router;
         this.orderService = orderService;
@@ -2054,38 +2218,156 @@ var CompleteComponent = (function () {
         this.highlighted = [];
         this.loading = true;
         this.inFlight = false;
+        this.loadingOrders = true;
+        this.selectedDay = {};
+        this.breakdown = [];
+        this.today = new Date();
+        this.max = new Date();
+        this.selected = new Date();
+        this.canSelectNext = true;
+        this.canSelectPrevious = true;
+        this.myFilter = function (d) {
+            var day = d.getDate();
+            var month = d.getMonth();
+            var year = d.getFullYear();
+            for (var i = 0; i < _this.breakdown.length; i++) {
+                var nextBreakdown = _this.breakdown[i];
+                if (nextBreakdown._id.year == year && nextBreakdown._id.month == month && nextBreakdown._id.day == day) {
+                    return true;
+                }
+            }
+            return false;
+            // Prevent Saturday and Sunday from being selected.
+        };
     }
     CompleteComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.getOrderBreakdown();
         this.orderCall = __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].interval(30000).subscribe(function (x) {
-            _this.getOrders();
+            _this.getOrders(false);
         });
-        this.getOrders();
         this.Math = Math;
+    };
+    CompleteComponent.prototype.dateChanged = function (date) {
+        this.getOrders(true);
+        this.canNextOrPreviousDay();
+    };
+    CompleteComponent.prototype.canNextOrPreviousDay = function () {
+        var day = this.selected.getDate();
+        var month = this.selected.getMonth();
+        var year = this.selected.getFullYear();
+        var canNext = false;
+        var canPrev = false;
+        for (var i = 0; i < this.breakdown.length; i++) {
+            var nextBreakdown = this.breakdown[i]._id;
+            if (nextBreakdown.year < year) {
+                canPrev = true;
+            }
+            else if (nextBreakdown.year == year) {
+                //check month next
+                if (nextBreakdown.month < month) {
+                    canPrev = true;
+                }
+                else if (nextBreakdown.month == month) {
+                    //check day
+                    if (nextBreakdown.day < day) {
+                        canPrev = true;
+                    }
+                    else if (nextBreakdown.day == day) {
+                        canPrev = true;
+                        canNext = true;
+                    }
+                    else {
+                        canNext = true;
+                    }
+                }
+                else {
+                    canNext = true;
+                }
+            }
+            else {
+                //breakdown year is greater than selected year
+                canNext = true;
+            }
+        }
+        this.canSelectNext = canNext;
+        this.canSelectPrevious = canPrev;
+    };
+    CompleteComponent.prototype.nextDay = function () {
+        var day = this.selected.getDate();
+        var month = this.selected.getMonth();
+        var year = this.selected.getFullYear();
+        for (var i = 0; i < this.breakdown.length; i++) {
+            var nextBreakdown = this.breakdown[i]._id;
+            if (nextBreakdown.year == year && nextBreakdown.month == month && nextBreakdown.day == day) {
+                var nextDate = new Date(this.breakdown[i - 1]._id.year + "/" + (this.breakdown[i - 1]._id.month + 1) + "/" + this.breakdown[i - 1]._id.day);
+                this.selected = nextDate;
+                this.getOrders(true);
+            }
+        }
+    };
+    CompleteComponent.prototype.previousDay = function () {
+        var day = this.selected.getDate();
+        var month = this.selected.getMonth();
+        var year = this.selected.getFullYear();
+        for (var i = 0; i < this.breakdown.length; i++) {
+            var nextBreakdown = this.breakdown[i]._id;
+            if (nextBreakdown.year == year && nextBreakdown.month == month && nextBreakdown.day == day) {
+                var nextDate = new Date(this.breakdown[i + 1]._id.year + "/" + (this.breakdown[i + 1]._id.month + 1) + "/" + this.breakdown[i + 1]._id.day);
+                this.selected = nextDate;
+                this.getOrders(true);
+            }
+        }
     };
     CompleteComponent.prototype.ngOnDestroy = function () {
         this.orderCall.unsubscribe();
     };
-    CompleteComponent.prototype.getOrders = function () {
+    CompleteComponent.prototype.getOrderBreakdown = function () {
         var _this = this;
-        if (this.inFlight) {
-            //dont do anything otherwise we will send multiple requests at once;
-        }
-        else {
+        this.loading = true;
+        this.orderService.getOrderBreakdown()
+            .subscribe(function (data) {
+            _this.breakdown = data.breakdown;
+            _this.selected = new Date(_this.breakdown[_this.breakdown.length - 1]._id.year + "/" + (_this.breakdown[_this.breakdown.length - 1]._id.month + 1) + "/" + _this.breakdown[_this.breakdown.length - 1]._id.day);
+            _this.canNextOrPreviousDay();
+            _this.getOrders(true);
+            _this.loading = false;
+        }, function (error) {
+            _this.loading = false;
+        });
+    };
+    CompleteComponent.prototype.getOrders = function (override) {
+        var _this = this;
+        //if override and , do a new request
+        //if inFlight dont do on
+        if (override || !this.inFlight) {
+            this.loadingOrders = true;
+            if (this.currentRequest) {
+                this.currentRequest.unsubscribe();
+            }
+            var dateToUse = new Date();
+            if (this.selected) {
+                dateToUse = this.selected;
+            }
+            var year = dateToUse.getFullYear();
+            var month = dateToUse.getMonth();
+            var day = dateToUse.getDate();
             this.inFlight = true;
-            this.orderService.getComplete()
+            this.currentRequest = this.orderService.getCompleteByDay(year, month, day)
                 .subscribe(function (data) {
                 _this.inFlight = false;
-                _this.loading = false;
+                _this.loadingOrders = false;
                 _this.orders = data.orders;
                 for (var i = 0; i < _this.orders.length; i++) {
                     _this.highlighted[i] = { left: [], right: [] };
                 }
             }, function (error) {
                 _this.inFlight = false;
-                _this.loading = false;
+                _this.loadingOrders = false;
                 alert(error);
             });
+        }
+        else {
         }
     };
     return CompleteComponent;
@@ -2095,7 +2377,7 @@ CompleteComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/orders/children/complete.template.html"),
         styles: [__webpack_require__("../../../../../src/app/orders/orders.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_index__["j" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_index__["j" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_index__["k" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_index__["k" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _d || Object])
 ], CompleteComponent);
 
 var _a, _b, _c, _d;
@@ -2106,7 +2388,7 @@ var _a, _b, _c, _d;
 /***/ "../../../../../src/app/orders/children/complete.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container order-container\">\n  <div class=\"row order-title\">\n      <h3>{{'ORDERS.ORDERS' | translate}}</h3>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row justify-content-center\" *ngIf=\"!loading\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"getOrders()\">{{'GENERAL.REFRESH' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <div class=\"container\">\n      <div class=\"row full-height\">\n        <div class=\"col-lg-12 col-mat-12 col-sm-12 col-xs-12 auto-height order\" *ngFor=\"let order of orders; let o = index;\">\n          <div class=\"order-inner\">\n            <div class=\"col-12\">\n              <div class=\"display-inline-block\">\n                <h6>{{order.table.name}}</h6>\n              </div>\n              <div class=\"display-inline-block float-right\">\n                <h6 class=\"display-inline-block\">{{order.createdAt | duration:now}}</h6>\n                <div class=\"dropdown display-inline-block\">\n                  <button class=\"btn btn-sm btn-outline-primary btn-no-outline btn-no-focus btn-no-active btn-no-hover\" type=\"button\" id=\"orderActions\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <i class=\"arrow down no-top-margin\"></i>\n                  </button>\n                  <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"orderActions\">\n                    <a class=\"dropdown-item\" href=\"javascript:null;\">{{'ORDERS.CANCEL' | translate}}</a>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12\">\n              <div class=\"row\">\n                <div class=\"col-lg-6 col-mat-6 col-sm-12 col-xs-12\">\n                  <mat-list>\n                    <mat-list-item *ngFor=\"let product of order.products.slice(0,Math.ceil(order.products.length/2)); let p = index\"> <mat-icon matListIcon (click)=\"highlighted[o].left[p]=!highlighted[o].left[p]\">{{!highlighted[o].left[p]?'label_outline':'label'}}</mat-icon>{{product.name}}</mat-list-item>\n                  </mat-list>\n                </div>\n                <div class=\"col-lg-6 col-mat-6 col-sm-12 col-xs-12\">\n                  <mat-list>\n                    <mat-list-item *ngFor=\"let product of order.products.slice(Math.ceil(order.products.length/2)); let p = index;\"><mat-icon matListIcon (click)=\"highlighted[o].right[p]=!highlighted[o].right[p]\">{{!highlighted[o].right[p]?'label_outline':'label'}}</mat-icon>{{product.name}}</mat-list-item>\n                  </mat-list>\n                </div>\n              </div>\n            </div>\n\n\n            </div>\n          </div>\n        </div>\n      <div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container order-container\">\n  <div class=\"row order-title\">\n      <h3>{{'ORDERS.ORDERS' | translate}}</h3>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row justify-content-center\" *ngIf=\"!loading\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"getOrders()\">{{'GENERAL.REFRESH' | translate}}</button>\n  </div>\n  <div class=\"row justify-content-center\" *ngIf=\"!loading\">\n    <div class=\"col-4 text-align-center\">\n      <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"previousDay()\" [disabled]=\"!canSelectPrevious\">{{'ORDERS.PREV_DAY' | translate}}</button>\n    </div>\n    <div class=\"col-4 text-align-center\">\n      <mat-form-field class=\"full-width\">\n        <input matInput [matDatepicker]=\"picker\" [matDatepickerFilter]=\"myFilter\" placeholder=\"Choose a date\" (dateChange)=\"dateChanged($event.value)\" [(ngModel)]=\"selected\" [max]=\"today\">\n        <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n        <mat-datepicker #picker touchUi=\"true\" [startAt]=\"selected\"></mat-datepicker>\n      </mat-form-field>\n    </div>\n    <div class=\"col-4 text-align-center\">\n      <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"nextDay()\" [disabled]=\"!canSelectNext\">{{'ORDERS.NEXT_DAY' | translate}}</button>\n    </div>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <div class=\"container\">\n      <div class=\"row full-height\" [hidden]=\"loadingOrders || orders.length > 0\"><h3>{{'ORDERS.NO_ORDERS' | translate}}</h3></div>\n      <div class=\"row center-spinner\" [hidden]=\"!loadingOrders\"><mat-spinner></mat-spinner></div>\n      <div class=\"row full-height\" [hidden]=\"loadingOrders || orders.length < 1\">\n        <div class=\"col-lg-12 col-mat-12 col-sm-12 col-xs-12 auto-height order\" *ngFor=\"let order of orders; let o = index;\">\n          <div class=\"order-inner\">\n            <div class=\"col-12\">\n              <div class=\"display-inline-block\">\n                <h6>{{order.subtotal | currency:'gbp':'symbol'}}</h6>\n              </div>\n              <div class=\"display-inline-block float-right\">\n                <h6 class=\"display-inline-block\">{{order.status}}</h6>\n                <div class=\"dropdown display-inline-block\">\n                  <button class=\"btn btn-sm btn-outline-primary btn-no-outline btn-no-focus btn-no-active btn-no-hover\" type=\"button\" id=\"orderActions\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <i class=\"arrow down no-top-margin\"></i>\n                  </button>\n                  <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"orderActions\">\n                    <a class=\"dropdown-item\" href=\"javascript:null;\">{{'ORDERS.DELETE' | translate}}</a>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12\">\n              <div class=\"row\">\n                <div class=\"col-lg-6 col-mat-6 col-sm-12 col-xs-12\">\n                  <mat-list>\n                    <mat-list-item *ngFor=\"let product of order.products.slice(0,Math.ceil(order.products.length/2)); let p = index\"> <mat-icon matListIcon (click)=\"highlighted[o].left[p]=!highlighted[o].left[p]\">{{!highlighted[o].left[p]?'label_outline':'label'}}</mat-icon>{{product.name}}</mat-list-item>\n                  </mat-list>\n                </div>\n                <div class=\"col-lg-6 col-mat-6 col-sm-12 col-xs-12\">\n                  <mat-list>\n                    <mat-list-item *ngFor=\"let product of order.products.slice(Math.ceil(order.products.length/2)); let p = index;\"><mat-icon matListIcon (click)=\"highlighted[o].right[p]=!highlighted[o].right[p]\">{{!highlighted[o].right[p]?'label_outline':'label'}}</mat-icon>{{product.name}}</mat-list-item>\n                  </mat-list>\n                </div>\n              </div>\n            </div>\n            </div>\n          </div>\n        </div>\n      <div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2220,7 +2502,7 @@ PendingComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/orders/children/pending.template.html"),
         styles: [__webpack_require__("../../../../../src/app/orders/orders.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_index__["j" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_index__["j" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_index__["k" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_index__["k" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _d || Object])
 ], PendingComponent);
 
 var _a, _b, _c, _d;
@@ -2296,7 +2578,7 @@ OrdersComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/orders/orders.template.html"),
         styles: [__webpack_require__("../../../../../src/app/orders/orders.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_index__["j" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_index__["j" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_index__["k" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_index__["k" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _d || Object])
 ], OrdersComponent);
 
 var _a, _b, _c, _d;
@@ -2368,7 +2650,7 @@ OrdersModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_14__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -2383,9 +2665,13 @@ OrdersModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8_ng2_truncate__["a" /* TruncateModule */],
             __WEBPACK_IMPORTED_MODULE_13__pipes_index__["a" /* PipesModule */],
             __WEBPACK_IMPORTED_MODULE_9_angular2_moment__["MomentModule"],
-            __WEBPACK_IMPORTED_MODULE_10__angular_material__["e" /* MatProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_10__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_10__angular_material__["f" /* MatTooltipModule */]
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["m" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["n" /* MatTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["e" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["p" /* MatDatepickerModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["q" /* MatNativeDateModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_material__["o" /* MatInputModule */]
         ],
         providers: [],
         entryComponents: []
@@ -2497,14 +2783,14 @@ var PaymentsComponent = (function () {
     PaymentsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.params = this.route.queryParams.subscribe(function (params) {
-            if (typeof params['state'] != 'undefined') {
+            if (typeof params['code'] != 'undefined') {
                 if (typeof params['error'] != 'undefined') {
                     //something went wrong when the user was connecting their stripe account
                     console.log(params['error_description']);
                 }
                 else {
                     //no error, was this a redirect from stripe or was it a simple navigation from within our app?
-                    if (typeof params['scope'] != 'undefined' && typeof params['code'] != 'undefined' && typeof params['state'] != 'undefined') {
+                    if (typeof params['code'] != 'undefined' && typeof params['state'] != 'undefined') {
                         //this was a redirect
                         _this.connected = true;
                         if (_this.paymentsService.verifyState(params['state'])) {
@@ -2552,7 +2838,7 @@ PaymentsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/payments/payments.template.html"),
         styles: [__webpack_require__("../../../../../src/app/payments/payments.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_index__["d" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_index__["k" /* PaymentsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_index__["k" /* PaymentsService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_index__["e" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_index__["l" /* PaymentsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_index__["l" /* PaymentsService */]) === "function" && _e || Object])
 ], PaymentsComponent);
 
 var _a, _b, _c, _d, _e;
@@ -2615,7 +2901,7 @@ PaymentsModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_11__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -2627,8 +2913,8 @@ PaymentsModule = __decorate([
                     deps: [__WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClient */]]
                 }
             }),
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MatProgressSpinnerModule */]
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["m" /* MatProgressSpinnerModule */]
         ],
         providers: [],
         entryComponents: []
@@ -2861,7 +3147,7 @@ ProductMatchesFilter = __decorate([
 /***/ "../../../../../src/app/products/modals/add.modal.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 md-dialog-title>{{'PRODUCTS.ADD_PRODUCT' | translate}}</h1>\n<div md-dialog-content>\n  <input md-input placeholder=\"Name\" type=\"text\" [(ngModel)]=\"model.name\" required>\n  <input md-input placeholder=\"Description\" type=\"text\" [(ngModel)]=\"model.description\">\n  <input md-input placeholder=\"00.00\" type=\"text\" [(ngModel)]=\"model.price\">\n</div>\n<div md-dialog-actions>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"submit()\">{{'GENERAL.ADD' | translate}}</button>\n</div>\n"
+module.exports = "<h3 mat-dialog-title>{{'PRODUCTS.ADD_PRODUCT' | translate}}</h3>\n<div mat-dialog-content>\n  <div class=\"full-width\">\n    <mat-form-field class=\"full-width\">\n      <input matInput placeholder=\"Name\" type=\"text\" #name=\"ngModel\" [(ngModel)]=\"model.name\" required maxlength=\"100\">\n    </mat-form-field>\n  </div>\n  <div class=\"full-width\">\n    <mat-form-field class=\"full-width\">\n        <textarea matInput placeholder=\"Description\"[(ngModel)]=\"model.description\" #description=\"ngModel\" maxlength=\"250\"></textarea>\n        <mat-hint align=\"end\">{{description.value?.length || 0}}/250</mat-hint>\n    </mat-form-field>\n  </div>\n  <div class=\"half-width\">\n    <mat-form-field class=\"full-width\">\n      <input matInput placeholder=\"Price\" #price type=\"number\" step=\"0.01\" min=\"0\" [(ngModel)]=\"model.price\" value=\"0\" (change)=\"checkPrice()\" required>\n      <span matPrefix>£&nbsp;</span>\n    </mat-form-field>\n  </div>\n</div>\n<div mat-dialog-actions class=\"text-align-right\">\n    <button mat-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button mat-raised-button color=\"primary\" [hidden]=\"update\" type=\"button\" class=\"btn btn-default\" [disabled]=\"name.invalid || description.invalid\" (click)=\"submit()\">{{'GENERAL.ADD' | translate}}</button>\n    <button mat-raised-button color=\"primary\" [hidden]=\"!update\" type=\"button\" class=\"btn btn-default\" [disabled]=\"name.invalid || description.invalid\" (click)=\"submit()\">{{'GENERAL.SAVE' | translate}}</button>\n</div>\n"
 
 /***/ }),
 
@@ -2874,7 +3160,8 @@ module.exports = "<h1 md-dialog-title>{{'PRODUCTS.ADD_PRODUCT' | translate}}</h1
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_index__ = __webpack_require__("../../../../../src/app/models/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__misc_index__ = __webpack_require__("../../../../../src/app/misc/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_index__ = __webpack_require__("../../../../../src/app/models/index.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductsComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddProductDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2886,6 +3173,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
 
 
 
@@ -2916,17 +3207,19 @@ var ProductsComponent = (function () {
     };
     ProductsComponent.prototype.openAddDialog = function () {
         var _this = this;
-        var dialogRef = this.dialog.open(AddProductDialog);
+        var dialogRef = this.dialog.open(AddProductDialog, {
+            width: '30%'
+        });
         dialogRef.afterClosed().subscribe(function (result) {
             if (typeof result != 'undefined') {
                 if (typeof result != 'undefined') {
-                    var newProduct_1 = new __WEBPACK_IMPORTED_MODULE_5__models_index__["a" /* Product */]();
+                    var newProduct_1 = new __WEBPACK_IMPORTED_MODULE_6__models_index__["a" /* Product */]();
                     newProduct_1.name = result.name;
                     newProduct_1.price = +result.price;
                     newProduct_1.description = result.description;
                     _this.productService.create(newProduct_1)
                         .subscribe(function (data) {
-                        newProduct_1._id = data;
+                        newProduct_1._id = data._id;
                         _this.products = [newProduct_1].concat(_this.products);
                     }, function (error) {
                         alert(error);
@@ -2935,11 +3228,60 @@ var ProductsComponent = (function () {
             }
         });
     };
+    ProductsComponent.prototype.openEditDialog = function (index) {
+        var _this = this;
+        var dialogRef = this.dialog.open(AddProductDialog, {
+            width: '30%',
+            data: {
+                product: this.products[index]
+            }
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (typeof result != undefined) {
+                _this.productService.put(result)
+                    .subscribe(function (data) {
+                    _this.products[index] = result;
+                }, function (error) {
+                    alert(error);
+                });
+            }
+        });
+    };
+    ProductsComponent.prototype.deleteConfirmation = function (index) {
+        var _this = this;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__misc_index__["b" /* ConfirmDeleteDialog */]);
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                //delete it
+                _this.productService.delete(_this.products[index]._id)
+                    .subscribe(function (data) {
+                    _this.products.splice(index, 1);
+                }, function (error) {
+                    alert(error);
+                });
+            }
+            else {
+                //keep it
+            }
+        });
+    };
     ProductsComponent.prototype.toggleStockStatus = function (index) {
+        var _this = this;
         this.products[index].in_stock = !this.products[index].in_stock;
         this.productService.put(this.products[index])
             .subscribe(function (data) {
         }, function (error) {
+            _this.products[index].in_stock = !_this.products[index].in_stock;
+            console.log(error);
+        });
+    };
+    ProductsComponent.prototype.toggleAgeRestriction = function (index) {
+        var _this = this;
+        this.products[index].age_restricted = !this.products[index].age_restricted;
+        this.productService.put(this.products[index])
+            .subscribe(function (data) {
+        }, function (error) {
+            _this.products[index].age_restricted = !_this.products[index].age_restricted;
             console.log(error);
         });
     };
@@ -2950,15 +3292,29 @@ ProductsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/products/products.template.html"),
         styles: [__webpack_require__("../../../../../src/app/products/products.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_index__["i" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_index__["i" /* ProductService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_index__["j" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_index__["j" /* ProductService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _d || Object])
 ], ProductsComponent);
 
 var AddProductDialog = (function () {
-    function AddProductDialog(dialogRef, translate) {
+    function AddProductDialog(dialogRef, translate, data) {
         this.dialogRef = dialogRef;
         this.translate = translate;
+        this.data = data;
         this.model = {};
+        this.update = false;
+        if (data && data.product) {
+            this.update = true;
+            this.model = data.product;
+        }
+        else {
+            this.model.price = 0;
+        }
     }
+    AddProductDialog.prototype.checkPrice = function () {
+        if (this.model.price < 0) {
+            this.model.price = 0;
+        }
+    };
     AddProductDialog.prototype.close = function () {
         this.dialogRef.close(undefined);
     };
@@ -2970,9 +3326,11 @@ var AddProductDialog = (function () {
 AddProductDialog = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'add-product-dialog',
-        template: __webpack_require__("../../../../../src/app/products/modals/add.modal.html")
+        template: __webpack_require__("../../../../../src/app/products/modals/add.modal.html"),
+        styles: [__webpack_require__("../../../../../src/app/products/products.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _f || Object])
+    __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MAT_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _f || Object, Object])
 ], AddProductDialog);
 
 var _a, _b, _c, _d, _e, _f;
@@ -3040,7 +3398,7 @@ ProductsModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_13__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -3054,9 +3412,12 @@ ProductsModule = __decorate([
             }),
             __WEBPACK_IMPORTED_MODULE_8_ng2_truncate__["a" /* TruncateModule */],
             __WEBPACK_IMPORTED_MODULE_12__pipes_index__["a" /* PipesModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["f" /* MatTooltipModule */]
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["m" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["n" /* MatTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["o" /* MatInputModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["c" /* MatButtonModule */]
         ],
         providers: [],
         entryComponents: [__WEBPACK_IMPORTED_MODULE_11__index__["c" /* AddProductDialog */]]
@@ -3075,7 +3436,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".row {\n  margin-top: 10px; }\n\n.mat-icon.side-by-side {\n  display: table-cell; }\n", ""]);
+exports.push([module.i, ".row {\n  margin-top: 10px; }\n\n.mat-icon.side-by-side {\n  display: table-cell; }\n\n.full-width {\n  width: 100%; }\n\n.half-width {\n  width: 50%; }\n\n.text-align-right {\n  text-align: right; }\n", ""]);
 
 // exports
 
@@ -3088,7 +3449,284 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/products/products.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <h3>{{'PRODUCTS.PRODUCTS' | translate}}</h3>\n  </div>\n  <div class=\"row\">\n    {{'PRODUCTS.DESCRIPTION' | translate}}\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row justify-content-center\" *ngIf=\"!loading\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openAddDialog()\">{{'GENERAL.ADD' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <tr>\n        <td colspan=\"4\"><input mat-input placeholder=\"Filter\" type=\"text\" [(ngModel)]=\"searchCriteria\" class=\"float-right\"></td>\n      <tr>\n      <tr *ngFor=\"let product of products | productFilter:searchCriteria; let i = index;\">\n        <ng-container *ngIf=\"product !== -1\">\n          <td class=\"col-3\">{{product.name}}</td>\n          <td class=\"col-5\">{{product.description | truncate}}</td>\n          <td class=\"col-1\">{{product.price | currency:'GBP':true}}</td>\n          <td class=\"col-1\" *ngIf=\"product.in_stock\">\n            <mat-icon matTooltip=\"{{'PRODUCTS.IN_STOCK' | translate}}\" (click)=\"toggleStockStatus(i)\" matTooltipPosition=\"above\" class=\"side-by-side cursor-pointer\">done</mat-icon>\n          </td>\n          <td class=\"col-1\" *ngIf=\"!product.in_stock\">\n            <mat-icon matTooltip=\"{{'PRODUCTS.OUT_OF_STOCK' | translate}}\" (click)=\"toggleStockStatus(i)\" matTooltipPosition=\"above\" class=\"side-by-side cursor-pointer\">clear</mat-icon>\n          </td>\n          <td class=\"col-2\">\n            <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\">edit</mat-icon>\n            <mat-icon matTooltip=\"{{'GENERAL.DELETE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\">delete_forever</mat-icon>\n          </td>\n        </ng-container>\n        <td class=\"align-center\" colspan=\"4\" *ngIf=\"product == -1\">{{'SEARCH.NO_MATCHES' | translate}}</td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <h3>{{'PRODUCTS.PRODUCTS' | translate}}</h3>\n  </div>\n  <div class=\"row\">\n    {{'PRODUCTS.DESCRIPTION' | translate}}\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><mat-spinner></mat-spinner></div>\n  </div>\n  <div class=\"row justify-content-center\" *ngIf=\"!loading\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openAddDialog()\">{{'GENERAL.ADD' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <tr>\n        <td colspan=\"5\"><input placeholder=\"Filter\" type=\"text\" [(ngModel)]=\"searchCriteria\" class=\"float-right\"></td>\n      </tr>\n      <tr *ngFor=\"let product of products | productFilter:searchCriteria; let i = index;\">\n        <ng-container *ngIf=\"product !== -1\">\n          <td class=\"col-3\">{{product.name}}</td>\n          <td class=\"col-4\">{{product.description | truncate}}</td>\n          <td class=\"col-1\">{{product.price | currency:'GBP':true}}</td>\n          <td class=\"col-1\" *ngIf=\"product.in_stock\">\n            <mat-icon matTooltip=\"{{'PRODUCTS.IN_STOCK' | translate}}\" (click)=\"toggleStockStatus(i)\" matTooltipPosition=\"above\" class=\"side-by-side cursor-pointer\">done</mat-icon>\n          </td>\n          <td class=\"col-1\" *ngIf=\"!product.in_stock\">\n            <mat-icon matTooltip=\"{{'PRODUCTS.OUT_OF_STOCK' | translate}}\" (click)=\"toggleStockStatus(i)\" matTooltipPosition=\"above\" class=\"side-by-side cursor-pointer\">clear</mat-icon>\n          </td>\n          <td class=\"col-1\" *ngIf=\"product.age_restricted\">\n            <mat-icon matTooltip=\"{{'PRODUCTS.AGE_RESTRICTED' | translate}}\" (click)=\"toggleAgeStatus(i)\" matTooltipPosition=\"above\" class=\"side-by-side cursor-pointer\">done</mat-icon>\n          </td>\n          <td class=\"col-1\" *ngIf=\"!product.age_restricted\">\n            <mat-icon matTooltip=\"{{'PRODUCTS.NOT_AGE_RESTRICTED' | translate}}\" (click)=\"toggleAgeRestriction(i)\" matTooltipPosition=\"above\" class=\"side-by-side cursor-pointer\">clear</mat-icon>\n          </td>\n          <td class=\"col-1\">\n            <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"openEditDialog(i)\">edit</mat-icon>\n            <mat-icon matTooltip=\"{{'GENERAL.DELETE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"deleteConfirmation(i)\">delete_forever</mat-icon>\n          </td>\n        </ng-container>\n        <td class=\"align-center\" colspan=\"4\" *ngIf=\"product == -1\">{{'SEARCH.NO_MATCHES' | translate}}</td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/recover/index.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__recover_component__ = __webpack_require__("../../../../../src/app/recover/recover.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__recover_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reset_component__ = __webpack_require__("../../../../../src/app/recover/reset.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__reset_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__recover_routes__ = __webpack_require__("../../../../../src/app/recover/recover.routes.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__recover_routes__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recover_module__ = __webpack_require__("../../../../../src/app/recover/recover.module.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__recover_module__["a"]; });
+
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/recover/recover.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecoverComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var RecoverComponent = (function () {
+    function RecoverComponent(route, router, userService) {
+        this.route = route;
+        this.router = router;
+        this.userService = userService;
+        this.loading = false;
+        this.email = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required]);
+        this.recoveryEmailSent = false;
+    }
+    RecoverComponent.prototype.getErrorMessage = function () {
+        return this.email.hasError('required') ? 'You must enter a value' :
+            this.email.hasError('email') ? 'Not a valid email' :
+                '';
+    };
+    RecoverComponent.prototype.recover = function () {
+        var _this = this;
+        this.loading = true;
+        this.userService.requestRecovery(this.email.value)
+            .subscribe(function (data) {
+            _this.recoveryEmailSent = true;
+            _this.loading = false;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    return RecoverComponent;
+}());
+RecoverComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        template: __webpack_require__("../../../../../src/app/recover/recover.template.html")
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_index__["e" /* UserService */]) === "function" && _c || Object])
+], RecoverComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=recover.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/recover/recover.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_validation__ = __webpack_require__("../../../../ng2-validation/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_validation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_validation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__("../../../../@ngx-translate/http-loader/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__index__ = __webpack_require__("../../../../../src/app/recover/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* unused harmony export HttpLoaderFactory */
+/* unused harmony export HttpInterceptorFactory */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecoverModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+function HttpLoaderFactory(http) {
+    return new __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
+}
+function HttpInterceptorFactory(backend, options, router, injector) {
+    return new __WEBPACK_IMPORTED_MODULE_10__services_index__["a" /* HttpService */](backend, options, router, injector);
+}
+var RecoverModule = (function () {
+    function RecoverModule() {
+    }
+    return RecoverModule;
+}());
+RecoverModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_11__index__["b" /* RecoverComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__index__["c" /* ResetComponent */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"],
+            __WEBPACK_IMPORTED_MODULE_4_ng2_validation__["CustomFormsModule"],
+            __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
+            __WEBPACK_IMPORTED_MODULE_12__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["a" /* HttpClientModule */],
+            __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__["a" /* TranslateModule */].forRoot({
+                loader: {
+                    provide: __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__["b" /* TranslateLoader */],
+                    useFactory: HttpLoaderFactory,
+                    deps: [__WEBPACK_IMPORTED_MODULE_6__angular_common_http__["b" /* HttpClient */]]
+                }
+            }),
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["m" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["n" /* MatTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["o" /* MatInputModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["c" /* MatButtonModule */]
+        ],
+        providers: []
+    })
+], RecoverModule);
+
+//# sourceMappingURL=recover.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/recover/recover.routes.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __webpack_require__("../../../../../src/app/recover/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__guards_index__ = __webpack_require__("../../../../../src/app/guards/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecoverRoutes; });
+
+
+var RecoverRoutes = [
+    { path: 'recover', component: __WEBPACK_IMPORTED_MODULE_0__index__["b" /* RecoverComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_1__guards_index__["c" /* NotAuthGuard */]] },
+    { path: 'recover/:guid', component: __WEBPACK_IMPORTED_MODULE_0__index__["c" /* ResetComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_1__guards_index__["c" /* NotAuthGuard */]] }
+];
+//# sourceMappingURL=recover.routes.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/recover/recover.template.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row justify-content-center\">\n    <div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12\" *ngIf=\"!recoveryEmailSent\">\n      <h2>{{'RECOVER.RECOVER' | translate}}</h2>\n      <span>{{'RECOVER.DESCRIPTION' | translate}}</span>\n        <form name=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && recover()\" novalidate>\n          <mat-form-field class=\"full-width\" floatPlaceholder=\"never\">\n            <input matInput placeholder=\"{{'RECOVER.EMAIL_USERNAME' | translate}}\" [formControl]=\"email\" required>\n            <mat-error *ngIf=\"email.invalid\">{{getErrorMessage()}}</mat-error>\n          </mat-form-field>\n          <button mat-raised-button [disabled]=\"loading || email.invalid\" class=\"btn btn-primary float-right\">{{'RECOVER.SUBMIT' | translate}}</button>\n      </form>\n    </div>\n\n    <div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12\" *ngIf=\"recoveryEmailSent\">\n      <h2>{{'RECOVER.RECOVER' | translate}}</h2>\n      <span>{{'RECOVER.SENT' | translate}}</span>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/recover/reset.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_validation__ = __webpack_require__("../../../../ng2-validation/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_validation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_validation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ResetComponent = (function () {
+    function ResetComponent(route, router, userService) {
+        this.route = route;
+        this.router = router;
+        this.userService = userService;
+        this.loading = false;
+        this.guid = "";
+        this.password = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(8), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].pattern(/\d+/)]);
+        this.confirmation = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3_ng2_validation__["CustomValidators"].equalTo(this.password)]);
+    }
+    ResetComponent.prototype.getPasswordErrorMessage = function () {
+        return this.password.hasError('required') ? 'You must enter a new password' :
+            this.password.hasError('pattern') ? 'Your new password must contain atleast one number (0 - 9)' :
+                !this.password.hasError('minLength') ? 'Your new password must be at least 8 characters long' : 'Your new password must be atleast 8 characters long and contain atleast one number (0 - 9)';
+    };
+    ResetComponent.prototype.getConfirmationErrorMessage = function () {
+        return this.confirmation.hasError('required') ? 'You must confirm your new password' :
+            this.confirmation.hasError('equalTo') ? 'Passwords do not match' : '';
+    };
+    ResetComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.guid = params['guid'];
+        });
+    };
+    ResetComponent.prototype.reset = function () {
+        var _this = this;
+        this.loading = true;
+        this.userService.resetPassword(this.guid, this.password.value)
+            .subscribe(function (data) {
+            _this.router.navigate(['/login']);
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    ResetComponent.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
+    };
+    return ResetComponent;
+}());
+ResetComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        template: __webpack_require__("../../../../../src/app/recover/reset.template.html")
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_index__["e" /* UserService */]) === "function" && _c || Object])
+], ResetComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=reset.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/recover/reset.template.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row justify-content-center\">\n    <div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12\" *ngIf=\"!recoveryEmailSent\">\n      <h2>{{'RECOVER.RESET_PASSWORD' | translate}}</h2>\n      <span>{{'RECOVER.RESET_DESCRIPTION' | translate}}</span>\n        <form name=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && reset()\" novalidate>\n          <mat-form-field class=\"full-width\" floatPlaceholder=\"never\">\n            <input matInput placeholder=\"{{'RECOVER.PASSWORD' | translate}}\" [formControl]=\"password\" required type=\"password\">\n            <mat-error *ngIf=\"confirmation.invalid\">{{getPasswordErrorMessage()}}</mat-error>\n          </mat-form-field>\n          <mat-form-field class=\"full-width\" floatPlaceholder=\"never\">\n            <input matInput placeholder=\"{{'RECOVER.PASSWORD_CONFIRMATION' | translate}}\" [formControl]=\"confirmation\" required type=\"password\">\n            <mat-error *ngIf=\"confirmation.invalid\">{{getConfirmationErrorMessage()}}</mat-error>\n          </mat-form-field>\n          <button mat-raised-button [disabled]=\"loading || password.invalid || confirmation.invalid\" class=\"btn btn-primary float-right\">{{'RECOVER.SUBMIT' | translate}}</button>\n      </form>\n    </div>\n\n    <div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12\" *ngIf=\"recoveryEmailSent\">\n      <h2>{{'RECOVER.RECOVER' | translate}}</h2>\n      <span>{{'RECOVER.SENT' | translate}}</span>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3116,6 +3754,12 @@ module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <h3>{{'P
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_distinctUntilChanged__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3129,13 +3773,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var RegisterComponent = (function () {
     function RegisterComponent(route, router, userService, premisesService) {
+        var _this = this;
         this.route = route;
         this.router = router;
         this.userService = userService;
         this.premisesService = premisesService;
         this.model = {};
+        this.validUsername = true;
+        this.usernameCheckInFlight = false;
+        this.usernameUpdated = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        var subscription = this.usernameUpdated
+            .debounceTime(1000)
+            .distinctUntilChanged()
+            .subscribe(function (value) {
+            _this.userService.checkUsername(value)
+                .subscribe(function (data) {
+                _this.usernameCheckInFlight = false;
+                _this.validUsername = !data.taken;
+            }, function (error) {
+                _this.usernameCheckInFlight = false;
+                console.log(error);
+            });
+        });
     }
     RegisterComponent.prototype.ngOnInit = function () {
     };
@@ -3148,13 +3812,17 @@ var RegisterComponent = (function () {
             alert(error);
         });
     };
+    RegisterComponent.prototype.checkUsername = function () {
+        this.usernameCheckInFlight = true;
+        this.usernameUpdated.next(this.model.username);
+    };
     return RegisterComponent;
 }());
 RegisterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         template: __webpack_require__("../../../../../src/app/register/register.template.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* PremisesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* PremisesService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["f" /* PremisesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["f" /* PremisesService */]) === "function" && _d || Object])
 ], RegisterComponent);
 
 var _a, _b, _c, _d;
@@ -3221,7 +3889,8 @@ RegisterModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_12__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -3235,9 +3904,11 @@ RegisterModule = __decorate([
             }),
             __WEBPACK_IMPORTED_MODULE_8_ng2_truncate__["a" /* TruncateModule */],
             __WEBPACK_IMPORTED_MODULE_11__pipes_index__["a" /* PipesModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_material__["f" /* MatTooltipModule */]
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["m" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["n" /* MatTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["o" /* MatInputModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatFormFieldModule */]
         ],
         providers: [],
         entryComponents: []
@@ -3269,7 +3940,7 @@ var RegisterRoutes = [
 /***/ "../../../../../src/app/register/register.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row justify-content-center\">\n    <div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12\">\n      <h4>{{'REGISTER.TITLE' | translate}}</h4>\n        <form name=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && register()\" novalidate>\n        <div class=\"form-group\" [ngClass]=\"{'has-error':f.submitted && !username.valid }\">\n          <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required placeholder=\"{{'REGISTER.USERNAME' | translate}}\"/>\n          <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">{{'USERNAME_IS_REQUIRED' | translate}}</div>\n        </div>\n        <div class=\"form-group\" [ngClass]=\"{'has-error':f.submitted && !email.valid }\">\n          <input type=\"text\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" required placeholder=\"{{'REGISTER.EMAIL' | translate}}\"/>\n          <div *ngIf=\"f.submitted && !email.valid\" class=\"help-block\">{{'USERNAME_IS_REQUIRED' | translate}}</div>\n        </div>\n        <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n            <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required placeholder=\"{{'REGISTER.PASSWORD' | translate}}\" />\n            <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">{{'PASSWORD_IS_REQUIRED' | translate}}</div>\n        </div>\n        <div class=\"form-group\">\n            <button [disabled]=\"loading\" class=\"btn btn-primary full-width rounded\">{{'REGISTER.SIGN_UP' | translate}}</button>\n            <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" />\n        </div>\n        <div class=\"form-group\">\n          By signing up, you agree to the <a>Terms of Service</a> and <a>Privacy Policy</a>, including <a>Cookie Use</a>.\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row justify-content-center\">\n    <div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12\">\n      <h4>{{'REGISTER.TITLE' | translate}}</h4>\n        <form name=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && register()\" novalidate>\n        <div class=\"form-group\" [ngClass]=\"{'has-error':f.submitted && !username.valid }\">\n          <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required placeholder=\"{{'REGISTER.USERNAME' | translate}}\" (keyup)=\"checkUsername()\"/>\n          <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">{{'USERNAME_IS_REQUIRED' | translate}}</div>\n          <div *ngIf=\"!validUsername\" class=\"help-block\">{{'REGISTER.USERNAME_TAKEN' | translate}}</div>\n        </div>\n        <div class=\"form-group\" [ngClass]=\"{'has-error':f.submitted && !email.valid }\">\n          <input type=\"text\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" required placeholder=\"{{'REGISTER.EMAIL' | translate}}\"/>\n          <div *ngIf=\"f.submitted && !email.valid\" class=\"help-block\">{{'USERNAME_IS_REQUIRED' | translate}}</div>\n        </div>\n        <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n            <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required placeholder=\"{{'REGISTER.PASSWORD' | translate}}\" />\n            <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">{{'PASSWORD_IS_REQUIRED' | translate}}</div>\n        </div>\n        <div class=\"form-group\">\n            <button [disabled]=\"loading\" class=\"btn btn-primary full-width rounded\">{{'REGISTER.SIGN_UP' | translate}}</button>\n            <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" />\n        </div>\n        <div class=\"form-group\">\n          By signing up, you agree to the <a>Terms of Service</a> and <a>Privacy Policy</a>, including <a>Cookie Use</a>.\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3409,7 +4080,7 @@ var ErrorHandler = (function () {
 }());
 ErrorHandler = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialog */]) === "function" && _a || Object])
 ], ErrorHandler);
 
 var ErrorDialog = (function () {
@@ -3422,7 +4093,7 @@ ErrorDialog = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         template: "\n      <h1 md-dialog-title>Something Went Wrong!</h1>\n        <div md-dialog-content>\n          We're very sorry. Looks like something went wrong! Please try again.\n\n        </div>\n        <div md-dialog-actions>\n          <button md-button type='button' class='btn btn-default' (click)='dialogRef.close()'>Ok</button>\n        </div>\n"
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatDialogRef */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["k" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["k" /* MatDialogRef */]) === "function" && _b || Object])
 ], ErrorDialog);
 
 var _a, _b;
@@ -3443,7 +4114,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__ = __webpack_require__("../../../../rxjs/add/observable/throw.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_throw__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__index__ = __webpack_require__("../../../../../src/app/services/index.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpService; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -3476,17 +4147,31 @@ var HttpService = (function (_super) {
     function HttpService(backend, defaultOptions, router, injector) {
         var _this = _super.call(this, backend, defaultOptions) || this;
         _this.router = router;
-        setTimeout(function () { return _this.authenticationService = injector.get(__WEBPACK_IMPORTED_MODULE_6__authentication_service__["a" /* AuthenticationService */]); });
+        setTimeout(function () {
+            _this.authenticationService = injector.get(__WEBPACK_IMPORTED_MODULE_6__index__["c" /* AuthenticationService */]);
+            _this.loadHandler = injector.get(__WEBPACK_IMPORTED_MODULE_6__index__["d" /* LoadHandler */]);
+        });
         return _this;
     }
     HttpService.prototype.request = function (url, options) {
-        return _super.prototype.request.call(this, url, options).catch(this.catchErrors());
+        var _this = this;
+        if (this.loadHandler) {
+            this.loadHandler.start();
+        }
+        return _super.prototype.request.call(this, url, options).do(function (response) {
+        }, function (error) {
+            _this.catchErrors();
+        }).finally(function () {
+            if (_this.loadHandler) {
+                _this.loadHandler.finish();
+            }
+        }).catch(this.catchErrors());
     };
     HttpService.prototype.catchErrors = function () {
         var _this = this;
         return function (res) {
             var errorMsg = JSON.parse(res['_body']);
-            res['_body'] = JSON.parse(errorMsg['message']);
+            //res['_body'] = JSON.parse(errorMsg['message']);
             //handle authorization errors
             if (res.status === 401 || res.status === 403) {
                 _this.authenticationService.logout();
@@ -3512,28 +4197,31 @@ var _a, _b, _c, _d;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_0__user_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__user_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__authentication_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_service__ = __webpack_require__("../../../../../src/app/services/http.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_2__http_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__premises_service__ = __webpack_require__("../../../../../src/app/services/premises.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_3__premises_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__premises_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__table_service__ = __webpack_require__("../../../../../src/app/services/table.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_4__table_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_4__table_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__menu_service__ = __webpack_require__("../../../../../src/app/services/menu.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__menu_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_5__menu_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cache_service__ = __webpack_require__("../../../../../src/app/services/cache.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_6__cache_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_6__cache_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__product_service__ = __webpack_require__("../../../../../src/app/services/product.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_7__product_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_7__product_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__order_service__ = __webpack_require__("../../../../../src/app/services/order.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_8__order_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_8__order_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__payments_service__ = __webpack_require__("../../../../../src/app/services/payments.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_9__payments_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_9__payments_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__error_service__ = __webpack_require__("../../../../../src/app/services/error.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_10__error_service__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_10__error_service__["b"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_10__error_service__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__loader_service__ = __webpack_require__("../../../../../src/app/services/loader.service.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_11__loader_service__["a"]; });
+
 
 
 
@@ -3546,6 +4234,49 @@ var _a, _b, _c, _d;
 
 
 //# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/loader.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoadHandler; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoadHandler = (function () {
+    function LoadHandler(snackBar) {
+        this.snackBar = snackBar;
+        this.cache = {};
+    }
+    LoadHandler.prototype.start = function () {
+        this.snackBarRef = this.snackBar.open("Loading...");
+    };
+    LoadHandler.prototype.finish = function () {
+        if (this.snackBarRef) {
+            this.snackBarRef.dismiss();
+        }
+    };
+    return LoadHandler;
+}());
+LoadHandler = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatSnackBar */]) === "function" && _a || Object])
+], LoadHandler);
+
+var _a;
+//# sourceMappingURL=loader.service.js.map
 
 /***/ }),
 
@@ -3599,6 +4330,12 @@ var MenuService = (function () {
     };
     MenuService.prototype.put = function (menu) {
         return this.http.put(this.baseUrl + '/' + menu._id, menu, this.jwt())
+            .map(function (response) {
+            return response.json();
+        });
+    };
+    MenuService.prototype.putContents = function (menu) {
+        return this.http.put(this.baseUrl + '/contents/' + menu._id, { contents: menu.contents }, this.jwt())
             .map(function (response) {
             return response.json();
         });
@@ -3682,6 +4419,18 @@ var OrderService = (function () {
     };
     OrderService.prototype.getComplete = function () {
         return this.http.get(this.baseUrl + '/complete', this.jwt())
+            .map(function (response) {
+            return response.json();
+        });
+    };
+    OrderService.prototype.getCompleteByDay = function (year, month, day) {
+        return this.http.get(this.baseUrl + "/complete/" + year + "/" + month + "/" + day, this.jwt())
+            .map(function (response) {
+            return response.json();
+        });
+    };
+    OrderService.prototype.getOrderBreakdown = function () {
+        return this.http.get(this.baseUrl + '/complete/breakdown', this.jwt())
             .map(function (response) {
             return response.json();
         });
@@ -3846,25 +4595,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PremisesService = (function () {
     function PremisesService(http) {
         this.http = http;
-        this.baseUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].apiUrl;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].apiUrl + '/manage/premises';
         this.cache = {};
     }
     PremisesService.prototype.get = function () {
         var _this = this;
-        return this.http.get(this.baseUrl + '/manage/premises', this.jwt())
+        return this.http.get(this.baseUrl, this.jwt())
             .map(function (response) {
             _this.cache.get = response.json();
             return response.json();
         });
     };
     PremisesService.prototype.put = function (premises) {
-        return this.http.put(this.baseUrl + '/manage/premises', premises, this.jwt())
+        return this.http.put(this.baseUrl, premises, this.jwt())
             .map(function (response) {
             return response.json();
         });
     };
     PremisesService.prototype.create = function (premises) {
-        return this.http.post(this.baseUrl + '/manage/premises', premises, this.jwt())
+        return this.http.post(this.baseUrl, premises, this.jwt())
+            .map(function (response) {
+            return response.json();
+        });
+    };
+    PremisesService.prototype.open = function () {
+        return this.http.post(this.baseUrl + '/open', {}, this.jwt())
+            .map(function (response) {
+            return response.json();
+        });
+    };
+    PremisesService.prototype.close = function () {
+        return this.http.post(this.baseUrl + '/close', {}, this.jwt())
             .map(function (response) {
             return response.json();
         });
@@ -4097,6 +4858,18 @@ var UserService = (function () {
             return response.json();
         });
     };
+    UserService.prototype.setupVerification = function () {
+        return this.http.get(this.baseUrl + '/users/setup', this.jwt())
+            .map(function (response) {
+            return response.json();
+        });
+    };
+    UserService.prototype.checkUsername = function (username) {
+        return this.http.post(this.baseUrl + '/users/username', { username: username })
+            .map(function (response) {
+            return response.json();
+        });
+    };
     UserService.prototype.register = function (model) {
         return this.http.post(this.baseUrl + '/users/', model, this.headers())
             .map(function (response) {
@@ -4105,6 +4878,18 @@ var UserService = (function () {
                 localStorage.setItem('currentUser', JSON.stringify(token));
             }
             return token;
+        });
+    };
+    UserService.prototype.requestRecovery = function (email) {
+        return this.http.post(this.baseUrl + '/users/recover', { email: email })
+            .map(function (response) {
+            return response.json();
+        });
+    };
+    UserService.prototype.resetPassword = function (guid, password) {
+        return this.http.post(this.baseUrl + '/users/recover/' + guid, { password: password })
+            .map(function (response) {
+            return response.json();
         });
     };
     UserService.prototype.getLoggedInUser = function () {
@@ -4172,7 +4957,7 @@ GeneralSettingsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         template: __webpack_require__("../../../../../src/app/settings/children/general.template.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _c || Object])
 ], GeneralSettingsComponent);
 
 var _a, _b, _c;
@@ -4225,7 +5010,7 @@ PasswordSettingsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         template: __webpack_require__("../../../../../src/app/settings/children/password.template.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _c || Object])
 ], PasswordSettingsComponent);
 
 var _a, _b, _c;
@@ -4298,7 +5083,7 @@ SettingsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/settings/settings.template.html"),
         styles: [__webpack_require__("../../../../../src/app/settings/settings.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["d" /* UserService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["e" /* UserService */]) === "function" && _c || Object])
 ], SettingsComponent);
 
 var _a, _b, _c;
@@ -4362,7 +5147,7 @@ SettingsModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_10__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -4454,7 +5239,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"row full-height\">\n
 /***/ "../../../../../src/app/tables/modals/addTable.modal.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 md-dialog-title *ngIf=\"!toEdit\">{{'TABLES.ADD' | translate}}</h1>\n<h1 md-dialog-title *ngIf=\"toEdit\">{{'TABLES.EDIT' | translate}}</h1>\n<div md-dialog-content>\n  <input md-input placeholder=\"Name\" type=\"text\" [(ngModel)]=\"newTableName\" required>\n</div>\n<div md-dialog-actions>\n    <button md-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button md-button type=\"button\" class=\"btn btn-default\" *ngIf=\"!toEdit\" (click)=\"submit()\">{{'GENERAL.ADD' | translate}}</button>\n    <button md-button type=\"button\" class=\"btn btn-default\" *ngIf=\"toEdit\" (click)=\"submit()\">{{'GENERAL.SAVE' | translate}}</button>\n</div>\n"
+module.exports = "<h3 md-dialog-title *ngIf=\"!toEdit\">{{'TABLES.ADD' | translate}}</h3>\n<h3 md-dialog-title *ngIf=\"toEdit\">{{'TABLES.EDIT' | translate}}</h3>\n<div md-dialog-content>\n  <mat-form-field class=\"full-width\">\n    <input matInput placeholder=\"Name\" type=\"text\" [(ngModel)]=\"newTableName\" required #name=\"ngModel\">\n  </mat-form-field>\n</div>\n<div md-dialog-actions class=\"text-align-right\">\n    <button mat-button type=\"button\" class=\"btn btn-default\" (click)=\"close()\">{{'GENERAL.CANCEL' | translate}}</button>\n    <button mat-raised-button type=\"button\" color=\"primary\" *ngIf=\"!toEdit\" [disabled]=\"name.invalid\" (click)=\"submit()\">{{'GENERAL.ADD' | translate}}</button>\n    <button mat-raised-button type=\"button\" color=\"primary\" *ngIf=\"toEdit\" [disabled]=\"name.invalid\" (click)=\"submit()\">{{'GENERAL.SAVE' | translate}}</button>\n</div>\n"
 
 /***/ }),
 
@@ -4471,6 +5256,8 @@ module.exports = "<h1 md-dialog-title *ngIf=\"!toEdit\">{{'TABLES.ADD' | transla
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_table__ = __webpack_require__("../../../../../src/app/models/table.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_qrious__ = __webpack_require__("../../../../qrious/dist/qrious.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_qrious___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_qrious__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip__ = __webpack_require__("../../../../jszip/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jszip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_jszip__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TablesComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddTableDialog; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return EditTableDialog; });
@@ -4483,6 +5270,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -4518,13 +5306,30 @@ var TablesComponent = (function () {
     };
     TablesComponent.prototype.downloadQrCode = function (index) {
         var qr = new __WEBPACK_IMPORTED_MODULE_7_qrious___default.a({
-            value: 'https://github.com/neocotic/qrious'
+            value: this.tables[index]._id
         });
-        return (qr.toDataURL('image/jpeg'));
+        return (qr.toDataURL('image/png'));
+    };
+    TablesComponent.prototype.downloadAll = function () {
+        var zip = new __WEBPACK_IMPORTED_MODULE_8_jszip___default.a();
+        for (var i = 0; i < this.tables.length; i++) {
+            var qr = new __WEBPACK_IMPORTED_MODULE_7_qrious___default.a({
+                value: this.tables[i]._id
+            });
+            var image = qr.toDataURL('image/png');
+            zip.file(this.tables[i].name + ".png", image.substr(image.indexOf(',') + 1), { base64: true });
+        }
+        zip.generateAsync({ type: "base64" })
+            .then(function (content) {
+            // use content
+            location.href = "data:application/zip;base64," + content;
+        });
     };
     TablesComponent.prototype.openDialog = function () {
         var _this = this;
-        var dialogRef = this.dialog.open(AddTableDialog);
+        var dialogRef = this.dialog.open(AddTableDialog, {
+            width: '20%'
+        });
         dialogRef.afterClosed().subscribe(function (result) {
             if (typeof result != 'undefined') {
                 var newTable_1 = new __WEBPACK_IMPORTED_MODULE_6__models_table__["a" /* Table */]();
@@ -4541,7 +5346,9 @@ var TablesComponent = (function () {
     };
     TablesComponent.prototype.editDialog = function (index) {
         var _this = this;
-        var dialogRef = this.dialog.open(AddTableDialog);
+        var dialogRef = this.dialog.open(AddTableDialog, {
+            width: '20%'
+        });
         dialogRef.componentInstance.toEdit = this.tables[index].name;
         dialogRef.afterClosed().subscribe(function (result) {
             if (typeof result != 'undefined') {
@@ -4560,7 +5367,9 @@ var TablesComponent = (function () {
     };
     TablesComponent.prototype.deleteConfirmation = function (_id, index) {
         var _this = this;
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__misc_index__["b" /* ConfirmDeleteDialog */]);
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__misc_index__["b" /* ConfirmDeleteDialog */], {
+            data: { params: { type: "table", name: this.tables[index].name } }
+        });
         dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
                 //delete it
@@ -4583,7 +5392,7 @@ TablesComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/tables/tables.template.html"),
         styles: [__webpack_require__("../../../../../src/app/tables/tables.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_index__["d" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_index__["d" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_index__["f" /* TableService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_index__["f" /* TableService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_index__["e" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_index__["e" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialog */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_index__["g" /* TableService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_index__["g" /* TableService */]) === "function" && _e || Object])
 ], TablesComponent);
 
 var AddTableDialog = (function () {
@@ -4614,7 +5423,7 @@ AddTableDialog = __decorate([
         selector: 'add-table-dialog',
         template: __webpack_require__("../../../../../src/app/tables/modals/addTable.modal.html")
     }),
-    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _g || Object])
 ], AddTableDialog);
 
 var EditTableDialog = (function () {
@@ -4634,7 +5443,7 @@ EditTableDialog = __decorate([
         selector: 'edit-table-dialog',
         template: __webpack_require__("../../../../../src/app/tables/modals/addTable.modal.html")
     }),
-    __metadata("design:paramtypes", [typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatDialogRef */]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MatDialogRef */]) === "function" && _h || Object])
 ], EditTableDialog);
 
 var _a, _b, _c, _d, _e, _f, _g, _h;
@@ -4699,7 +5508,7 @@ TablesModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_11__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
@@ -4711,10 +5520,13 @@ TablesModule = __decorate([
                     deps: [__WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClient */]]
                 }
             }),
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MatProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["f" /* MatTooltipModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["g" /* MatDialogModule */]
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["m" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["l" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["n" /* MatTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["u" /* MatDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["c" /* MatButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["o" /* MatInputModule */]
         ],
         providers: [],
         entryComponents: [__WEBPACK_IMPORTED_MODULE_10__index__["c" /* AddTableDialog */], __WEBPACK_IMPORTED_MODULE_10__index__["d" /* EditTableDialog */]]
@@ -4733,7 +5545,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".row {\n  margin-top: 10px; }\n\n.mat-icon.side-by-side {\n  display: table-cell; }\n\ndiv.center-spinner {\n  margin: auto;\n  width: 100px; }\n", ""]);
+exports.push([module.i, ".row {\n  margin-top: 10px; }\n\n.mat-icon.side-by-side {\n  display: table-cell; }\n\na.side-by-side {\n  display: table-cell; }\n\ndiv.center-spinner {\n  margin: auto;\n  width: 100px; }\n", ""]);
 
 // exports
 
@@ -4746,7 +5558,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tables/tables.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n      <h3>{{'TABLES.TABLES' | translate}}</h3>\n  </div>\n  <div class=\"row justify-content-center\">\n    <span>{{'MANAGE.TABLES.DESCRIPTION' | translate}}</span>\n  </div>\n  <div class=\"row justify-content-center\">\n    <button type=\"button\" class=\"btn btn-primary half-width rounded\" (click)=\"openDialog()\">{{'GENERAL.ADD' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><md-spinner></md-spinner></div>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <tr *ngFor=\"let table of tables; let i = index\">\n        <td class=\"col-9\">{{table.name}}</td>\n        <td class=\"col-3\">\n          <a class=\"side-by-side no-a-styling\" href=\"{{downloadQrCode(i)}}\" download><mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\">file_download</mat-icon></a>\n          <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"editDialog(i)\">edit</mat-icon>\n          <mat-icon matTooltip=\"{{'GENERAL.DELETE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"deleteConfirmation(table._id, i)\">delete_forever</mat-icon>\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n      <h3>{{'TABLES.TABLES' | translate}}</h3>\n  </div>\n  <div class=\"row justify-content-center\">\n    <span>{{'MANAGE.TABLES.DESCRIPTION' | translate}}</span>\n  </div>\n  <div class=\"row justify-content-center\">\n    <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn btn-primary half-width rounded\" (click)=\"openDialog()\">{{'GENERAL.ADD' | translate}}</button>\n  </div>\n  <div class=\"row\" *ngIf=\"loading\">\n    <div class=\"row center-spinner\"><md-spinner></md-spinner></div>\n  </div>\n  <div class=\"row\" *ngIf=\"!loading\">\n    <table class=\"table\">\n      <tr>\n        <td colspan=\"4\">\n          <button type=\"button\" class=\"btn btn-primary rounded float-right\" (click)=\"downloadAll()\">{{'TABLES.DOWNLOAD_ALL' | translate}}</button>\n        </td>\n      <tr>\n      <tr *ngFor=\"let table of tables; let i = index\">\n        <td class=\"col-9\">{{table.name}}</td>\n        <td class=\"col-3\">\n          <a class=\"side-by-side no-a-styling\" href=\"{{downloadQrCode(i)}}\" download=\"{{table.name}}.png\"><mat-icon matTooltip=\"{{'TABLES.DOWNLOAD' | translate}}\" matTooltipPosition=\"above\">file_download</mat-icon></a>\n          <mat-icon matTooltip=\"{{'GENERAL.EDIT' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"editDialog(i)\">edit</mat-icon>\n          <mat-icon matTooltip=\"{{'GENERAL.DELETE' | translate}}\" matTooltipPosition=\"above\" class=\"side-by-side\" (click)=\"deleteConfirmation(table._id, i)\">delete_forever</mat-icon>\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -4755,8 +5567,14 @@ module.exports = "<div class=\"container\">\n  <div class=\"row\">\n      <h3>{{
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
 var environment = {
-    production: true,
+    production: false,
+    //apiUrl: 'http://192.168.99.100:31126'
     apiUrl: 'https://api.wildapplications.com'
 };
 //# sourceMappingURL=environment.js.map
@@ -5040,7 +5858,14 @@ webpackContext.id = "../../../../moment/locale recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("../../../../../src/main.ts");
@@ -5048,5 +5873,5 @@ module.exports = __webpack_require__("../../../../../src/main.ts");
 
 /***/ })
 
-},[1]);
+},[2]);
 //# sourceMappingURL=main.bundle.js.map

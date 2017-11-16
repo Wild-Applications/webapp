@@ -7,7 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { ConfirmDeleteDialog } from '../misc/index';
 
-import { Menu } from '../models/index';
+import { Menu, Product } from '../models/index';
+
+import { AddProductDialog } from '../products/index';
 
 import { MenuService, CacheService, ProductService } from '../services/index';
 
@@ -77,19 +79,7 @@ export class MenuComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
         this.menu.contents[this.menu.contents.length] = {title:result.name, products:[]}
-        this.menuService.put(this.menu)
-          .subscribe(
-            data => {
-
-            },
-            error => {
-              alert(error);
-            }
-          );
-          /*let newSection: any = {};
-          newSection.title = result;
-          newSection.products = [];
-          this.contents[this.contents.length] = newSection;*/
+        this.saveMenu();
       }
     });
   }
@@ -106,11 +96,15 @@ export class MenuComponent implements OnInit {
   }
 
   deleteSection(sectionIndex){
-    let dialogRef = this.dialog.open(ConfirmDeleteDialog);
-    dialogRef.componentInstance.element = "section " + this.contents[sectionIndex].title;
+    console.log(this.contents);
+    let dialogRef = this.dialog.open(ConfirmDeleteDialog, {
+      data: {params: {type: "section", name: this.menu.contents[sectionIndex].title}}
+    });
+
     dialogRef.afterClosed().subscribe(result =>{
       if(result){
         this.contents.splice(sectionIndex,1);
+        this.saveMenu();
       }else{
         //keep it
       }
@@ -124,12 +118,16 @@ export class MenuComponent implements OnInit {
 
   addProductDialog(sectionIndex){
 
-    let dialogRef = this.dialog.open(AddProductDialog);
+    let dialogRef = this.dialog.open(AddDialog, {
+      //width: '50%',
+      panelClass: 'menu-add-product-dialog'
+    });
     dialogRef.componentInstance.available = this.filterProducts(this.menu.contents[sectionIndex]);
     dialogRef.componentInstance.chosen = this.menu.contents[sectionIndex].products.slice(0);
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        this.menu.contents[sectionIndex].products = result;
+        this.menu.contents[sectionIndex].products = result.products;
+        this.availableProducts = [...this.availableProducts, ...result.newProducts];
         this.saveMenu();
       }
     })
@@ -147,7 +145,7 @@ export class MenuComponent implements OnInit {
   }
 
   saveMenu(){
-    this.menuService.put(this.menu)
+    this.menuService.putContents(this.menu)
       .subscribe(
         data => {
 
@@ -166,6 +164,7 @@ export class MenuComponent implements OnInit {
 export class SectionDialog implements OnInit{
 
   private model: any = {};
+  public editing: boolean = false;
   public toEdit: string;
 
   constructor(public dialogRef: MatDialogRef<SectionDialog>, private translate: TranslateService){
@@ -175,6 +174,7 @@ export class SectionDialog implements OnInit{
 
   ngOnInit(){
     if(typeof this.toEdit != 'undefined'){
+      this.editing = true;
       this.model.name = this.toEdit;
     }
   }
@@ -194,13 +194,14 @@ export class SectionDialog implements OnInit{
   templateUrl: './modals/addProduct.modal.html',
   styleUrls: ['./menus.scss']
 })
-export class AddProductDialog implements OnInit{
+export class AddDialog implements OnInit{
 
 
   available: any[];
   chosen: any[];
+  new: any[] = [];
 
-  constructor(public dialogRef: MatDialogRef<SectionDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<AddDialog>, private translate: TranslateService, public dialog: MatDialog, private productService: ProductService){
 
 
   }
@@ -210,18 +211,42 @@ export class AddProductDialog implements OnInit{
     if(typeof this.chosen == 'undefined'){this.chosen = [];}
   }
 
-  chooseProduct(index){
-    if(index > -1){
-      this.chosen[this.chosen.length] = this.available[index];
-      this.available.splice(index, 1);
-    }
+  select(index){
+    this.chosen[this.chosen.length] = this.available[index];
+    this.available.splice(index,1);
   }
 
-  removeProduct(index){
-    if(index > -1){
-      this.available[this.available.length] = this.chosen[index];
-      this.chosen.splice(index, 1);
-    }
+  remove(index){
+    this.available[this.available.length] = this.chosen[index];
+    this.chosen.splice(index, 1);
+  }
+
+  addNew(){
+    let dialogRef = this.dialog.open(AddProductDialog, {
+      width: '30%'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(typeof result != 'undefined'){
+
+        let newProduct: Product = new Product();
+        newProduct.name = result.name;
+        newProduct.price = +result.price;
+        newProduct.description = result.description;
+
+        this.productService.create(newProduct)
+          .subscribe(
+            data => {
+              newProduct._id = data._id;
+              this.new[this.new.length] = newProduct;
+              this.chosen = [newProduct, ...this.chosen];
+            },
+            error => {
+              alert(error);
+            }
+          );
+
+      }
+    });
   }
 
   close( ) {
@@ -229,6 +254,6 @@ export class AddProductDialog implements OnInit{
 	}
 
   submit ( ){
-    this.dialogRef.close(this.chosen);
+    this.dialogRef.close({products: this.chosen,  newProducts: this.new});
   }
 }

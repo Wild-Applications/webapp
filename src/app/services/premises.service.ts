@@ -9,14 +9,14 @@ import { Premises } from '../models/index';
 @Injectable()
 export class PremisesService {
 
-  baseUrl: string = environment.apiUrl;
+  baseUrl: string = environment.apiUrl + '/manage/premises';
   cache: any = {};
 
   constructor( private http: Http ){
   }
 
   get() {
-    return this.http.get(this.baseUrl + '/manage/premises', this.jwt())
+    return this.http.get(this.baseUrl, this.jwt())
       .map((response: Response) => {
         this.cache.get = response.json();
         return response.json();
@@ -24,18 +24,33 @@ export class PremisesService {
   }
 
   put(premises: Premises){
-    return this.http.put(this.baseUrl + '/manage/premises', premises, this.jwt())
+    return this.http.put(this.baseUrl, premises, this.jwt())
       .map((response: Response) => {
         return response.json();
       })
   }
 
   create(premises: any){
-    return this.http.post(this.baseUrl + '/manage/premises', premises, this.jwt())
+    return this.http.post(this.baseUrl, premises, this.jwt())
       .map((response: Response) => {
         return response.json();
       });
   }
+
+  open(){
+    return this.http.post(this.baseUrl + '/open', {}, this.jwt())
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
+
+  close(){
+    return this.http.post(this.baseUrl + '/close', {}, this.jwt())
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
+
   //private helper methods
   private jwt(){
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));

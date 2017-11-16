@@ -29,6 +29,20 @@ export class UserService {
       });
   }
 
+  setupVerification() {
+    return this.http.get(this.baseUrl + '/users/setup', this.jwt())
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
+
+  checkUsername(username: string){
+    return this.http.post(this.baseUrl + '/users/username', {username: username})
+      .map((response: Response) =>{
+        return response.json();
+      })
+  }
+
   register(model: any){
     return this.http.post(this.baseUrl + '/users/', model, this.headers())
       .map((response: Response) => {
@@ -39,6 +53,20 @@ export class UserService {
 
         return token;
       });
+  }
+
+  requestRecovery(email: string){
+    return this.http.post(this.baseUrl + '/users/recover', {email: email})
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
+
+  resetPassword(guid: string, password: string){
+    return this.http.post(this.baseUrl + '/users/recover/' + guid, {password: password})
+      .map((response : Response) => {
+        return response.json();
+      })
   }
 
   getLoggedInUser(){

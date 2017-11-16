@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 import { TranslateService } from '@ngx-translate/core';
 //import { TruncateModule } from 'ng2-truncate';
@@ -63,7 +63,9 @@ export class MenusComponent implements OnInit {
   }
 
   openAddDialog(){
-    let dialogRef = this.dialog.open(AddMenuDialog);
+    let dialogRef = this.dialog.open(MenuDialog, {
+      width: '20%'
+    });
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
         let newMenu: Menu = new Menu();
@@ -83,12 +85,13 @@ export class MenusComponent implements OnInit {
     });
   }
 
-  deleteConfirmation(_id, index){
+  deleteConfirmation(index, event){
+    event.stopPropagation();
     let dialogRef = this.dialog.open(ConfirmDeleteDialog);
     dialogRef.afterClosed().subscribe(result =>{
       if(result){
         //delete it
-        this.menuService.delete(_id)
+        this.menuService.delete(this.menus[index]._id)
           .subscribe(
             data => {
               this.menus.splice(index, 1);
@@ -102,17 +105,41 @@ export class MenusComponent implements OnInit {
       }
     })
   }
+
+  editMenu(index, event){
+    event.stopPropagation();
+    let dialogRef = this.dialog.open(MenuDialog, {
+      width: '20%',
+      data: this.menus[index]
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.menuService.put(result)
+          .subscribe(data => {
+            this.menus[index] = result;
+          }, error => {
+            alert(error);
+          });
+      }
+    })
+  }
 }
 
 @Component({
   selector: 'add-menu-dialog',
-  templateUrl: './modals/add.modal.html'
+  templateUrl: './modals/addMenu.modal.html'
 })
-export class AddMenuDialog {
+export class MenuDialog {
 
   private model: any = {};
+  private toEdit: any = {};
+  public update: boolean = false;
 
-  constructor(public dialogRef: MatDialogRef<AddMenuDialog>, private translate: TranslateService){
+  constructor(public dialogRef: MatDialogRef<MenuDialog>, private translate: TranslateService, @Inject(MAT_DIALOG_DATA) public data: any){
+    if(data){
+      this.model = data;
+      this.update = true;
+    }
   }
 
   close( ) {
