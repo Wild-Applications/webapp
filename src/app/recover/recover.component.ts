@@ -14,7 +14,7 @@ export class RecoverComponent {
 
   email = new FormControl('', [Validators.required]);
 
-  recoveryEmailSent: boolean = false;
+  public recoveryEmailSent: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService ){}
 

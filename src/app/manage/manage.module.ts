@@ -19,9 +19,6 @@ export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOptions, router: Router, injector: Injector) {
-  return new HttpService(backend, options, router, injector);
-}
 
 @NgModule({
   declarations: [

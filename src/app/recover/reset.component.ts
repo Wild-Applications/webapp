@@ -18,8 +18,7 @@ export class ResetComponent {
 
   password = new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(/\d+/)]);
   confirmation = new FormControl('', [Validators.required, CustomValidators.equalTo(this.password)]);
-
-
+  recoveryEmailSent: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService ){
   }

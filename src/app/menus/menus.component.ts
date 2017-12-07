@@ -131,7 +131,7 @@ export class MenusComponent implements OnInit {
 })
 export class MenuDialog {
 
-  private model: any = {};
+  public model: any = {};
   private toEdit: any = {};
   public update: boolean = false;
 

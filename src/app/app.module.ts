@@ -7,7 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule, MatDialogModule } from '@angular/material';
 
 import 'popper.js/dist/umd/popper';
 import 'hammerjs';
@@ -28,7 +28,6 @@ import { ProductsModule } from './products/index';
 import { OrdersModule } from './orders/index';
 import { PaymentsModule } from './payments/index';
 import { RegisterModule } from './register/index';
-import { OnboardingModule } from './onboarding/index';
 import { RecoverModule } from './recover/index';
 
 import { AuthenticationService, LoadHandler, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService, OrderService, PaymentsService, ErrorHandler, ErrorDialog } from './services/index';
@@ -43,8 +42,8 @@ export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOptions, router: Router, injector: Injector) {
-  return new HttpService(backend, options, router, injector);
+export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOptions, router: Router, injector: Injector, errorHandler: ErrorHandler) {
+  return new HttpService(backend, options, router, injector, errorHandler);
 }
 
 @NgModule({
@@ -81,22 +80,24 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     PipesModule,
     OrdersModule,
     RegisterModule,
-    OnboardingModule,
     RecoverModule,
     PaymentsModule,
+    MatProgressSpinnerModule,
     MatCardModule,
     MatSnackBarModule,
     MatButtonModule,
     MatSlideToggleModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule
   ],
   providers: [
     AuthenticationService,
     LoadHandler,
+    ErrorHandler,
     {
       provide: Http,
       useFactory: HttpInterceptorFactory,
-      deps: [XHRBackend, RequestOptions, Router, Injector]
+      deps: [XHRBackend, RequestOptions, Router, Injector, ErrorHandler]
     },
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
@@ -110,8 +111,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     CacheService,
     ProductService,
     OrderService,
-    PaymentsService,
-    ErrorHandler
+    PaymentsService
   ],
   entryComponents: [ ConfirmDeleteDialog, ErrorDialog ],
   bootstrap: [AppComponent]

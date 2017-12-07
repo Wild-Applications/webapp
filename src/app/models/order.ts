@@ -5,4 +5,5 @@ export class Order {
   table:       any;
   products:    any[];
   status:      string;
+  createdAt:   string;
 }

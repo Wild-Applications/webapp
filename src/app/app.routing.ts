@@ -6,7 +6,6 @@ import { ManageRoutes } from './manage/index';
 import { SettingsRoutes } from './settings/index';
 import { OrderRoutes } from './orders/index';
 import { RegisterRoutes } from './register/index';
-import { OnboardingRoutes } from './onboarding/index';
 import { RecoverRoutes } from './recover/index';
 
 import { PageNotFoundComponent } from './misc/index';
@@ -19,7 +18,6 @@ const appRoutes: Routes = [
     ...SettingsRoutes,
     ...OrderRoutes,
     ...RegisterRoutes,
-    ...OnboardingRoutes,
     ...RecoverRoutes,
     // otherwise redirect to home or page not found
     { path: '', pathMatch: 'full', redirectTo: 'home'},

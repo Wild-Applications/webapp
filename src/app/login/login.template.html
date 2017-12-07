@@ -2,6 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
       <h2>{{'LOGIN.LOGIN' | translate}}</h2>
+      <h6>{{error}}</h6>
         <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && login()" novalidate>
         <div class="form-group" [ngClass]="{'has-error':f.submitted && !username.valid }">
           <label for="username">{{'LOGIN.USERNAME' | translate}}</label>

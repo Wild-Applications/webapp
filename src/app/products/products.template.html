@@ -28,7 +28,7 @@
             <mat-icon matTooltip="{{'PRODUCTS.OUT_OF_STOCK' | translate}}" (click)="toggleStockStatus(i)" matTooltipPosition="above" class="side-by-side cursor-pointer">clear</mat-icon>
           </td>
           <td class="col-1" *ngIf="product.age_restricted">
-            <mat-icon matTooltip="{{'PRODUCTS.AGE_RESTRICTED' | translate}}" (click)="toggleAgeStatus(i)" matTooltipPosition="above" class="side-by-side cursor-pointer">done</mat-icon>
+            <mat-icon matTooltip="{{'PRODUCTS.AGE_RESTRICTED' | translate}}" (click)="toggleAgeRestriction(i)" matTooltipPosition="above" class="side-by-side cursor-pointer">done</mat-icon>
           </td>
           <td class="col-1" *ngIf="!product.age_restricted">
             <mat-icon matTooltip="{{'PRODUCTS.NOT_AGE_RESTRICTED' | translate}}" (click)="toggleAgeRestriction(i)" matTooltipPosition="above" class="side-by-side cursor-pointer">clear</mat-icon>

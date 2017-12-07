@@ -16,6 +16,7 @@ import "rxjs/add/operator/distinctUntilChanged";
 export class RegisterComponent implements OnInit {
 
   public model: any = {};
+  public loading: boolean = false;
   public validUsername: boolean = true;
   public usernameCheckInFlight: boolean = false;
 

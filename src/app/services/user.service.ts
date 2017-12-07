@@ -69,6 +69,16 @@ export class UserService {
       })
   }
 
+  changePassword(original: string, updated: string){
+    return this.http.post(this.baseUrl + '/users/password/reset', {password: original, new: updated}, this.jwt())
+      .map((response: Response) => {
+        if(response.status === 200 || response.status === 201){
+          return {};
+        }
+        return response.json();
+      })
+  }
+
   getLoggedInUser(){
     return this.loggedInUser;
   }

@@ -11,7 +11,7 @@ import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule, MatDialogMod
 
 import { HttpService } from '../services/index';
 
-import { TablesComponent, AddTableDialog, EditTableDialog } from './index';
+import { TablesComponent, AddTableDialog } from './index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -19,15 +19,11 @@ export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOptions, router: Router, injector: Injector) {
-  return new HttpService(backend, options, router, injector);
-}
 
 @NgModule({
   declarations: [
     TablesComponent,
-    AddTableDialog,
-    EditTableDialog
+    AddTableDialog
   ],
   imports: [
     BrowserModule,
@@ -53,6 +49,6 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
   ],
   providers: [
   ],
-  entryComponents: [ AddTableDialog, EditTableDialog ]
+  entryComponents: [ AddTableDialog ]
 })
 export class TablesModule { }

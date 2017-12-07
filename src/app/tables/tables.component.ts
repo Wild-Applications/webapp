@@ -153,7 +153,7 @@ export class TablesComponent implements OnInit {
 })
 export class AddTableDialog implements OnInit{
 
-  private newTableName: string;
+  public newTableName: string;
   public toEdit: string;
 
   constructor(public dialogRef: MatDialogRef<AddTableDialog>, private translate: TranslateService){
@@ -178,25 +178,5 @@ export class AddTableDialog implements OnInit{
 
   submit ( ){
     this.dialogRef.close(this.newTableName);
-  }
-}
-
-@Component({
-  selector: 'edit-table-dialog',
-  templateUrl: './modals/addTable.modal.html'
-})
-export class EditTableDialog{
-  private existingTableName: string;
-
-  constructor(public dialogRef: MatDialogRef<EditTableDialog>){
-
-  }
-
-  close( ) {
-		this.dialogRef.close(undefined);
-	}
-
-  submit ( ){
-    this.dialogRef.close(this.existingTableName);
   }
 }

@@ -92,7 +92,12 @@
     "DEACTIVATE_ACCOUNT": "Deactivate my account",
     "NEW_PASSWORD": "New password",
     "CONFIRM_PASSWORD": "Type your new password again",
-    "CHANGE_PASSWORD": "Change password"
+    "CHANGE_PASSWORD": "Change password",
+    "ORIGINAL": "Current password",
+    "ORIGINAL_IS_REQUIRED": "Original password is required",
+    "NEW_PASSWORD": "New password",
+    "NEW_PASSWORD_CONFIRMATION": "Confirm new password",
+    "SUBMIT": "Change Password"
   },
 
   "MANAGE": {
@@ -175,6 +180,12 @@
 
   "MODALS": {
     "CONFIRMATION": "Are you sure?"
+  },
+
+  "ERRORS": {
+    "DIALOG_TITLE": "Something went wrong!",
+    "DIALOG_CONTENT": "We're really sorry!\nSomething seems to have gone wrong.\nPlease refresh and give it another go.",
+    "LOAD_FAILED": "Unable to load..."
   }
 
 }

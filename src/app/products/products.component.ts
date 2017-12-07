@@ -144,7 +144,7 @@ export class ProductsComponent implements OnInit {
 })
 export class AddProductDialog {
 
-  private model: any = {};
+  public model: any = {};
   public update: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<AddProductDialog>, private translate: TranslateService,  @Inject(MAT_DIALOG_DATA) public data: any){

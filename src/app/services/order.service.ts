@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
@@ -16,11 +17,10 @@ export class OrderService {
   }
 
   getPending() {
+    console.log('calling');
     return this.http.get(this.baseUrl + '/pending', this.jwt())
-      .map((response: Response) => {
-        this.cache.get = response.json();
-        return response.json();
-      });
+     .map((response: Response) => response.json())
+      .catch((error:any) => Observable.throw( error || 'Server error'));;
   }
 
   getComplete(){
@@ -76,6 +76,16 @@ export class OrderService {
   delete(_id: string){
     return this.http.delete(this.baseUrl + '/' + _id, this.jwt())
       .map((response: Response) => {
+        if(response.status >= 200 && response.status <= 300){
+          return {}
+        }
+        return response.json();
+      })
+  }
+
+  cancel(_id: string){
+    return this.http.post(this.baseUrl + '/cancel/' + _id, {}, this.jwt())
+      .map((response: Response)=>{
         if(response.status >= 200 && response.status <= 300){
           return {}
         }

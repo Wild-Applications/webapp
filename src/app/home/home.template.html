@@ -5,7 +5,8 @@
       <mat-card>
         <mat-card-header>
           <!--<div mat-card-avatar class=""></div>-->
-          <mat-card-title>{{premises.name}}</mat-card-title>
+          <mat-card-title *ngIf="!premisesLoadError">{{premises.name}}</mat-card-title>
+          <mat-card-title *ngIf="premisesLoadError">{{'ERRORS.LOAD_FAILED' | translate}}</mat-card-title>
           <mat-card-subtitle>{{user.verififed}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
@@ -29,7 +30,8 @@
       <mat-card *ngIf="!validSetup">
         <mat-card-header>{{'HOME.TODO' | translate}}</mat-card-header>
         <mat-card-content>
-          <table class="table">
+          <div class="row center-spinner" *ngIf="loadingSetup"><mat-spinner></mat-spinner></div>
+          <table class="table" *ngIf="!loadingSetup && !setupLoadError">
             <tr *ngIf="!setup.premises">
               <td class="col-9">Create a premises</td>
               <td matButton class="col-3 text-align-right"><button>Take me there</button></td>
@@ -47,6 +49,7 @@
               <td class="col-3 text-align-right"><button>Take me there</button></td>
             </tr>
           </table>
+          <h6 *ngIf="!loadingSetup && setupLoadError">{{'ERRORS.LOAD_FAILED' | translate}}</h6>
         </mat-card-content>
       </mat-card>
     </div>

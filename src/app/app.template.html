@@ -10,10 +10,10 @@
         <a class="nav-link" [routerLink]="['/home']">{{'NAV.DASHBOARD' | translate}}</a>
       </li>
       <li class="nav-item" [hidden]="!authenticationService.isLoggedIn()">
-        <a class="nav-link" [routerLink]="['/manage']">{{'NAV.MANAGE' | translate}}</a>
+        <a class="nav-link" [routerLink]="['/orders']">{{'NAV.ORDERS' | translate}}</a>
       </li>
       <li class="nav-item" [hidden]="!authenticationService.isLoggedIn()">
-        <a class="nav-link" [routerLink]="['/orders']">{{'NAV.ORDERS' | translate}}</a>
+        <a class="nav-link" [routerLink]="['/manage']">{{'NAV.MANAGE' | translate}}</a>
       </li>
     </ul>
     <ul class="navbar-nav">

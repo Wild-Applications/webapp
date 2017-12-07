@@ -14,7 +14,12 @@ export class HomeComponent implements OnInit {
 
   setup: any = {};
   validSetup: boolean = false;
+  loadingSetup: boolean = true;
+  setupLoadError: boolean = true;
+
   premises: any = {};
+  premisesLoadError: boolean = false;
+
   user: any = {};
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private errorHandler: ErrorHandler, private premisesService: PremisesService ){}
@@ -29,16 +34,20 @@ export class HomeComponent implements OnInit {
         this.setup = data;
         if(data.premises && data.payment && data.menu && data.active){
           this.validSetup = true;
+          this.loadingSetup = false;
         }
       }, error => {
-
+        if(error.status>=400 && error.status < 500){
+          //deal with the error
+          this.setupLoadError = true;
+        }
       });
 
     this.premisesService.get()
       .subscribe(data => {
         this.premises = data;
       }, error => {
-        console.log(error);
+        this.premisesLoadError = true;
       })
   }
 
@@ -51,7 +60,7 @@ export class HomeComponent implements OnInit {
           //do nothing
         }, error => {
           this.premises.open = !this.premises.open;
-          console.log(error);
+          this.errorHandler.show(error);
         })
     }else{
       //close it
@@ -60,7 +69,7 @@ export class HomeComponent implements OnInit {
           //do nothing
         }, error => {
           this.premises.open = !this.premises.open;
-          console.log(error);
+          this.errorHandler.show(error);;
         })
     }
   }

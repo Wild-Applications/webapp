@@ -11,6 +11,7 @@ import { UserService } from '../../services/index';
 export class GeneralSettingsComponent implements OnInit {
 
   model: any = {};
+  loading: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService ){}
 

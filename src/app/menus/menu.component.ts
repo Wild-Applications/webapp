@@ -163,7 +163,7 @@ export class MenuComponent implements OnInit {
 })
 export class SectionDialog implements OnInit{
 
-  private model: any = {};
+  public model: any = {};
   public editing: boolean = false;
   public toEdit: string;
 

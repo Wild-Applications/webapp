@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AuthenticationService, UserService } from '../services/index';
+import { AuthenticationService, UserService, ErrorHandler } from '../services/index';
 
 @Component({
   moduleId: module.id,
@@ -13,7 +13,9 @@ export class LoginComponent implements OnInit {
   loading = false;
   returnUrl: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private userService: UserService ){}
+  public error: string = undefined;
+
+  constructor(private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private userService: UserService, private errorHandler: ErrorHandler ){}
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
@@ -24,13 +26,19 @@ export class LoginComponent implements OnInit {
 
   public login() {
     this.loading = true;
+    this.error = undefined;
     this.authenticationService.login(this.model.username, this.model.password)
       .subscribe(
         data => {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          alert(error);
+          console.log(error);
+          if(error.status>=400 && error.status < 500){
+            //deal with the error
+            this.error = error._body.message;
+          }
+
           this.loading = false;
         }
       );

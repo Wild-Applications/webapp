@@ -19,7 +19,7 @@ export class PaymentsComponent implements OnInit {
   tables: any[] = [];
   clientId: string = "ca_BNy5AOnoJYsR3lfXeO6mmIqVMIy4D469";
   private params: any;
-  connected: boolean = false;
+  public connected: boolean = false;
   account: any = {};
   loading: boolean = true;
 

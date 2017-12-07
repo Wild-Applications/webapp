@@ -1,5 +1,5 @@
-import { Injectable, Component } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { Injectable, Component, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Injectable()
 export class ErrorHandler {
@@ -11,7 +11,9 @@ export class ErrorHandler {
   }
 
   show(error){
-    let dialogRef = this.dialog.open(ErrorDialog);
+    let dialogRef = this.dialog.open(ErrorDialog, {
+      data: error._body
+    });
     dialogRef.afterClosed().subscribe(result => {
       if(error && error.reload){
         location.reload();
@@ -23,19 +25,22 @@ export class ErrorHandler {
 
 @Component({
   template: `
-      <h1 md-dialog-title>Something Went Wrong!</h1>
-        <div md-dialog-content>
-          We're very sorry. Looks like something went wrong! Please try again.
-
-        </div>
-        <div md-dialog-actions>
-          <button md-button type='button' class='btn btn-default' (click)='dialogRef.close()'>Ok</button>
-        </div>
+      <h3 mat-dialog-title>{{'ERRORS.DIALOG_TITLE' | translate}}</h3>
+        <mat-dialog-content>
+          <span>{{'ERRORS.DIALOG_CONTENT' | translate}}</span>
+          <br><br>
+          <span style="font-style:italic">{{error.message}}</span>
+        </mat-dialog-content>
+        <mat-dialog-actions class="float-right">
+          <button mat-raised-button type='button' class='' (click)='dialogRef.close()'>Ok</button>
+        </mat-dialog-actions>
 `
 })
 export class ErrorDialog {
-  private errorDetails;
-  constructor(public dialogRef: MatDialogRef<ErrorDialog>) {
-
+  error: any;
+  constructor(public dialogRef: MatDialogRef<ErrorDialog>, @Inject(MAT_DIALOG_DATA) public data: any) {
+    if(data){
+      this.error = data;
+    }
   }
 }

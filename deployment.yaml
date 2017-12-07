@@ -49,21 +49,12 @@ metadata:
     kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.class: "gce"
     #ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.global-static-ip-name: webapp-endpoint
 spec:
   tls:
   - hosts:
-    - console.wildapplications.com
     - console.tabapp.co.uk
     secretName: ingress-tls
   rules:
-  - host: console.wildapplications.com
-    http:
-      paths:
-      - path: /*
-        backend:
-          serviceName: service
-          servicePort: 80
   - host: console.tabapp.co.uk
     http:
       paths:
