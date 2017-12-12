@@ -7,7 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule, MatDialogModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule, MatDialogModule, MatGridListModule, MatInputModule } from '@angular/material';
 
 import 'popper.js/dist/umd/popper';
 import 'hammerjs';
@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
 import { LoginComponent, LogoutComponent } from './login/index';
-import { HomeComponent } from './home/index';
+
 import { PageNotFoundComponent, ConfirmDeleteDialog } from './misc/index';
 
 
@@ -29,6 +29,8 @@ import { OrdersModule } from './orders/index';
 import { PaymentsModule } from './payments/index';
 import { RegisterModule } from './register/index';
 import { RecoverModule } from './recover/index';
+import { HomeModule } from './home/index';
+import { UIModule } from './ui/ui.module';
 
 import { AuthenticationService, LoadHandler, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService, OrderService, PaymentsService, ErrorHandler, ErrorDialog } from './services/index';
 
@@ -51,7 +53,6 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     AppComponent,
     LoginComponent,
     LogoutComponent,
-    HomeComponent,
     PageNotFoundComponent,
     ConfirmDeleteDialog,
     ErrorDialog
@@ -81,6 +82,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     OrdersModule,
     RegisterModule,
     RecoverModule,
+    HomeModule,
+    UIModule,
     PaymentsModule,
     MatProgressSpinnerModule,
     MatCardModule,
@@ -88,7 +91,9 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     MatButtonModule,
     MatSlideToggleModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule,
+    MatInputModule
   ],
   providers: [
     AuthenticationService,

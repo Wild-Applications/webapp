@@ -1,0 +1,15 @@
+.mat-grid-tile .mat-grid-tile-footer, .mat-grid-tile .mat-grid-tile-header{
+  background: transparent;
+  color: inherit;
+}
+
+//overriding stupid angular material styling
+.mat-grid-tile .mat-grid-tile-footer>h4, .mat-grid-tile .mat-grid-tile-header>h4{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.mat-grid-tile .mat-grid-tile-footer>h6, .mat-grid-tile .mat-grid-tile-header>h6{
+  font-size: 1rem;
+  font-weight: 500;
+}

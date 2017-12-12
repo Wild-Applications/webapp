@@ -7,7 +7,8 @@ import { MatProgressSpinnerModule, MatSlideToggleModule } from '@angular/materia
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'home.template.html'
+  templateUrl: 'home.template.html',
+  styleUrls: ['./home.scss']
 })
 
 export class HomeComponent implements OnInit {
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
   setupLoadError: boolean = true;
 
   premises: any = {};
+  premisesLoading: boolean = true;
   premisesLoadError: boolean = false;
 
   user: any = {};
@@ -45,6 +47,7 @@ export class HomeComponent implements OnInit {
 
     this.premisesService.get()
       .subscribe(data => {
+        this.premisesLoading = false;
         this.premises = data;
       }, error => {
         this.premisesLoadError = true;

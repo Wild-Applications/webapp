@@ -29,7 +29,8 @@
     "REGISTER": "Register now",
     "USERNAME": "Username",
     "PASSWORD": "Password",
-    "FORGOTTEN": "Forgotten password?"
+    "FORGOTTEN": "Forgotten password?",
+    "TITLE": "Login to Tab"
   },
 
   "REGISTER": {
@@ -81,7 +82,8 @@
     "PREMISES_STATUS": "Premises Status",
     "CLOSED": "Closed",
     "OPEN": "Taking orders",
-    "TEST": "Open"
+    "TEST": "Open",
+    "QUICK_OVERVIEW": "Quick Overview"
   },
 
   "SETTINGS": {

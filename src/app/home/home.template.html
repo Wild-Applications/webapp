@@ -4,14 +4,12 @@
       <!-- User Header-->
       <mat-card>
         <mat-card-header>
+          <div class="row center-spinner" *ngIf="premisesLoading"><mat-spinner></mat-spinner></div>
           <!--<div mat-card-avatar class=""></div>-->
           <mat-card-title *ngIf="!premisesLoadError">{{premises.name}}</mat-card-title>
           <mat-card-title *ngIf="premisesLoadError">{{'ERRORS.LOAD_FAILED' | translate}}</mat-card-title>
           <mat-card-subtitle>{{user.verififed}}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-
-        </mat-card-content>
       </mat-card>
       <br/>
       <mat-card>
@@ -24,7 +22,24 @@
     </div>
     <div class="col-6 display-block full-height ">
       <mat-card>
-        <mat-card-header>{{'HOME.DASHBOARD' | translate}}</mat-card-header>
+        <!-- <mat-card-header>{{'HOME.QUICK_OVERVIEW' | translate}}</mat-card-header> -->
+        <mat-card-content>
+          <div class="row center-spinner" *ngIf="loadingStatistics"><mat-spinner></mat-spinner></div>
+          <mat-grid-list cols="3" rowHeight="3:1">
+            <mat-grid-tile class="text-align-center">
+              <mat-grid-tile-header><h4 class="full-width">4</h4></mat-grid-tile-header>
+              <mat-grid-tile-footer><h6 class="full-width">open orders</h6></mat-grid-tile-footer>
+            </mat-grid-tile>
+            <mat-grid-tile class="text-align-center">
+              <mat-grid-tile-header><h4 class="full-width">24</h4></mat-grid-tile-header>
+              <mat-grid-tile-footer><h6 class="full-width">complete orders</h6></mat-grid-tile-footer>
+            </mat-grid-tile>
+            <mat-grid-tile class="text-align-center">
+              <mat-grid-tile-header><h4 class="full-width">£1000</h4></mat-grid-tile-header>
+              <mat-grid-tile-footer><h6 class="full-width">total</h6></mat-grid-tile-footer>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
       </mat-card>
       <br/>
       <mat-card *ngIf="!validSetup">
