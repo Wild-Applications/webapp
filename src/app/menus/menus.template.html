@@ -2,16 +2,20 @@
   <div class="row">
     <h3>{{'MENUS.MENUS' | translate}}</h3>
   </div>
-  <div class="row">
-    <span>{{'MENUS.DESCRIPTION' | translate}}</span>
-  </div>
-  <div class="row justify-content-center">
-    <button type="button" class="btn btn-primary half-width rounded" (click)="openAddDialog()">{{'GENERAL.ADD' | translate}}</button>
-  </div>
   <div class="row" *ngIf="loading">
     <div class="row center-spinner"><mat-spinner></mat-spinner></div>
   </div>
-  <div class="row" *ngIf="!loading">
+  <div class="row align-items-center align-content-center" *ngIf="!loading && loadError">
+    <h6 class="col-12 text-align-center">{{'ERRORS.LOAD_ERROR' | translate}}<br/><br/>
+    <button mat-raised-button color="primary" (click)="getMenus()">{{'GENERAL.TRY_AGAIN' | translate}}</button></h6>
+  </div>
+  <div class="row" *ngIf="!loading && !loadError">
+    <span>{{'MENUS.DESCRIPTION' | translate}}</span>
+  </div>
+  <div class="row justify-content-center" *ngIf="!loading && !loadError">
+    <button type="button" mat-raised-button color="primary" class="half-width" (click)="openAddDialog()">{{'GENERAL.ADD' | translate}}</button>
+  </div>
+  <div class="row" *ngIf="!loading && !loadError">
     <table class="table">
       <tr>
         <td colspan="4"><input md-input placeholder="Filter" type="text" [(ngModel)]="searchCriteria" class="float-right"></td>
@@ -20,8 +24,8 @@
         <ng-container *ngIf="menu !== -1">
           <td class="col-6">{{menu.name}}</td>
           <td class="col-4">
-            <button type="button" *ngIf="!menu.active" class="btn btn-outline-primary rounded" (click)="$event.stopPropagation();makeActive(i)">Make Active</button>
-            <button type="button" *ngIf="menu.active" class="btn btn-outline-primary rounded" disabled>Active</button>
+            <button type="button" mat-raised-button color="primary" *ngIf="!menu.active" (click)="$event.stopPropagation();makeActive(i)">Make Active</button>
+            <button type="button" mat-raised-button color="secondary" *ngIf="menu.active" disabled>Active</button>
           </td>
           <td class="col-2">
             <mat-icon matTooltip="{{'GENERAL.EDIT' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="editMenu(i, $event)">edit</mat-icon>

@@ -7,7 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule, MatDialogModule, MatGridListModule, MatInputModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule, MatDialogModule, MatGridListModule, MatInputModule, MatIconModule } from '@angular/material';
 
 import 'popper.js/dist/umd/popper';
 import 'hammerjs';
@@ -31,12 +31,14 @@ import { RegisterModule } from './register/index';
 import { RecoverModule } from './recover/index';
 import { HomeModule } from './home/index';
 import { UIModule } from './ui/ui.module';
+import { LegalModule } from './legal/legal.module';
 
 import { AuthenticationService, LoadHandler, UserService, HttpService, PremisesService, TableService, MenuService, CacheService, ProductService, OrderService, PaymentsService, ErrorHandler, ErrorDialog } from './services/index';
 
 import { AuthGuard, IsLoggedInGuard, NotAuthGuard } from './guards/index';
 
 import { PipesModule } from './pipes/index';
+
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -84,6 +86,7 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     RecoverModule,
     HomeModule,
     UIModule,
+    LegalModule,
     PaymentsModule,
     MatProgressSpinnerModule,
     MatCardModule,
@@ -93,7 +96,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     MatFormFieldModule,
     MatDialogModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [
     AuthenticationService,

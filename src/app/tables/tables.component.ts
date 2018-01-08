@@ -23,6 +23,7 @@ export class TablesComponent implements OnInit {
 
   tables: any[] = [];
   loading: boolean = true;
+  loadError: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public dialog: MatDialog, private tableService: TableService ){}
 
@@ -31,8 +32,7 @@ export class TablesComponent implements OnInit {
   }
 
   getTables(){
-    //mocked call at the moment
-
+    this.loadError = false;
     this.tableService.get()
       .subscribe(
         data => {
@@ -40,8 +40,8 @@ export class TablesComponent implements OnInit {
           this.tables = data.tables;
         },
         error => {
+          this.loadError = true;
           this.loading = false;
-          alert(error);
         }
       );
   }

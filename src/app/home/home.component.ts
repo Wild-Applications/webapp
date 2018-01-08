@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { UserService, ErrorHandler, PremisesService } from '../services/index';
+import { UserService, ErrorHandler, PremisesService, OrderService } from '../services/index';
 
 import { MatProgressSpinnerModule, MatSlideToggleModule } from '@angular/material';
 
@@ -22,9 +22,41 @@ export class HomeComponent implements OnInit {
   premisesLoading: boolean = true;
   premisesLoadError: boolean = false;
 
+  statistics: any = {};
+  statisticsLoading: boolean = true;
+  statisticsLoadError: boolean = false;
+  chartLabels: string[] = [];
+  chartType: string = 'bar';
+  chartLegend: boolean = false;
+  chartData: any[] = [{data:[], label:''}];
+  chartOptions:any = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true,
+          stepSize: 1
+        },
+        type: 'linear',
+        position: 'left',
+        id:'ordersAxis'
+      },
+      {
+        ticks: {
+          beginAtZero: true,
+          stepSize: 100
+        },
+        type: 'linear',
+        position: 'right',
+        id: 'salesAxis'
+      }]
+    }
+  };
+
   user: any = {};
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private errorHandler: ErrorHandler, private premisesService: PremisesService ){}
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private errorHandler: ErrorHandler, private premisesService: PremisesService, private orderService: OrderService){}
 
   ngOnInit() {
     this.userService.userChange.subscribe((user)=>{
@@ -39,7 +71,8 @@ export class HomeComponent implements OnInit {
           this.loadingSetup = false;
         }
       }, error => {
-        if(error.status>=400 && error.status < 500){
+        this.loadingSetup = false;
+        if((error.status>=400 && error.status < 500) || error.status == 0){
           //deal with the error
           this.setupLoadError = true;
         }
@@ -51,6 +84,22 @@ export class HomeComponent implements OnInit {
         this.premises = data;
       }, error => {
         this.premisesLoadError = true;
+        this.premisesLoading = false;
+      })
+
+    this.orderService.getStatistics()
+      .subscribe(data => {
+
+        this.statistics = data;
+        this.chartData = this.updateChartData(1);
+        this.statisticsLoading = false;
+      }, error => {
+        if((error.status>=400 && error.status < 500) || error.status == 0){
+          //deal with the error
+          this.statisticsLoadError = true;
+        }
+
+        this.statisticsLoading = false;
       })
   }
 
@@ -75,5 +124,35 @@ export class HomeComponent implements OnInit {
           this.errorHandler.show(error);;
         })
     }
+  }
+
+  private updateChartData(dayOrWeek){
+    //dayOrWeek   0=Daily 1=weekly
+
+    var orders: any = {};
+    var sales: any = {};
+    var ordersData = [];
+    var salesData = [];
+
+    var raw = this.statistics.daily;
+    if(dayOrWeek == 1){
+      raw = this.statistics.weekly;
+    }
+
+    for(var i=0;i<raw.length;i++){
+      ordersData[ordersData.length] = raw[i].count;
+      salesData[salesData.length] = raw[i].sales;
+    }
+
+    orders.yAxisID = "ordersAxis";
+    orders.data = ordersData;
+    orders.label = "No. of Orders";
+
+    sales.yAxisID = "salesAxis";
+    sales.data = salesData;
+    sales.label = "Total sales"
+
+
+    return [orders, sales];
   }
 }

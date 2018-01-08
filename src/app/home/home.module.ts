@@ -10,7 +10,18 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { TruncateModule } from 'ng2-truncate';
 import { MomentModule } from 'angular2-moment';
-import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatListModule, MatGridListModule, MatSlideToggleModule, MatCardModule } from '@angular/material';
+import { MatProgressSpinnerModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatListModule,
+        MatGridListModule,
+        MatSlideToggleModule,
+        MatCardModule,
+        MatSelectModule } from '@angular/material';
 
 import { HttpService } from '../services/index';
 
@@ -19,6 +30,10 @@ import { HomeComponent } from './index';
 import { PipesModule } from '../pipes/index';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -56,7 +71,9 @@ export function HttpLoaderFactory(http: HttpClient){
     MatListModule,
     MatGridListModule,
     MatSlideToggleModule,
-    MatCardModule
+    MatCardModule,
+    ChartsModule,
+    MatSelectModule
   ],
   providers: [
   ],

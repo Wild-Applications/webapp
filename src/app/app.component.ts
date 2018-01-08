@@ -13,10 +13,6 @@ export class AppComponent {
   username: string = "User";
 
   constructor( public authenticationService: AuthenticationService, private userService: UserService, translate: TranslateService ){
-    this.userService.userChange.subscribe((user)=>{
-      this.username = user.username;
-    });
-
     translate.setDefaultLang('en');
     translate.use('en');
   }

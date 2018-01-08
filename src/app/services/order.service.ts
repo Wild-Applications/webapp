@@ -17,7 +17,6 @@ export class OrderService {
   }
 
   getPending() {
-    console.log('calling');
     return this.http.get(this.baseUrl + '/pending', this.jwt())
      .map((response: Response) => response.json())
       .catch((error:any) => Observable.throw( error || 'Server error'));;
@@ -39,6 +38,13 @@ export class OrderService {
 
   getOrderBreakdown(){
     return this.http.get(this.baseUrl + '/complete/breakdown', this.jwt())
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
+
+  getStatistics(){
+    return this.http.get(this.baseUrl + '/statistics', this.jwt())
       .map((response: Response) => {
         return response.json();
       })

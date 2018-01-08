@@ -25,12 +25,19 @@ export class MenuComponent implements OnInit {
   contents: any[] = [];
   private sub: any;
   loading: boolean = true;
+  loadError: boolean = false;
 
   availableProducts: any[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private menuService: MenuService, public dialog: MatDialog, private cacheService: CacheService, private productService: ProductService ){}
 
   ngOnInit() {
+    this.getMenu();
+    this.getAvailableProducts();
+  }
+
+  getMenu(){
+    this.loadError = false;
     this.sub = this.route.params.subscribe(params => {
       this.menuService.get(params.id)
         .subscribe(
@@ -39,14 +46,11 @@ export class MenuComponent implements OnInit {
             this.loading = false;
           },
           error => {
-            //this.loading = false;
-            alert(error);
+            this.loadError = false
             this.loading = false;
           }
         );
     });
-
-    this.getAvailableProducts();
   }
 
   getAvailableProducts(){

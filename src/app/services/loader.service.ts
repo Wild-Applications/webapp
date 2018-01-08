@@ -8,7 +8,7 @@ export class LoadHandler {
   snackBarRef: MatSnackBarRef<SimpleSnackBar>;
 
   constructor ( public snackBar: MatSnackBar ) {
-
+    
   }
 
   start(){

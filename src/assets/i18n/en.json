@@ -18,7 +18,8 @@
     "REFRESH": "Refresh",
     "GENERAL": "General",
     "CREATE": "Create",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "TRY_AGAIN": "Try again"
   },
 
   "LOGIN": {
@@ -83,7 +84,8 @@
     "CLOSED": "Closed",
     "OPEN": "Taking orders",
     "TEST": "Open",
-    "QUICK_OVERVIEW": "Quick Overview"
+    "QUICK_OVERVIEW": "Quick Overview",
+    "STATISTICS": "Statistics"
   },
 
   "SETTINGS": {
@@ -187,7 +189,15 @@
   "ERRORS": {
     "DIALOG_TITLE": "Something went wrong!",
     "DIALOG_CONTENT": "We're really sorry!\nSomething seems to have gone wrong.\nPlease refresh and give it another go.",
-    "LOAD_FAILED": "Unable to load..."
+    "LOAD_FAILED": "Unable to load...",
+    "LOAD_ERROR": "Sorry, Tab is taking too long to load"
+  },
+
+  "LEGAL": {
+    "TERMSANDCONDITIONS": "Terms and Conditions",
+    "BODY": "Terms and Conditions Body",
+    "COOKIES": "Tab's use of cookies",
+    "COOKIES_BODY": "Tab utilises cookies and local storage to provide some of the functionality of our products. Products that use these technologies include our web application and mobile apps. \n\n In short, we use these technologies to provide things the ability to log in and saving some of your preferences and actions."
   }
 
 }

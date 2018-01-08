@@ -8,7 +8,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { TruncateModule } from 'ng2-truncate';
-import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule, MatInputModule, MatFormFieldModule, MatButtonModule } from '@angular/material';
 
 import { HttpService } from '../services/index';
 
@@ -47,7 +47,8 @@ export function HttpLoaderFactory(http: HttpClient){
     MatIconModule,
     MatTooltipModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [
   ],

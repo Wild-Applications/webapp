@@ -1,40 +1,54 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-  ElementRef,
-  SimpleChanges,
-  OnChanges,
-  ViewEncapsulation,
-  Optional,
-  Inject,
-} from '@angular/core';
-import {Platform} from '@angular/cdk/platform';
-import {FocusMonitor} from '@angular/cdk/a11y';
+// ./app/shared/hidden.directive.ts
+import { Directive, ElementRef, Renderer, Input, ComponentFactoryResolver } from '@angular/core';
 
-import{ MatButton } from '@angular/material';
-
-/**
- * Raised Material design button.
- */
-@Component({
-  moduleId: module.id,
-  selector: `button[tab-progress-button]`,
-  exportAs: 'tabProgressButton',
-  host: {
-  },
-  inputs: ['disabled', 'disableRipple', 'color'],
-  templateUrl: 'progress-button.html',
-  encapsulation: ViewEncapsulation.None,
-  preserveWhitespaces: false,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+import { MatSpinner } from '@angular/material';
+// Directive decorator
+@Directive({
+  selector: 'button[loading]'
 })
-export class TabProgressButton extends MatButton {
-  constructor(
-      platform: Platform,
-      focusMonitor: FocusMonitor,
-      elementRef: ElementRef) {
-    super(elementRef, platform, focusMonitor);
+export class TabProgressButton {
+  constructor(public el: ElementRef, public renderer: Renderer) {
   }
 
+  @Input() loading: boolean;
+  validEl: boolean = false;
+
+  ngOnInit(){
+    if(this.el.nativeElement.childNodes[0].tagName == 'SPAN'){
+      //
+      if(this.el.nativeElement.childNodes[0].className.indexOf("mat-button-wrapper") >= 0){
+        //this will work now
+        if(this.el.nativeElement.childNodes[0].childNodes[1] && this.el.nativeElement.childNodes[0].childNodes[1].tagName == "MAT-SPINNER"){
+          this.validEl = true;
+          this.el.nativeElement.childNodes[0].childNodes[1].style['margin-left'] = '12px';
+          this.changes();
+        }else{
+          console.warn("Element needs to contain a mat-spinner");
+        }
+      }else{
+        console.warn("Element needs to be a mat-button");
+      }
+    }else{
+      console.warn("Element needs to be a mat-button");
+    }
+  }
+
+  ngAfterViewInit(){
+    this.changes();
+  }
+
+
+  ngOnChanges(){
+    this.changes();
+  }
+
+  changes(){
+    if(this.validEl){
+      if(!this.loading){
+        this.el.nativeElement.childNodes[0].childNodes[1].style.display = 'none';
+      }else{
+        this.el.nativeElement.childNodes[0].childNodes[1].style.display = 'inline-block';
+      }
+    }
+  }
 }

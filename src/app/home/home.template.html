@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row full-height">
-    <div class="col-3 display-block full-height">
+    <div class="col-lg-3 col-md-3 col-sm-12 display-block full-height">
       <!-- User Header-->
-      <mat-card>
+      <mat-card class="flat">
         <mat-card-header>
           <div class="row center-spinner" *ngIf="premisesLoading"><mat-spinner></mat-spinner></div>
           <!--<div mat-card-avatar class=""></div>-->
@@ -12,7 +12,7 @@
         </mat-card-header>
       </mat-card>
       <br/>
-      <mat-card>
+      <mat-card class="flat">
         <mat-card-header>
           <mat-card-title>{{'HOME.PREMISES_STATUS' | translate}}</mat-card-title>
           <mat-card-subtitle *ngIf="!validSetup">Setup Incomplete</mat-card-subtitle>
@@ -20,14 +20,14 @@
         <mat-card-content><mat-slide-toggle [disabled]="!validSetup" [(ngModel)]="premises.open" (change)="changePremisesStatus()" color="primary">{{premises.open ? ('HOME.OPEN' | translate):('HOME.CLOSED' | translate)}}</mat-slide-toggle></mat-card-content>
       </mat-card>
     </div>
-    <div class="col-6 display-block full-height ">
-      <mat-card>
+    <div class="col-lg-6 col-md-9 col-sm-12 display-block full-height ">
+      <mat-card class="flat">
         <!-- <mat-card-header>{{'HOME.QUICK_OVERVIEW' | translate}}</mat-card-header> -->
         <mat-card-content>
-          <div class="row center-spinner" *ngIf="loadingStatistics"><mat-spinner></mat-spinner></div>
+          <div class="row center-spinner" *ngIf="statisticsLoading"><mat-spinner></mat-spinner></div>
           <mat-grid-list cols="3" rowHeight="3:1">
             <mat-grid-tile class="text-align-center">
-              <mat-grid-tile-header><h4 class="full-width">4</h4></mat-grid-tile-header>
+            <h4 class="full-width">4</h4>
               <mat-grid-tile-footer><h6 class="full-width">open orders</h6></mat-grid-tile-footer>
             </mat-grid-tile>
             <mat-grid-tile class="text-align-center">
@@ -42,29 +42,49 @@
         </mat-card-content>
       </mat-card>
       <br/>
-      <mat-card *ngIf="!validSetup">
+      <mat-card *ngIf="!validSetup" class="flat">
         <mat-card-header>{{'HOME.TODO' | translate}}</mat-card-header>
         <mat-card-content>
           <div class="row center-spinner" *ngIf="loadingSetup"><mat-spinner></mat-spinner></div>
           <table class="table" *ngIf="!loadingSetup && !setupLoadError">
             <tr *ngIf="!setup.premises">
               <td class="col-9">Create a premises</td>
-              <td matButton class="col-3 text-align-right"><button>Take me there</button></td>
+              <td matButton class="col-3 text-align-right"><button mat-button>Take me there</button></td>
             </tr>
             <tr *ngIf="!setup.payment">
               <td class="col-9">Setup payments</td>
-              <td class="col-3 text-align-right"><button>Take me there</button></td>
+              <td class="col-3 text-align-right"><button mat-button>Take me there</button></td>
             </tr>
             <tr *ngIf="!setup.menu">
               <td class="col-9">Create a menu</td>
-              <td class="col-3 text-align-right"><button>Take me there</button></td>
+              <td class="col-3 text-align-right"><button mat-button>Take me there</button></td>
             </tr>
             <tr *ngIf="!setup.active">
               <td class="col-9">Make a menu active</td>
-              <td class="col-3 text-align-right"><button>Take me there</button></td>
+              <td class="col-3 text-align-right"><button mat-button>Take me there</button></td>
             </tr>
           </table>
           <h6 *ngIf="!loadingSetup && setupLoadError">{{'ERRORS.LOAD_FAILED' | translate}}</h6>
+        </mat-card-content>
+      </mat-card>
+      <br/>
+      <mat-card class="flat">
+        <mat-card-header>
+          {{'HOME.STATISTICS' | translate}}
+          <mat-select>
+            <mat-option value="0">Daily</mat-option>
+            <mat-option value="1">Weekly</mat-option>
+          </mat-select>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="row center-spinner" *ngIf="statisticsLoading"><mat-spinner></mat-spinner></div>
+          <h6 *ngIf="!statisticsLoading && statisticsLoadError">{{'ERRORS.LOAD_FAILED' | translate}}</h6>
+          <canvas *ngIf="!statisticsLoading && !statisticsLoadError" baseChart
+                      [datasets]="chartData"
+                      [labels]="chartLabels"
+                      [options]="chartOptions"
+                      [legend]="chartLegend"
+                      [chartType]="chartType"></canvas>
         </mat-card-content>
       </mat-card>
     </div>

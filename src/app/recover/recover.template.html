@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" *ngIf="!recoveryEmailSent">
+    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
       <h2>{{'RECOVER.RECOVER' | translate}}</h2>
+    </div>
+    <div class="full-width"></div>
+    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
       <span>{{'RECOVER.DESCRIPTION' | translate}}</span>
+    </div>
+    <div class="full-width"></div>
+    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 text-align-center" *ngIf="!recoveryEmailSent">
         <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && recover()" novalidate>
           <mat-form-field class="full-width" floatPlaceholder="never">
             <input matInput placeholder="{{'RECOVER.EMAIL_USERNAME' | translate}}" [formControl]="email" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
-          <button mat-raised-button [disabled]="loading || email.invalid" class="btn btn-primary float-right">{{'RECOVER.SUBMIT' | translate}}</button>
+          <button mat-raised-button color="primary" [disabled]="loading || email.invalid">{{'RECOVER.SUBMIT' | translate}}</button>
       </form>
     </div>
 

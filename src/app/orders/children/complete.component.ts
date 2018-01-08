@@ -24,6 +24,7 @@ export class CompleteComponent implements OnInit {
   Math: any;
   highlighted: any[] = [];
   loading: boolean = true;
+  loadError: boolean = false;
 
 
   inFlight: boolean = false;
@@ -143,6 +144,7 @@ export class CompleteComponent implements OnInit {
 
   getOrderBreakdown(){
     this.loading = true;
+    this.loadError = false;
     this.orderService.getOrderBreakdown()
       .subscribe((data) =>{
         this.breakdown = data.breakdown;
@@ -152,12 +154,14 @@ export class CompleteComponent implements OnInit {
         this.loading = false;
       }, error => {
         this.loading = false;
+        this.loadError = true;
       })
   }
 
   getOrders(override){
     //if override and , do a new request
     //if inFlight dont do on
+    this.loadError = false;
     if(override || !this.inFlight){
       this.loadingOrders = true;
       if(this.currentRequest){
@@ -184,7 +188,7 @@ export class CompleteComponent implements OnInit {
           error => {
             this.inFlight = false;
             this.loadingOrders = false;
-            alert(error);
+            this.loadError = true;
           }
         );
     }else{

@@ -22,6 +22,7 @@ export class PaymentsComponent implements OnInit {
   public connected: boolean = false;
   account: any = {};
   loading: boolean = true;
+  loadError: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public dialog: MatDialog, private paymentsService: PaymentsService ){}
 
@@ -57,21 +58,25 @@ export class PaymentsComponent implements OnInit {
          }
        }else{
          //no code in browser so test if user has account connected
-         this.paymentsService.getAccount()
-          .subscribe(
-            data => {
-              this.loading = false;
-              this.connected = true;
-              this.account = data;
-              console.log('user has account connected');
-            },
-            error => {
-              this.loading = false;
-              console.log(error);
-            }
-          );
+         this.getPaymentAccount();
        }
     });
+  }
+
+  getPaymentAccount(){
+    this.loadError = false;
+    this.paymentsService.getAccount()
+     .subscribe(
+       data => {
+         this.loading = false;
+         this.connected = true;
+         this.account = data;
+       },
+       error => {
+         this.loading = false;
+         this.loadError = true;
+       }
+     );
   }
 
   ngOnDestroy() {

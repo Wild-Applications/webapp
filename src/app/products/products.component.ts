@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
 
   products: any[];
   loading: boolean = true;
+  loadError: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public dialog: MatDialog ){}
 
@@ -28,6 +29,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(){
+    this.loadError = false;
     this.productService.getAll()
       .subscribe(
         data => {
@@ -35,8 +37,8 @@ export class ProductsComponent implements OnInit {
           this.products = data.products;
         },
         error => {
+          this.loadError = true;
           this.loading = false;
-          alert(error);
         }
       );
   }

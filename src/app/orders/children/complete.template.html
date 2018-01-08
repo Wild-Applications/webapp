@@ -2,15 +2,19 @@
   <div class="row order-title">
       <h3>{{'ORDERS.ORDERS' | translate}}</h3>
   </div>
+  <div class="row align-items-center align-content-center" *ngIf="!loading && loadError">
+    <h6 class="col-12 text-align-center">{{'ERRORS.LOAD_ERROR' | translate}}<br/><br/>
+    <button mat-raised-button color="primary" (click)="getOrderBreakdown()">{{'GENERAL.TRY_AGAIN' | translate}}</button></h6>
+  </div>
   <div class="row" *ngIf="loading">
     <div class="row center-spinner"><mat-spinner></mat-spinner></div>
   </div>
-  <div class="row justify-content-center" *ngIf="!loading">
-    <button type="button" class="btn btn-primary half-width rounded" (click)="getOrders()">{{'GENERAL.REFRESH' | translate}}</button>
+  <div class="row justify-content-center" *ngIf="!loading && !loadError">
+    <button type="button" mat-raised-button color="primary" class="half-width" (click)="getOrders()">{{'GENERAL.REFRESH' | translate}}</button>
   </div>
-  <div class="row justify-content-center" *ngIf="!loading">
+  <div class="row justify-content-center" *ngIf="!loading  && !loadError">
     <div class="col-4 text-align-center">
-      <button type="button" class="btn btn-primary half-width rounded" (click)="previousDay()" [disabled]="!canSelectPrevious">{{'ORDERS.PREV_DAY' | translate}}</button>
+      <button type="button" mat-raised-button color="primary" class="half-width" (click)="previousDay()" [disabled]="!canSelectPrevious">{{'ORDERS.PREV_DAY' | translate}}</button>
     </div>
     <div class="col-4 text-align-center">
       <mat-form-field class="full-width">
@@ -20,10 +24,10 @@
       </mat-form-field>
     </div>
     <div class="col-4 text-align-center">
-      <button type="button" class="btn btn-primary half-width rounded" (click)="nextDay()" [disabled]="!canSelectNext">{{'ORDERS.NEXT_DAY' | translate}}</button>
+      <button type="button" mat-raised-button color="primary" class="half-width" (click)="nextDay()" [disabled]="!canSelectNext">{{'ORDERS.NEXT_DAY' | translate}}</button>
     </div>
   </div>
-  <div class="row" *ngIf="!loading">
+  <div class="row" *ngIf="!loading && !loadError">
     <div class="container">
       <div class="row full-height" [hidden]="loadingOrders || orders.length > 0"><h3>{{'ORDERS.NO_ORDERS' | translate}}</h3></div>
       <div class="row center-spinner" [hidden]="!loadingOrders"><mat-spinner></mat-spinner></div>

@@ -49,6 +49,7 @@ export class PendingComponent implements OnInit {
   Math: any;
   highlighted: any[] = [];
   loading: boolean = true;
+  loadError: boolean = false;
   inFlight: boolean = false;
   lastCallTime: any = moment(new Date()).subtract(3,'months');
   audio: any = new Audio();
@@ -78,6 +79,7 @@ export class PendingComponent implements OnInit {
   }
 
   getOrders(){
+    this.loadError = false;
     if(this.inFlight){
       //dont do anything otherwise we will send multiple requests at once;
     }else{
@@ -123,9 +125,8 @@ export class PendingComponent implements OnInit {
           },
           error => {
             this.inFlight = false;
+            this.loadError = true;
             this.loading = false;
-            this.errorHandler.show(error);
-            console.log(error);
           }
         );
     }

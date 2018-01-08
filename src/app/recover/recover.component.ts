@@ -19,8 +19,7 @@ export class RecoverComponent {
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService ){}
 
   getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
+    return this.email.hasError('required') ? 'You must enter your username or email' :
             '';
   }
 

@@ -2,16 +2,22 @@
   <div class="row">
     <h3>{{'PRODUCTS.PRODUCTS' | translate}}</h3>
   </div>
-  <div class="row">
-    {{'PRODUCTS.DESCRIPTION' | translate}}
+
+  <div class="row align-items-center align-content-center" *ngIf="!loading && loadError">
+    <h6 class="col-12 text-align-center">{{'ERRORS.LOAD_ERROR' | translate}}<br/><br/>
+    <button mat-raised-button color="primary" (click)="getProducts()">{{'GENERAL.TRY_AGAIN' | translate}}</button></h6>
   </div>
   <div class="row" *ngIf="loading">
     <div class="row center-spinner"><mat-spinner></mat-spinner></div>
   </div>
-  <div class="row justify-content-center" *ngIf="!loading">
-    <button type="button" class="btn btn-primary half-width rounded" (click)="openAddDialog()">{{'GENERAL.ADD' | translate}}</button>
+
+  <div class="row" *ngIf="!loading && !loadError">
+    {{'PRODUCTS.DESCRIPTION' | translate}}
   </div>
-  <div class="row" *ngIf="!loading">
+  <div class="row justify-content-center" *ngIf="!loading && !loadError">
+    <button type="button" mat-raised-button color="primary" class="half-width" (click)="openAddDialog()">{{'GENERAL.ADD' | translate}}</button>
+  </div>
+  <div class="row" *ngIf="!loading && !loadError">
     <table class="table">
       <tr>
         <td colspan="5"><input placeholder="Filter" type="text" [(ngModel)]="searchCriteria" class="float-right"></td>

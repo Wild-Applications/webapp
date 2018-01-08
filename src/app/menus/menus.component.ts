@@ -21,6 +21,7 @@ export class MenusComponent implements OnInit {
 
   menus: any[] = [];
   loading: boolean = true;
+  loadError: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private menuService: MenuService, public dialog: MatDialog, private cacheService: CacheService ){}
 
@@ -29,6 +30,7 @@ export class MenusComponent implements OnInit {
   }
 
   getMenus(){
+    this.loadError = false;
     this.menuService.getAll()
       .subscribe(
         data => {
@@ -36,8 +38,8 @@ export class MenusComponent implements OnInit {
           this.menus = data.menus;
         },
         error => {
+          this.loadError = true;
           this.loading = false;
-          alert(error);
         }
       );
   }

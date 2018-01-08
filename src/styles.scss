@@ -1,7 +1,6 @@
 @import './variables.scss';
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./theme";
 
 
 body {
@@ -104,12 +103,36 @@ $hover-color:darken($primary-color, 30%);
 .btn-group-vertical.side-list>.btn {
     border-radius: 0px;
     text-align: left;
-    background: white;
     border: none;
-
+    background: none;
     &:hover{
       color:$hover-color;
     }
+    &:active{
+      background: none;
+    }
+    &:focus{
+      box-shadow: none;
+    }
+}
+
+.btn-group-vertical.side-list{
+  padding: 0px;
+  border: 1px solid $tertiary-color;
+  border-radius: 5px;
+  background: white;
+}
+
+div.center-content-container{
+  border: 1px solid $tertiary-color;
+  border-radius: 5px;
+}
+
+mat-card.flat{
+  border: 1px solid $tertiary-color;
+  border-radius: 5px;
+  background: white;
+  box-shadow: none !important;
 }
 
 i {
