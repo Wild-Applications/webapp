@@ -13,7 +13,6 @@ export class AuthenticationService {
   constructor( private http: Http){}
 
   login( username: string, password:string ){
-    localStorage.setItem('currentUser', "{\"token\": \"askjbsdfub\"}");
     return this.http.post(this.baseUrl + '/users/login', {username:username, password:password}, this.headers())
       .map((response: Response) => {
         let token = response.json();
