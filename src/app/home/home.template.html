@@ -48,20 +48,24 @@
           <div class="row center-spinner" *ngIf="loadingSetup"><mat-spinner></mat-spinner></div>
           <table class="table" *ngIf="!loadingSetup && !setupLoadError">
             <tr *ngIf="!setup.premises">
-              <td class="col-9">Create a premises</td>
-              <td matButton class="col-3 text-align-right"><button mat-button>Take me there</button></td>
+              <td class="col-1 vertical-align-middle"><mat-icon>keyboard_arrow_right</mat-icon></td>
+              <td class="col-8 vertical-align-middle">Create a premises</td>
+              <td matButton class="col-3 vertical-align-middle text-align-right"><button mat-raised-button (click)="navTo('/manage/general')">Take me there</button></td>
             </tr>
             <tr *ngIf="!setup.payment">
-              <td class="col-9">Setup payments</td>
-              <td class="col-3 text-align-right"><button mat-button>Take me there</button></td>
+              <td class="col-1 vertical-align-middle"><mat-icon>keyboard_arrow_right</mat-icon></td>
+              <td class="col-8 vertical-align-middle">Setup payments</td>
+              <td class="col-3 vertical-align-middle text-align-right"><button mat-raised-button (click)="navTo('/settings/payments')">Take me there</button></td>
             </tr>
             <tr *ngIf="!setup.menu">
-              <td class="col-9">Create a menu</td>
-              <td class="col-3 text-align-right"><button mat-button>Take me there</button></td>
+              <td class="col-1 vertical-align-middle"><mat-icon>keyboard_arrow_right</mat-icon></td>
+              <td class="col-8">Create a menu</td>
+              <td class="col-3 vertical-align-middle text-align-right"><button mat-raised-button (click)="navTo('/manage/menus')">Take me there</button></td>
             </tr>
             <tr *ngIf="!setup.active">
-              <td class="col-9">Make a menu active</td>
-              <td class="col-3 text-align-right"><button mat-button>Take me there</button></td>
+              <td class="col-1 vertical-align-middle"><mat-icon>keyboard_arrow_right</mat-icon></td>
+              <td class="col-8 vertical-align-middle">Make a menu active</td>
+              <td class="col-3 text-align-right vertical-align-middle"><button mat-raised-button color="primary" (click)="navTo('/manage/menus')">Take me there</button></td>
             </tr>
           </table>
           <h6 *ngIf="!loadingSetup && setupLoadError">{{'ERRORS.LOAD_FAILED' | translate}}</h6>

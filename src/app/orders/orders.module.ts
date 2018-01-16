@@ -10,7 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { TruncateModule } from 'ng2-truncate';
 import { MomentModule } from 'angular2-moment';
-import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatListModule, MatButtonModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatIconModule, MatTooltipModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatListModule, MatButtonModule, MatMenuModule } from '@angular/material';
 
 import { HttpService } from '../services/index';
 
@@ -56,7 +56,8 @@ export function HttpLoaderFactory(http: HttpClient){
     MatNativeDateModule,
     MatInputModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [
   ],

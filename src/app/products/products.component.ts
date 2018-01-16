@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef, MatFormFieldModule, MAT_DIALOG_DATA } from '@a
 
 import { TranslateService } from '@ngx-translate/core';
 
-import { ProductService } from '../services/index';
+import { ProductService, LoadHandler } from '../services/index';
 
 import { ConfirmDeleteDialog } from '../misc/index';
 
@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
   loading: boolean = true;
   loadError: boolean = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public dialog: MatDialog ){}
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public dialog: MatDialog, private loadHandler: LoadHandler ){}
 
   ngOnInit() {
     this.getProducts()
@@ -62,7 +62,7 @@ export class ProductsComponent implements OnInit {
                 this.products = [newProduct, ...this.products];
               },
               error => {
-                alert(error);
+
               }
             );
         }
@@ -71,6 +71,7 @@ export class ProductsComponent implements OnInit {
   }
 
   openEditDialog(index){
+    var failureBackup = this.products[index];
     let dialogRef = this.dialog.open(AddProductDialog, {
       width: '30%',
       data: {
@@ -85,9 +86,11 @@ export class ProductsComponent implements OnInit {
               this.products[index] = result;
             },
             error => {
-              alert(error);
+              this.products[index] = failureBackup;
             }
           )
+      }else{
+        this.products[index] = failureBackup;
       }
     })
   }
@@ -103,7 +106,6 @@ export class ProductsComponent implements OnInit {
               this.products.splice(index, 1);
             },
             error => {
-              alert(error);
             }
           );
       }else{
@@ -116,10 +118,13 @@ export class ProductsComponent implements OnInit {
     this.products[index].in_stock = !this.products[index].in_stock;
     this.productService.put(this.products[index])
       .subscribe((data) => {
-
+        if(this.products[index].in_stock){
+          this.loadHandler.show("In stock");
+        }else{
+          this.loadHandler.show("Out of stock");
+        }
       }, error => {
         this.products[index].in_stock = !this.products[index].in_stock;
-        console.log(error);
       })
   }
 
@@ -127,10 +132,13 @@ export class ProductsComponent implements OnInit {
     this.products[index].age_restricted = !this.products[index].age_restricted;
     this.productService.put(this.products[index])
       .subscribe((data) => {
-
+        if(this.products[index].age_restricted){
+          this.loadHandler.show("Age restricted");
+        }else{
+          this.loadHandler.show("No age restriction");
+        }
       }, error => {
         this.products[index].age_restricted = !this.products[index].age_restricted;
-        console.log(error);
       })
   }
 

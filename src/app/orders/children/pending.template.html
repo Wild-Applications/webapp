@@ -23,14 +23,15 @@
               </div>
               <div class="display-inline-block float-right">
                 <h6 class="display-inline-block">{{order.createdAt | duration:now}}</h6>
-                <div class="dropdown display-inline-block">
-                  <button class="btn btn-sm btn-outline-primary btn-no-outline btn-no-focus btn-no-active btn-no-hover" type="button" id="orderActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="arrow down no-top-margin"></i>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item (click)="cancelOrder(o)">
+                    <mat-icon>cancel</mat-icon>
+                    <span>{{'ORDERS.CANCEL' | translate}}</span>
                   </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="orderActions">
-                    <a class="dropdown-item" href="javascript:null;" (click)="cancelOrder(o)">{{'ORDERS.CANCEL' | translate}}</a>
-                  </div>
-                </div>
+                </mat-menu>
               </div>
             </div>
             <div class="col-12">
@@ -50,13 +51,13 @@
 
             <div class="status align-contents-center">
               <div class="btn-group full-width" data-toggle="buttons">
-                <label class="btn btn-outline-primary btn-no-focus btn-no-active third-width" [ngClass]="{'active':order.status=='PENDING'}" (click)="updateStatus(o, 'PENDING')">
+                <label class="btn order-status third-width" [ngClass]="{'active':order.status=='PENDING'}" (click)="updateStatus(o, 'PENDING')">
                   <input type="radio" name="status" id="pending" autocomplete="off" [checked]="order.status == 'PENDING'">{{'ORDERS.PENDING' | translate}}
                 </label>
-                <label class="btn btn-outline-primary btn-no-focus btn-no-active third-width" [ngClass]="{'active':order.status=='IN_PROGRESS'}" (click)="updateStatus(o, 'IN_PROGRESS')">
+                <label class="btn order-status third-width" [ngClass]="{'active':order.status=='IN_PROGRESS'}" (click)="updateStatus(o, 'IN_PROGRESS')">
                   <input type="radio" name="status" id="in_progess" autocomplete="off" [checked]="order.status == 'IN_PROGRESS'">{{'ORDERS.IN_PROGRESS' | translate}}
                 </label>
-                <label class="btn btn-outline-primary btn-no-focus btn-no-active third-width" [ngClass]="{'active':order.status=='COMPLETE'}" (click)="complete(o)">
+                <label class="btn order-status third-width" [ngClass]="{'active':order.status=='COMPLETE'}" (click)="complete(o)">
                   <input type="radio" name="status" id="complete" autocomplete="off" [checked]="order.status == 'COMPLETE'">{{'ORDERS.COMPLETE' | translate}}
                 </label>
               </div>

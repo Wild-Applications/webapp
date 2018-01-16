@@ -21,7 +21,8 @@ import { MatProgressSpinnerModule,
         MatGridListModule,
         MatSlideToggleModule,
         MatCardModule,
-        MatSelectModule } from '@angular/material';
+        MatSelectModule,
+        MatButtonModule} from '@angular/material';
 
 import { HttpService } from '../services/index';
 
@@ -73,7 +74,8 @@ export function HttpLoaderFactory(http: HttpClient){
     MatSlideToggleModule,
     MatCardModule,
     ChartsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [
   ],

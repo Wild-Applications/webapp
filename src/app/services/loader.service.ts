@@ -8,11 +8,17 @@ export class LoadHandler {
   snackBarRef: MatSnackBarRef<SimpleSnackBar>;
 
   constructor ( public snackBar: MatSnackBar ) {
-    
+
   }
 
   start(){
     this.snackBarRef = this.snackBar.open("Loading...");
+  }
+
+  show(message: string){
+    this.snackBar.open(message, undefined, {
+      duration: 1000
+    });
   }
 
   finish(){

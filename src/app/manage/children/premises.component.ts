@@ -22,6 +22,7 @@ export class ManagePremisesComponent implements OnInit {
   }
 
   getPremises(){
+    this.loading = true;
     this.loadError = false;
     this.premisesService.get()
       .subscribe(
@@ -30,8 +31,7 @@ export class ManagePremisesComponent implements OnInit {
           this.model = data;
         },
         error => {
-          this.loadError = true;
-          if(error._body.code == '0015'){
+          if(error.status == 404){
             //user hasnt created a premises so create the premises rather than update it
             this.premisesService.create({name: this.userService.getLoggedInUser().username})
               .subscribe(
@@ -41,12 +41,14 @@ export class ManagePremisesComponent implements OnInit {
                   this.loading = false;
                 },
                 error => {
-                  alert(error);
+                  this.loadError = true;
                   this.loading = false;
                 }
               )
+          }else{
+            this.loadError = true;
+            this.loading = false;
           }
-          this.loading = false;
         }
       );
   }

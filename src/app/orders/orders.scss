@@ -2,7 +2,7 @@
 
 .order{
   padding: 7.5px;
-  border-bottom: 1px solid $secondary-color;
+  border-bottom: 1px solid $tertiary-color;
 }
 
 .order-container{
@@ -16,7 +16,7 @@
 }
 
 .order:first-child{
-  border-top: 1px solid $secondary-color;
+  border-top: 1px solid $tertiary-color;
 }
 
 .row {
@@ -24,7 +24,7 @@
 }
 
 .order:hover{
-  background: darken($secondary-color, 1%);
+  background: $tertiary-color;
 }
 
 .order-inner {
@@ -36,5 +36,23 @@
         font-size: 0.9rem;
       }
     }
+  }
+}
+
+label.btn.order-status{
+  border: 1px solid $secondary-color;
+  box-shadow: none !important;
+  &.active{
+    background: $secondary-color;
+    color: white;
+  }
+
+  &:hover{
+    background: $secondary-color;
+    color: white;
+  }
+
+  &:focus{
+    box-shadow: none !important;
   }
 }

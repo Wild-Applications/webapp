@@ -5,8 +5,8 @@
     <input matInput placeholder="Name" type="text" [(ngModel)]="model.name" required maxlength="100" #name="ngModel">
   </mat-form-field>
 </div>
-<div md-dialog-actions class="text-align-right">
+<div md-dialog-actions align="end">
     <button mat-button type="button" class="btn btn-default" (click)="close()">{{'GENERAL.CANCEL' | translate}}</button>
-    <button mat-raised-button color="primary" [hidden]="update" type="button" class="btn btn-default" (click)="submit()" [disabled]="name.invalid">{{'GENERAL.ADD' | translate}}</button>
-    <button mat-raised-button color="primary" [hidden]="!update" type="button" class="btn btn-default" (click)="submit()" [disabled]="name.invalid">{{'GENERAL.SAVE' | translate}}</button>
+    <button mat-raised-button color="primary" [hidden]="update" type="button" (click)="submit()" [disabled]="name.invalid">{{'GENERAL.ADD' | translate}}</button>
+    <button mat-raised-button color="primary" [hidden]="!update" type="button" (click)="submit()" [disabled]="name.invalid">{{'GENERAL.SAVE' | translate}}</button>
 </div>

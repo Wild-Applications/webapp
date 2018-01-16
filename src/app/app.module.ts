@@ -7,7 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule, MatDialogModule, MatGridListModule, MatInputModule, MatIconModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatButtonModule, MAT_DATE_LOCALE, MatSlideToggleModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher, MatFormFieldModule, MatDialogModule, MatGridListModule, MatInputModule, MatIconModule, MatMenuModule } from '@angular/material';
 
 import 'popper.js/dist/umd/popper';
 import 'hammerjs';
@@ -97,7 +97,8 @@ export function HttpInterceptorFactory(backend: XHRBackend, options: RequestOpti
     MatDialogModule,
     MatGridListModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [
     AuthenticationService,

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   setup: any = {};
   validSetup: boolean = false;
   loadingSetup: boolean = true;
-  setupLoadError: boolean = true;
+  setupLoadError: boolean = false;
 
   premises: any = {};
   premisesLoading: boolean = true;
@@ -66,9 +66,9 @@ export class HomeComponent implements OnInit {
     this.userService.setupVerification()
       .subscribe(data => {
         this.setup = data;
+        this.loadingSetup = false;
         if(data.premises && data.payment && data.menu && data.active){
           this.validSetup = true;
-          this.loadingSetup = false;
         }
       }, error => {
         this.loadingSetup = false;
@@ -124,6 +124,10 @@ export class HomeComponent implements OnInit {
           this.errorHandler.show(error);;
         })
     }
+  }
+
+  navTo(url){
+    this.router.navigate([url]);
   }
 
   private updateChartData(dayOrWeek){

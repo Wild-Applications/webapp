@@ -75,7 +75,7 @@ export class TablesComponent implements OnInit {
 
   openDialog() {
     let dialogRef = this.dialog.open(AddTableDialog,{
-      width: '20%'
+      width: '30%'
     });
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
@@ -99,7 +99,7 @@ export class TablesComponent implements OnInit {
 
   editDialog(index){
     let dialogRef = this.dialog.open(AddTableDialog,{
-      width: '20%'
+      width: '30%'
     });
     dialogRef.componentInstance.toEdit = this.tables[index].name;
     dialogRef.afterClosed().subscribe(result => {

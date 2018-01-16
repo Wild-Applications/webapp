@@ -36,24 +36,25 @@ export class HttpService extends Http {
         this.loadHandler.finish();
       }
     }).catch((error: any, caught: Observable<any>):Observable<any>=>{
-      if(error.ok){
-        if(typeof error['_body'] == 'string'){
-          try{
-            error['_body'] = JSON.parse(error['_body']);
-          }catch(e){
+      if(typeof error['_body'] == 'string'){
+        try{
+          error['_body'] = JSON.parse(error['_body']);
+        }catch(e){
 
-          }
-        }
-        if(error.status === 401 || error.status === 403){
-          this.authenticationService.logout();
-          this.router.navigate(['/login']);
-        }else if(error.status >= 500){
-          if(this.errorHandler){
-            this.errorHandler.show(error);
-          }
         }
       }
-      return Observable.throw(error);
+      if(error.status === 401 || error.status === 403){
+        this.authenticationService.logout();
+        this.router.navigate(['/login']);
+      }else if(error.status >= 500){
+        if(this.errorHandler){
+          this.errorHandler.show(error);
+        }
+      }
+      if(!error.ok){
+        return Observable.throw(error);
+      }
+
     });
   }
 

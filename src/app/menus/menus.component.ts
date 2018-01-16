@@ -66,7 +66,7 @@ export class MenusComponent implements OnInit {
 
   openAddDialog(){
     let dialogRef = this.dialog.open(MenuDialog, {
-      width: '20%'
+      width: '30%'
     });
     dialogRef.afterClosed().subscribe(result => {
       if(typeof result != 'undefined'){
@@ -76,7 +76,7 @@ export class MenusComponent implements OnInit {
         this.menuService.create(newMenu)
           .subscribe(
             data => {
-              newMenu._id = data;
+              newMenu._id = data._id;
               this.menus = [newMenu, ...this.menus];
             },
             error => {
@@ -109,9 +109,10 @@ export class MenusComponent implements OnInit {
   }
 
   editMenu(index, event){
+    let failureBackup = Object.assign({},this.menus[index]);
     event.stopPropagation();
     let dialogRef = this.dialog.open(MenuDialog, {
-      width: '20%',
+      width: '30%',
       data: this.menus[index]
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -120,8 +121,10 @@ export class MenusComponent implements OnInit {
           .subscribe(data => {
             this.menus[index] = result;
           }, error => {
-            alert(error);
+            this.menus[index] = failureBackup;
           });
+      }else{
+        this.menus[index] = failureBackup;
       }
     })
   }
