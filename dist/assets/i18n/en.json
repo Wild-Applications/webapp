@@ -85,7 +85,8 @@
     "OPEN": "Taking orders",
     "TEST": "Open",
     "QUICK_OVERVIEW": "Quick Overview",
-    "STATISTICS": "Statistics"
+    "STATISTICS": "Statistics",
+    "NO_STATS": "Not enough data to produce statistics graphs"
   },
 
   "SETTINGS": {

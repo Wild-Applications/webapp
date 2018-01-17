@@ -19,7 +19,7 @@
     <table class="table">
       <tr>
         <td colspan="4">
-          <button type="button" mat-raised-button color="primary" class="float-right" (click)="downloadAll()">{{'TABLES.DOWNLOAD_ALL' | translate}}</button>
+          <button type="button" mat-raised-button color="primary" class="float-right" (click)="downloadAll()" [disabled]="this.tables.length<1">{{'TABLES.DOWNLOAD_ALL' | translate}}</button>
         </td>
       <tr>
       <tr *ngFor="let table of tables; let i = index">

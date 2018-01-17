@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   statistics: any = {};
   statisticsLoading: boolean = true;
   statisticsLoadError: boolean = false;
+  noStatistics: boolean = false;
   chartLabels: string[] = [];
   chartType: string = 'bar';
   chartLegend: boolean = false;
@@ -89,7 +90,11 @@ export class HomeComponent implements OnInit {
 
     this.orderService.getStatistics()
       .subscribe(data => {
-
+        if(data.weekly.length == 0 && data.daily.length == 0){
+          this.noStatistics = true;
+        }else{
+          this.noStatistics = false;
+        }
         this.statistics = data;
         this.chartData = this.updateChartData(1);
         this.statisticsLoading = false;

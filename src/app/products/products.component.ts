@@ -96,7 +96,9 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteConfirmation(index){
-    let dialogRef = this.dialog.open(ConfirmDeleteDialog);
+    let dialogRef = this.dialog.open(ConfirmDeleteDialog,{
+      data: {type: 'product', name: this.products[index].name}
+    });
     dialogRef.afterClosed().subscribe(result =>{
       if(result){
         //delete it

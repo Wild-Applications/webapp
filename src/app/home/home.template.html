@@ -83,7 +83,8 @@
         <mat-card-content>
           <div class="row center-spinner" *ngIf="statisticsLoading"><mat-spinner></mat-spinner></div>
           <h6 *ngIf="!statisticsLoading && statisticsLoadError">{{'ERRORS.LOAD_FAILED' | translate}}</h6>
-          <canvas *ngIf="!statisticsLoading && !statisticsLoadError" baseChart
+          <h6 *ngIf="!statisticsLoading && !statisticsLoadError && noStatistics">{{'HOME.NO_STATS' | translate}}</h6>
+          <canvas *ngIf="!statisticsLoading && !statisticsLoadError && !noStatistics" baseChart
                       [datasets]="chartData"
                       [labels]="chartLabels"
                       [options]="chartOptions"

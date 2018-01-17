@@ -13,8 +13,9 @@ export class ConfirmDeleteDialog implements OnInit {
 
   params: any = {};
   constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialog>, private translate: TranslateService, @Inject(MAT_DIALOG_DATA) public data: any){
-    if(data && data.params){
-      this.params = data.params;
+    if(data && data.name && data.type){
+      this.params = data;
+      console.log(this.params);
     }
   }
 

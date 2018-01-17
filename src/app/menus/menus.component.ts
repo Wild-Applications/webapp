@@ -89,7 +89,9 @@ export class MenusComponent implements OnInit {
 
   deleteConfirmation(index, event){
     event.stopPropagation();
-    let dialogRef = this.dialog.open(ConfirmDeleteDialog);
+    let dialogRef = this.dialog.open(ConfirmDeleteDialog, {
+      data: { type: 'menu', name: this.menus[index].name}
+    });
     dialogRef.afterClosed().subscribe(result =>{
       if(result){
         //delete it

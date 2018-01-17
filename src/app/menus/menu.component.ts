@@ -60,7 +60,6 @@ export class MenuComponent implements OnInit {
           this.availableProducts = data.products;
         },
         error => {
-          alert(error);
         }
       );
   }
@@ -154,7 +153,6 @@ export class MenuComponent implements OnInit {
         data => {
 
         }, error => {
-          alert(error);
         }
       )
   }
