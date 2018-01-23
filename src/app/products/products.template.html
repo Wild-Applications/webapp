@@ -20,12 +20,20 @@
   <div class="row" *ngIf="!loading && !loadError">
     <table class="table">
       <tr>
-        <td colspan="5"><input placeholder="Filter" type="text" [(ngModel)]="searchCriteria" class="float-right"></td>
+        <td colspan="6"><input placeholder="Filter" type="text" [(ngModel)]="searchCriteria" class="float-right"></td>
+      </tr>
+      <tr>
+        <th>{{'PRODUCTS.NAME' | translate}}</th>
+        <th>{{'PRODUCTS.DESCRIPTION' | translate}}</th>
+        <th>{{'PRODUCTS.PRICE' | translate}}</th>
+        <th>{{'PRODUCTS.STOCK' | translate}}</th>
+        <th>{{'PRODUCTS.AGE' | translate}}</th>
+        <th></th>
       </tr>
       <tr *ngFor="let product of products | productFilter:searchCriteria; let i = index;">
         <ng-container *ngIf="product !== -1">
           <td class="col-3">{{product.name}}</td>
-          <td class="col-4">{{product.description | truncate}}</td>
+          <td class="col-4">{{product.description | truncate:20}}</td>
           <td class="col-1">{{product.price | currency:'GBP':true}}</td>
           <td class="col-1" *ngIf="product.in_stock">
             <mat-icon matTooltip="{{'PRODUCTS.IN_STOCK' | translate}}" (click)="toggleStockStatus(i)" matTooltipPosition="above" class="side-by-side cursor-pointer">done</mat-icon>
@@ -44,7 +52,7 @@
             <mat-icon matTooltip="{{'GENERAL.DELETE' | translate}}" matTooltipPosition="above" class="side-by-side" (click)="deleteConfirmation(i)">delete_forever</mat-icon>
           </td>
         </ng-container>
-        <td class="align-center" colspan="4" *ngIf="product == -1">{{'SEARCH.NO_MATCHES' | translate}}</td>
+        <td class="align-center" colspan="6" *ngIf="product == -1">{{'SEARCH.NO_MATCHES' | translate}}</td>
       </tr>
     </table>
   </div>

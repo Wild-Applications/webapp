@@ -151,12 +151,16 @@
 
   "PRODUCTS": {
     "PRODUCTS": "Products",
-    "DESCRIPTION": "",
+    "DESCRIPTION": "Description",
     "ADD_PRODUCT": "Add Product",
     "IN_STOCK": "In stock",
     "OUT_OF_STOCK": "Out of stock",
     "AGE_RESTRICTED": "Age Restricted",
-    "NOT_AGE_RESTRICTED": "No Age Restriction"
+    "NOT_AGE_RESTRICTED": "No Age Restriction",
+    "NAME": "Name",
+    "STOCK": "Stock",
+    "AGE": "18 +",
+    "PRICE": "Price"
   },
 
   "ORDERS": {
