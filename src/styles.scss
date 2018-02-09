@@ -73,7 +73,7 @@ router-outlet.root + ng-component {
 }
 
 .display-block{
-  display: block;
+  display: block !important;
 }
 
 .display-inline-block{
